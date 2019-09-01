@@ -1,15 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import Logo from "../Logo/Logo";
 
 function Header(props) {
   return (
     <header className="header">
-      <a href="/" className="logo header-logo">
+      <Link to="/" className="logo header-logo">
         <Logo />
-      </a>
-      <a href="/about" className="header-link link">
+      </Link>
+      <Link to="/about" className="logo header-logo">
         about +
-      </a>
+      </Link>
     </header>
   );
 }
