@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Logo from "../Logo/Logo";
+import Logo from "../SVG/Logo";
 
 function Header(props) {
   return (
@@ -9,7 +9,7 @@ function Header(props) {
       <Link to="/" className="logo header-logo">
         <Logo />
       </Link>
-      <Link to="/about" className="logo header-logo">
+      <Link to="/about" className="link header-logo">
         about +
       </Link>
     </header>

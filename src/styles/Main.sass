@@ -1,8 +1,51 @@
 .main
-	height: 100vh
 	display: flex
 	flex-direction: column
 	justify-content: space-between
 	align-items: center
+	width: 100%
+	height: 100vh
+	margin: 0 auto
+	padding: 50px 60px 80px 60px
 	background-color: #C4C4C4
 	background-image: linear-gradient(180deg, #E8DFDA 0%, #C9D1E0 100%)
+
+.main-content
+	display: flex
+	flex-wrap: nowrap
+	align-items: flex-end
+	justify-content: space-between
+	height: 65%
+	&__title
+		max-width: 32%
+		font-size: 5.4vw
+		font-weight: bold
+		line-height: 0.9
+		@media (max-width: 1366px)
+			font-size: 6.5vw
+	&__block
+		max-width: 25%
+		margin-bottom: 80px
+	&__text
+		color: rgba(0, 0, 0, 0.6)
+	&__link
+		display: flex
+		align-items: center
+		margin-top: 75px
+		& svg
+			width: 70px
+			margin-left: 30px
+
+.main-menu
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	height: 100%
+	color: rgba(0, 0, 0, 0.6)
+	text-align: end
+	&__link
+		user-select: none
+		&:not(:last-child)
+			margin-bottom: 30px
+		&._active
+			color: rgba(0, 0, 0, 1)
