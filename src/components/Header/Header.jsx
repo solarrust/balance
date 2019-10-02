@@ -9,7 +9,7 @@ function Header(props) {
       <Link to="/" className="logo header-logo">
         <Logo />
       </Link>
-      <Link to="/about" className="link header-logo">
+      <Link to="/about" className="link">
         about +
       </Link>
     </header>

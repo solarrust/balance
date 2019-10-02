@@ -1,12 +1,14 @@
 @import "~normalize.css"
-@import "./styles/Main.sass"
-@import "./styles/Header.sass"
+@import "./styles/mixins"
+@import "./styles/Main"
+@import "./styles/Header"
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap')
+@import url(//db.onlinewebfonts.com/c/7e389c5e310dc537b083e0e25ea6eab5?family=Druk+Wide+Medium)
 
 *
 	box-sizing: border-box
-	font-family: 'Poppins', Helvetica, -apple-system, sans-serif
+	+Poppins
 
 h1, h2, h3, h4, h5, h6, p, ul
 	margin: 0
