@@ -1,14 +1,16 @@
 @import "~normalize.css"
+@import "./styles/fonts"
 @import "./styles/mixins"
 @import "./styles/Main"
 @import "./styles/Header"
-
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap')
-@import url(//db.onlinewebfonts.com/c/7e389c5e310dc537b083e0e25ea6eab5?family=Druk+Wide+Medium)
+@import "./styles/About"
+@import "./styles/Test"
 
 *
-	box-sizing: border-box
 	+Poppins
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+	box-sizing: border-box
 
 h1, h2, h3, h4, h5, h6, p, ul
 	margin: 0
@@ -18,7 +20,7 @@ ul
 	list-style: none
 
 .text
-	font-size: 18px
+	font-size: 0.9375vw
 	line-height: 1.5
 
 .link
@@ -27,3 +29,37 @@ ul
 	color: currentColor
 	text-decoration: none
 
+.lead-title
+	font-size: 5.4vw
+	font-weight: bold
+	line-height: 0.9
+	@media (max-width: 1366px)
+		font-size: 6.5vw
+
+.bkg-title
+	font-size: 11.667vw
+	line-height: 0.9
+	letter-spacing: -0.04em
+
+.page
+	position: relative
+	display: flex
+	justify-content: space-between
+	align-items: center
+	width: 100%
+	height: 100vh
+	margin: 0 auto
+	padding: 50px 60px 80px 60px
+	z-index: 1
+	overflow: hidden
+
+.page-link
+	display: flex
+	width: 100%
+	height: 100%
+
+._stroke-text
+	color: transparent
+	-webkit-text-stroke: 1px #000
+	text-stroke: 1px #000
+	opacity: 0.1

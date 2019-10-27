@@ -1,19 +1,27 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { TweenMax, Power1 } from "gsap";
-import Header from "../Header/Header";
 import Arrow from "../SVG/Arrow";
 import Menu from "./Menu";
 import data from "../../data";
 
-const menuLinks = data.menu;
+const menuLinks = data.mainMenu;
 let index = 0;
 
 class Main extends Component {
+  circleChangerInterval = 0;
+  menuChangerInterval = 0;
+
   componentDidMount() {
     this.circleChanger();
     this.circleRise();
     this.menuChanger();
+  }
+
+  componentWillUnmount() {
+    index = 0;
+    clearInterval(this.circleChangerInterval);
+    clearInterval(this.menuChangerInterval);
   }
 
   circleRise() {
@@ -63,7 +71,7 @@ class Main extends Component {
       );
     }
 
-    setInterval(() => {
+    this.circleChangerInterval = setInterval(() => {
       index < circleItems.length - 1 ? index++ : (index = 0);
       animateCircles(circleParent);
       if (index > 0) {
@@ -94,7 +102,7 @@ class Main extends Component {
       );
     }
 
-    setInterval(() => {
+    this.menuChangerInterval = setInterval(() => {
       toggleClass(menuItems[index]);
       changeNumber(number);
     }, 5000);
@@ -103,36 +111,35 @@ class Main extends Component {
   render() {
     return (
       <>
-        <div className="main">
+        <div className="main page">
           <div className="main-circles">
             {menuLinks.map((link, index) => (
-              <div className="main-circle" key={index}></div>
+              <div className="main-circle" key={index} />
             ))}
           </div>
-          <Header />
-          <div className="main-content">
-            <div className="main-content__wrapper">
-              <h1 className="main-content__title">
+          <div className="page-content">
+            <div className="page-content__wrapper">
+              <h1 className="page-content__title lead-title">
                 how
                 <br />
                 to&nbsp;find
                 <br />
                 a&nbsp;balance
               </h1>
-              <div className="main-content__block">
-                <p className="main-content__text text">
+              <div className="page-content__block">
+                <p className="page-content__text text">
                   The Balance map is&nbsp;a&nbsp;tool by&nbsp;which you can
                   analyze your priorities and find out in&nbsp;which area
                   of&nbsp;life you need to&nbsp;make an&nbsp;effort
                   to&nbsp;achieve inner harmony, regain a&nbsp;positive attitude
                   and start living a&nbsp;full life.
                 </p>
-                <Link to="/test" className="main-content__link link">
+                <Link to="/test" className="page-content__link link">
                   begin <Arrow />
                 </Link>
               </div>
             </div>
-            <Menu className="main-content__menu main-menu">
+            <Menu className="page-content__menu main-menu">
               {menuLinks.map((link, index) => (
                 <li className="main-menu__link text" key={index}>
                   {link}

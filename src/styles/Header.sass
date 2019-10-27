@@ -1,9 +1,16 @@
 .header
+	position: absolute
+	top: 50px
+	left: 60px
+	right: 60px
+	max-width: calc(100% - (60px * 2))
 	display: flex
 	justify-content: space-between
 	align-items: center
-	width: 100%
 	margin: 0 auto
+	z-index: 100
 
 .header-logo
 	width: 165px
+	& svg *
+		fill: #000

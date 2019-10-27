@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 
 import Logo from "../SVG/Logo";
 
-function Header(props) {
+// TODO: Отключать ссылку на лого на главной странице
+
+function Header() {
   return (
     <header className="header">
-      <Link to="/" className="logo header-logo">
+      <Link to="" className="logo header-logo">
         <Logo />
       </Link>
-      <Link to="/about" className="link">
+      <Link to="about" className="link">
         about +
       </Link>
     </header>

@@ -1,0 +1,144 @@
+.about
+	background-color: #EEE
+	&__title
+		position: fixed
+		left: 95px
+		bottom: 95px
+	& > div
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+
+.about-card
+	position: relative
+	height: 100%
+	width: 100%
+	padding-bottom: 65px
+	&__img-block
+		position: fixed
+		top: 0
+		left: 0
+		width: 100%
+		height: 38vh
+		& img
+			display: block
+			width: 100%
+			height: 100%
+			object-fit: cover
+	&__link
+		margin-top: 17vh
+		&._diagnostics
+			margin-top: 10vh
+
+.about-card-content
+	flex: 0 0 35vw
+	max-width: 475px
+	height: 100%
+	display: flex
+	flex-direction: column
+	justify-content: flex-end
+	margin-left: 45vw
+	&._dates-content
+		justify-content: space-between
+		padding-top: 22vh
+
+.about-decoration
+	+Poppins
+	position: absolute
+	letter-spacing: -0.04em
+	font-weight: bold
+	&._years
+		bottom: 20vw
+		left: 4.15vw
+		font-size: 15vw
+	&._usa
+		@extend ._stroke-text
+		right: 14.6vw
+		bottom: 7.3vw
+		text-transform: uppercase
+	&._photo-circle
+		top: -4.5vw
+		left: calc(50% - (53.125vw / 2))
+		width: 53.125vw
+		height: 25.364583333vw
+		background:
+			position: bottom
+			repeat: no-repeat
+			size: 100% 25.364583333vw
+		z-index: -1
+	&._small-circle
+		left: 4.375vw
+		bottom: -4.375vw
+		width: 12.5vw
+		height: 12.5vw
+		border-radius: 50%
+		background-color: #C6CAD4
+	&._goose-circle
+		top: -147px
+		width: 45.73vw
+		height: 53.125vw
+		background:
+			position: center
+			repeat: no-repeat
+			size: contain
+		z-index: -2
+
+.about-circle
+	position: absolute
+	left: -35vw
+	bottom: -40vw
+	z-index: -1
+	width: 69vw
+	height: 69vw
+	border-radius: 50%
+	&.balance-circle
+		left: -26.6vw
+		top: -7.56vw
+		bottom: auto
+		background: linear-gradient(180deg, #DFC1C1 0%, #C8D0DF 100%)
+	&.dates-circle
+		background: linear-gradient(180deg, #9B3D33 0%, #AF8D77 100%), #DCAD9F
+	&.diagnostics-circle
+		background: #E8DFDA
+	&.total-circle
+		background: linear-gradient(180deg, #EDD557 0%, #DCAD9F 100%)
+
+.fade-enter, .fade-exit
+	position: absolute
+	top: 0
+	left: 0
+	transition: 0.6s ease opacity
+
+.fade-enter, .fade-exit-active
+	opacity: 0
+
+.fade-enter-active
+	opacity: 1
+
+.container
+	display: flex
+	flex-direction: column
+	width: 100vw
+	height: 100vh
+	overflow: hidden
+
+	> div
+		height: 100%
+		position: relative
+
+		\:nth-child(3), :nth-child(4), :nth-child(5)
+			background: red
+			opacity: 1
+
+.animatable div
+	height: 100px
+
+.animate-check
+	display: flex
+	font-size: 24px
+	align-items: center
+	justify-content: center
+
+
