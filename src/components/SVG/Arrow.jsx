@@ -5,7 +5,7 @@ function Arrow(props) {
     <svg fill="none" viewBox="0 0 71 64">
       <path
         stroke="#000"
-        stroke-width="2"
+        strokeWidth="2"
         d="M37.9158 1L69 32 37.9158 63M69 32.3407H.000003"
       />
     </svg>

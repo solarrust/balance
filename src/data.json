@@ -1,5 +1,5 @@
 {
-  "menu": [
+  "mainMenu": [
     "Work",
     "Relationship",
     "Family",
@@ -8,5 +8,73 @@
     "Finance",
     "Relax",
     "Self-realization"
+  ],
+  "aboutMenu": [
+    { "pageName": "Balance card", "pageLink": "/balance-card" },
+    { "pageName": "Dates", "pageLink": "/dates" },
+    { "pageName": "Diagnostics", "pageLink": "/diagnostics" },
+    { "pageName": "Total", "pageLink": "/total" }
+  ],
+  "questions": [
+    {
+      "sphere": "work",
+      "link": "q-work",
+      "title": "how much do you like your work",
+      "range": ["I'm not happy with my work", "My work inspires me"]
+    },
+    {
+      "sphere": "relationship",
+      "link": "q-relationship",
+      "title": "what relationship do you have with your partner",
+      "range": [
+        "We have difficulty in the relationship",
+        "I'm absolutely happy in my relationship"
+      ]
+    },
+    {
+      "sphere": "family",
+      "link": "q-family",
+      "title": "how would you rate relationship with your family",
+      "range": [
+        "We communicate very rarely",
+        "I can always depend on my relatives"
+      ]
+    },
+    {
+      "sphere": "health",
+      "link": "q-health",
+      "title": "how would you rate your physical condition",
+      "range": ["Regularly ailments suffer", "I don't have any problems"]
+    },
+    {
+      "sphere": "friends",
+      "link": "q-friends",
+      "title": "how are your social connections",
+      "range": [
+        "I don't communicate with anyone",
+        "Chatting with friends inspires me"
+      ]
+    },
+    {
+      "sphere": "finance",
+      "link": "q-finance",
+      "title": "how satisfied are you with your financial condition",
+      "range": ["I earn frankly little", "I'm happy with my income"]
+    },
+    {
+      "sphere": "relax",
+      "link": "q-relax",
+      "title": "how often do you relax",
+      "range": [
+        "I don't have time to relax and often feel tired",
+        "Relax to charge for the whole week."
+      ]
+    },
+    {
+      "sphere": "self-realization",
+      "link": "q-self-realization",
+      "title": "what about personal goals",
+      "range": ["It seems I have not goal", "Clearly see the goal and go to it"]
+    }
   ]
 }
