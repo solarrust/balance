@@ -1,14 +1,13 @@
 .test
 	background-image: linear-gradient(180deg, #E8DFDA 0%, #C9D1E0 100%)
-	& > div
-		width: 100%
-		height: 100%
 
 .test-card
 	position: relative
 	width: 100%
 	height: 100%
 	padding-top: calc(23vh - 50px)
+	&.question
+		display: flex
 
 .test-header
 	max-width: 44vw
@@ -45,3 +44,73 @@
 	top: 50%
 	margin-top: 0
 	transform: translateY(-50%)
+
+.questions-menu
+	position: absolute
+	right: 60px
+	top: 0
+	height: auto
+	padding-top: 23vh
+
+.questions
+	& > div
+		width: 100%
+		height: 100%
+
+.question
+	&__title
+		width: 50vw
+		max-width: 1100px
+		margin-left: 5.73vw
+		letter-spacing: -0.04em
+		line-height: 1.05 !important
+	&__decoration
+		position: absolute
+		right: 10.5vw
+		bottom: calc(15.37vw - 80px)
+
+.grade
+	position: absolute
+	bottom: 0
+	display: flex
+	justify-content: space-between
+	width: 100%
+	&__item
+		display: flex
+		justify-content: center
+		align-items: center
+		width: 7vw
+		height: 7vw
+		border-bottom: 2px solid #000
+		font-size: 1.875vw
+		font-weight: bold
+		text-align: center
+		opacity: 0.2
+		transition: all 0.2s
+		&._choice
+			border: 2px solid #000
+			border-radius: 50%
+			opacity: 1
+	&__note
+		position: absolute
+		bottom: -40px
+		font-size: 0.9375vw
+		&._low
+			left: 0
+		&._high
+			right: 0
+
+.counter
+	display: flex
+	flex: 0 0 auto
+	margin-top: 10px
+	font-weight: 600
+	&__number
+		+Druk
+		font-size: 7.5vw
+		line-height: 0.8
+	&__static
+		margin-left: 10px
+		font-size: 22px
+		font-style: italic
+		opacity: 0.2
