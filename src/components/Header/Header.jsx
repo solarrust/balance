@@ -12,9 +12,9 @@ function Header() {
       <Link to="/" className="logo header-logo">
         <Logo />
       </Link>
-      <Link to="/about" className="link">
+      <a href="/about/" className="link">
         about +
-      </Link>
+      </a>
     </header>
   );
 }

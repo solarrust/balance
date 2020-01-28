@@ -17,32 +17,12 @@ import CircleBkg from "../../img/about-ellipse.png";
 import GooseBkg from "../../img/goose-bkg.png";
 
 const menuLinks = data.aboutMenu;
-const activeClass = "_active";
-let menuLinkItems;
 
 // TODO: Менять цвет логотипа на последнем слайде
-// TODO: Связать линки на слайдах и меню
-// TODO: С последней страницы по клику на стрелку перекидывать на главную
 // TODO: Добавить анимацию на пропадание слайда + на появление слайда
-// TODO: Добавить анимацию на круги в углах страниц
 // TODO: Добавить анимации декоративным элементам
 
 class About extends Component {
-  componentDidMount() {
-    menuLinkItems = document.querySelectorAll(".main-menu__link");
-
-    this.activeLink(menuLinkItems[0]);
-  }
-
-  handleClick(e) {
-    menuLinkItems.forEach(el => el.classList.remove("_active"));
-    e.target.parentNode.classList.add(activeClass);
-  }
-
-  activeLink(el) {
-    el.classList.add(activeClass);
-  }
-
   render() {
     return (
       <HashRouter>
@@ -61,6 +41,7 @@ class About extends Component {
                       render={() => (
                         <AboutCard>
                           <div
+                            data-animated-circle
                             className="about-circle balance-circle"
                             aria-hidden="true"
                           />
@@ -94,6 +75,7 @@ class About extends Component {
                       render={() => (
                         <AboutCard>
                           <div
+                            data-animated-circle
                             className="about-circle dates-circle"
                             aria-hidden="true"
                           />
@@ -104,6 +86,7 @@ class About extends Component {
                             70s
                           </div>
                           <div
+                            data-animated-text
                             className="about-decoration _usa bkg-title"
                             aria-hidden="true"
                           >
@@ -140,6 +123,7 @@ class About extends Component {
                       render={() => (
                         <AboutCard>
                           <div
+                            data-animated-circle
                             className="about-circle diagnostics-circle"
                             aria-hidden="true"
                           />
@@ -153,6 +137,7 @@ class About extends Component {
                             <div
                               className="about-decoration _small-circle"
                               aria-hidden="true"
+                              data-animated-circle
                             />
                           </div>
 
@@ -186,6 +171,7 @@ class About extends Component {
                       render={() => (
                         <AboutCard>
                           <div
+                            data-animated-circle
                             className="about-circle total-circle"
                             aria-hidden="true"
                           />
@@ -208,12 +194,12 @@ class About extends Component {
                               direction, which will help to&nbsp;change the
                               situation for the better.
                             </p>
-                            <Link
-                              to="/"
+                            <a
+                              href="/"
                               className="page-content__link about-card__link link"
                             >
                               go to the main page <Arrow />
-                            </Link>
+                            </a>
                           </div>
                         </AboutCard>
                       )}
@@ -232,11 +218,7 @@ class About extends Component {
           <Menu className="main-menu">
             {menuLinks.map((link, index) => (
               <li className="main-menu__link text" key={index}>
-                <NavLink
-                  onClick={e => this.handleClick(e)}
-                  className="main-menu__link-item"
-                  to={link.pageLink}
-                >
+                <NavLink className="main-menu__link-item" to={link.pageLink}>
                   {link.pageName}
                 </NavLink>
               </li>

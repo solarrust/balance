@@ -7,11 +7,18 @@ class TestPage extends Component {
     return (
       <div className="page test">
         <div className="test-card _main">
-          <div className="test-decoration _circle" aria-hidden="true" />
+          <div
+            className="test-decoration _circle"
+            aria-hidden="true"
+            data-animated-circle
+          />
           <h2 className="test-header lead-title">
             you need to&nbsp;answer a&nbsp;few question now
           </h2>
-          <h3 className="test-subheader _stroke-text bkg-title">
+          <h3
+            className="test-subheader _stroke-text bkg-title"
+            data-animated-text
+          >
             are you ready?
           </h3>
           <p className="test-text text">

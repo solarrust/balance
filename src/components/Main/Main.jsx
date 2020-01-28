@@ -16,13 +16,23 @@ class Main extends Component {
     this.circleChanger();
     this.circleRise();
     this.menuChanger();
+    document.addEventListener("visibilitychange", this.visibilityHandler);
   }
 
   componentWillUnmount() {
     index = 0;
-    clearInterval(this.circleChangerInterval);
-    clearInterval(this.menuChangerInterval);
   }
+
+  visibilityHandler = () => {
+    if (document.visibilityState !== "visible") {
+      clearInterval(this.circleChangerInterval);
+      clearInterval(this.menuChangerInterval);
+    } else {
+      this.circleChanger();
+      this.circleRise();
+      this.menuChanger();
+    }
+  };
 
   circleRise() {
     let items = Array.from(document.querySelectorAll(".main-circle"));
