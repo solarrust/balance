@@ -40,20 +40,20 @@
 	& li
 		user-select: none
 		white-space: nowrap
-		transition: color 0.5s ease-in
 	&__link
 		font-weight: 600
 		&:not(:last-child)
 			margin-bottom: 1.56vw
-		&._active
-			color: rgba(0, 0, 0, 1)
 	&__link-item
 		display: block
 		color: currentColor
 		text-decoration: none
+		transition: color 0.5s ease-in
+		&.active
+			color: rgba(0, 0, 0, 1)
 	&__number
 		margin-top: 2.35vw
-		+Druk
+		+B-Wide
 		font-size: 7.5vw
 		color: black
 		line-height: 0.9

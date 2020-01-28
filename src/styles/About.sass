@@ -29,6 +29,8 @@
 			object-fit: cover
 	&__link
 		margin-top: 17vh
+		& svg
+			pointer-events: none
 		&._diagnostics
 			margin-top: 10vh
 
@@ -84,6 +86,14 @@
 			repeat: no-repeat
 			size: contain
 		z-index: -2
+
+[data-animated-circle]
+	animation: circleRise 1s ease-out
+	[data-animated-circle]:not(:first-of-type)
+		animation-delay: 0.5s
+
+[data-animated-text]
+	animation: textVisibility 2s ease-in
 
 .about-circle
 	position: absolute
@@ -141,4 +151,16 @@
 	align-items: center
 	justify-content: center
 
+@keyframes circleRise
+	from
+		transform: scale(0.1)
+	to
+		transform: scale(1)
 
+@keyframes textVisibility
+	from
+		opacity: 0
+		transform: scale(0.7)
+	to
+		opacity: 0.1
+		transform: scale(1)
