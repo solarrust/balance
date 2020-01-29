@@ -42,8 +42,11 @@
 		white-space: nowrap
 	&__link
 		font-weight: 600
+		transition: color 0.5s ease-in
 		&:not(:last-child)
 			margin-bottom: 1.56vw
+		&._active
+			color: rgba(0, 0, 0, 1)
 	&__link-item
 		display: block
 		color: currentColor

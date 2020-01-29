@@ -6,22 +6,22 @@ class Question extends Component {
     this.props = props;
   }
 
+  componentDidMount() {
+    this.props.onQuestionChange(this.props.index);
+  }
+
   render() {
     const grades = [];
     for (let i = 0; i < 10; i++) {
       grades.push(
-        <li key={i} className="grade__item">
+        <li key={i} className="grade__item" onClick={this.props.onChange}>
           {i + 1}
         </li>
       );
     }
 
-    // console.log("index -->" + this.props.index);
     return (
-      <div
-        className="test-card question"
-        onLoad={() => this.props.onQuestionChange(this.props.index)}
-      >
+      <div className="test-card question">
         <div className="counter question-counter">
           <span className="counter__number">{this.props.index + 1}</span>
           <span className="counter__static"> of 8</span>

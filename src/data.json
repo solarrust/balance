@@ -20,7 +20,8 @@
       "sphere": "work",
       "link": "q-work",
       "title": "how much do you like your work",
-      "range": ["I'm not happy with my work", "My work inspires me"]
+      "range": ["I'm not happy with my work", "My work inspires me"],
+      "bkg": "179.58deg, #E5D7C9 0.42%, #71A7B7 99.12%"
     },
     {
       "sphere": "relationship",
@@ -29,7 +30,8 @@
       "range": [
         "We have difficulty in the relationship",
         "I'm absolutely happy in my relationship"
-      ]
+      ],
+      "bkg": "180deg, #A8ACB8 0%, rgba(168, 172, 184, 0) 100%"
     },
     {
       "sphere": "family",
@@ -38,13 +40,15 @@
       "range": [
         "We communicate very rarely",
         "I can always depend on my relatives"
-      ]
+      ],
+      "bkg": "0.02deg, #87B1CC 3.52%, #C3C9DD 99.99%"
     },
     {
       "sphere": "health",
       "link": "q-health",
       "title": "how would you rate your physical condition",
-      "range": ["Regularly ailments suffer", "I don't have any problems"]
+      "range": ["Regularly ailments suffer", "I don't have any problems"],
+      "bkg": "179.58deg, #649677 0.42%, #D1C1B0 99.12%"
     },
     {
       "sphere": "friends",
@@ -53,13 +57,15 @@
       "range": [
         "I don't communicate with anyone",
         "Chatting with friends inspires me"
-      ]
+      ],
+      "bkg": "180deg, #D0C06B 0%, #DCAD9F 100%"
     },
     {
       "sphere": "finance",
       "link": "q-finance",
       "title": "how satisfied are you with your financial condition",
-      "range": ["I earn frankly little", "I'm happy with my income"]
+      "range": ["I earn frankly little", "I'm happy with my income"],
+      "bkg": "180deg, #768CC4 0%, #CDBAB9 100%"
     },
     {
       "sphere": "relax",
@@ -68,13 +74,18 @@
       "range": [
         "I don't have time to relax and often feel tired",
         "Relax to charge for the whole week"
-      ]
+      ],
+      "bkg": "0deg, #A5CFDB 0%, #ACB6C5 100%"
     },
     {
       "sphere": "self-realization",
       "link": "q-self-realization",
       "title": "what about personal goals",
-      "range": ["It seems I have not goal", "Clearly see the goal and go to it"]
+      "range": [
+        "It seems I have not goal",
+        "Clearly see the goal and go to it"
+      ],
+      "bkg": "180deg, #B7635B 0%, #C4A693 100%"
     }
   ]
 }
