@@ -85,6 +85,24 @@
 		position: absolute
 		right: 10.5vw
 		bottom: calc(15.37vw - 80px)
+	&__btns
+		position: absolute
+		bottom: 185px
+		display: flex
+	&__btn
+		display: flex
+		align-items: center
+		& svg
+			width: 70px
+			height: 62px
+			margin-left: 20px
+		& + &
+			margin-left: 40px
+		&._prev
+			& svg
+				margin-left: 0
+				margin-right: 20px
+				transform: rotate(-180deg)
 
 .grade
 	position: absolute

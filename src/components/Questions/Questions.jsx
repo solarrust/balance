@@ -1,9 +1,17 @@
 import React, { Component } from "react";
-import { HashRouter, NavLink, Redirect, Route, Switch } from "react-router-dom";
+import {
+  HashRouter,
+  Link,
+  NavLink,
+  Redirect,
+  Route,
+  Switch
+} from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Question from "./Question";
 import data from "../../data";
 import Menu from "../Main/Menu";
+import Arrow from "../SVG/Arrow";
 
 const questions = data.questions;
 
@@ -11,7 +19,7 @@ const questions = data.questions;
 // TODO: Для цифр оценки в меню сделать эффект вырезанного в круге текста
 // TODO: Показывать кнопки "вперёд" / "назад"
 // TODO: сохранять оценки даже после перезагрузки страницы
-// TODO: Подкрутить анимацию оценок
+// TODO: Подкрутить анимацию оценок в нижней шкале
 
 class Questions extends Component {
   constructor(props) {
@@ -46,6 +54,51 @@ class Questions extends Component {
     }
   };
 
+  btnShower = index => {
+    if (index === 0) {
+      return (
+        <>
+          <Link
+            to={questions[index + 1].link}
+            className="question__btn link _next"
+          >
+            next <Arrow />
+          </Link>
+        </>
+      );
+    } else if (index === questions.length - 1) {
+      return (
+        <>
+          <Link
+            to={questions[index - 1].link}
+            className="question__btn link _prev"
+          >
+            <Arrow />
+            prev
+          </Link>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Link
+            to={questions[index - 1].link}
+            className="question__btn link _prev"
+          >
+            <Arrow />
+            prev
+          </Link>
+          <Link
+            to={questions[index + 1].link}
+            className="question__btn link _next"
+          >
+            next <Arrow />
+          </Link>
+        </>
+      );
+    }
+  };
+
   render() {
     return (
       <HashRouter>
@@ -75,6 +128,7 @@ class Questions extends Component {
                               question={question}
                               onChange={this.handleChange}
                               onQuestionChange={this.questionChanged}
+                              btnShower={this.btnShower}
                             />
                           </div>
                         )}
