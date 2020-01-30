@@ -8,8 +8,10 @@ import Menu from "../Main/Menu";
 const questions = data.questions;
 
 // TODO: Убрать мигание при смене вопроса
-// TODO: Выводить выбраную оценку рядом с меню
+// TODO: Для цифр оценки в меню сделать эффект вырезанного в круге текста
 // TODO: Показывать кнопки "вперёд" / "назад"
+// TODO: сохранять оценки даже после перезагрузки страницы
+// TODO: Подкрутить анимацию оценок
 
 class Questions extends Component {
   constructor(props) {
@@ -36,6 +38,12 @@ class Questions extends Component {
 
   questionChanged = num => {
     this.setState({ active: num });
+  };
+
+  gradeShower = index => {
+    if (this.grades[index]) {
+      return this.grades[index];
+    }
   };
 
   render() {
@@ -88,6 +96,9 @@ class Questions extends Component {
             >
               <NavLink className="main-menu__link-item" to={question.link}>
                 {question.sphere}
+                <span className="questions-menu__grade">
+                  {this.gradeShower(i)}
+                </span>
               </NavLink>
             </li>
           ))}
