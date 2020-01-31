@@ -17,21 +17,32 @@ const questions = data.questions;
 
 // TODO: Убрать мигание при смене вопроса
 // TODO: Для цифр оценки в меню сделать эффект вырезанного в круге текста
-// TODO: Показывать кнопки "вперёд" / "назад"
-// TODO: сохранять оценки даже после перезагрузки страницы
 // TODO: Подкрутить анимацию оценок в нижней шкале
 
 class Questions extends Component {
   constructor(props) {
     super(props);
     this.props = props;
-    this.grades = new Array(questions.length);
+    this.grades = [];
     this.state = {
       active: 0
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.grades = localStorage.getItem("grades")
+      ? localStorage.getItem("grades").split("/")
+      : new Array(questions.length);
+
+    window.addEventListener("beforeunload", () => {
+      localStorage.setItem("grades", this.grades.join("/"));
+    });
+  }
+
+  componentWillUnmount() {
+    console.log(this.grades);
+    localStorage.setItem("grades", this.grades.join("/"));
+  }
 
   handleChange = e => {
     document
@@ -49,7 +60,7 @@ class Questions extends Component {
   };
 
   gradeShower = index => {
-    if (this.grades[index]) {
+    if (this.grades[index] && this.grades[index] !== ",") {
       return this.grades[index];
     }
   };

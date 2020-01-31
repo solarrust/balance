@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Arrow from "../SVG/Arrow";
-import { Link } from "react-router-dom";
 
 class Question extends Component {
   constructor(props) {
