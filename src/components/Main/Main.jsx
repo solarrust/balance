@@ -21,6 +21,8 @@ class Main extends Component {
 
   componentWillUnmount() {
     index = 0;
+    clearInterval(this.circleChangerInterval);
+    clearInterval(this.menuChangerInterval);
   }
 
   visibilityHandler = () => {
