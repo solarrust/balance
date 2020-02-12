@@ -11,7 +11,6 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Question from "./Question";
 import data from "../../data";
 import Menu from "../Main/Menu";
-import Arrow from "../SVG/Arrow";
 
 const questions = data.questions;
 
@@ -32,15 +31,14 @@ class Questions extends Component {
   componentDidMount() {
     this.grades = localStorage.getItem("grades")
       ? localStorage.getItem("grades").split("/")
-      : new Array(questions.length);
+      : [];
 
-    window.addEventListener("beforeunload", () => {
+    document.addEventListener("click", () => {
       localStorage.setItem("grades", this.grades.join("/"));
     });
   }
 
   componentWillUnmount() {
-    console.log(this.grades);
     localStorage.setItem("grades", this.grades.join("/"));
   }
 
@@ -50,9 +48,7 @@ class Questions extends Component {
       .forEach(el => el.classList.remove("_choice"));
     e.target.classList.add("_choice");
     this.grades[this.state.active] = e.target.innerHTML;
-
-    console.log(this.state.active);
-    console.log(this.grades);
+    this.forceUpdate();
   };
 
   questionChanged = num => {
@@ -62,51 +58,6 @@ class Questions extends Component {
   gradeShower = index => {
     if (this.grades[index] && this.grades[index] !== ",") {
       return this.grades[index];
-    }
-  };
-
-  btnShower = index => {
-    if (index === 0) {
-      return (
-        <>
-          <Link
-            to={questions[index + 1].link}
-            className="question__btn link _next"
-          >
-            next <Arrow />
-          </Link>
-        </>
-      );
-    } else if (index === questions.length - 1) {
-      return (
-        <>
-          <Link
-            to={questions[index - 1].link}
-            className="question__btn link _prev"
-          >
-            <Arrow />
-            prev
-          </Link>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <Link
-            to={questions[index - 1].link}
-            className="question__btn link _prev"
-          >
-            <Arrow />
-            prev
-          </Link>
-          <Link
-            to={questions[index + 1].link}
-            className="question__btn link _next"
-          >
-            next <Arrow />
-          </Link>
-        </>
-      );
     }
   };
 
@@ -123,6 +74,35 @@ class Questions extends Component {
               >
                 <Switch location={location}>
                   {questions.map((question, i) => {
+                    let navPropsObj = {
+                      next: false,
+                      nextClass: "_hidden",
+                      prev: false,
+                      prevClass: "_hidden",
+                      result: false,
+                      resultClass: "_hidden"
+                    };
+
+                    if (i === 0) {
+                      if (this.grades[i] && this.grades[i] != 0) {
+                        navPropsObj.next = `${questions[i + 1].link}`;
+                        navPropsObj.nextClass = "_visible";
+                      }
+                    } else if (i === questions.length - 1) {
+                      navPropsObj.prev = `${questions[i - 1].link}`;
+                      navPropsObj.prevClass = "_visible";
+                      if (this.grades.join("").length === 8) {
+                        navPropsObj.resultClass = "_visible";
+                      }
+                    } else {
+                      navPropsObj.prev = `${questions[i - 1].link}`;
+                      navPropsObj.prevClass = "_visible";
+                      if (this.grades[i] && this.grades[i] != 0) {
+                        navPropsObj.next = `${questions[i + 1].link}`;
+                        navPropsObj.nextClass = "_visible";
+                      }
+                    }
+
                     return (
                       <Route
                         key={question.link}
@@ -139,7 +119,7 @@ class Questions extends Component {
                               question={question}
                               onChange={this.handleChange}
                               onQuestionChange={this.questionChanged}
-                              btnShower={this.btnShower}
+                              navProps={navPropsObj}
                             />
                           </div>
                         )}

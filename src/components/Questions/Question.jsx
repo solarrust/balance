@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Arrow from "../SVG/Arrow";
 
 class Question extends Component {
   constructor(props) {
@@ -33,7 +35,27 @@ class Question extends Component {
           {this.props.question.title}
         </h2>
         <div className="question__btns nav-btns">
-          {this.props.btnShower(this.props.index)}
+          <Link
+            to={this.props.navProps.prev}
+            className={`question__btn link _prev ${this.props.navProps.prevClass}`}
+          >
+            <Arrow />
+            prev
+          </Link>
+          <Link
+            to={this.props.navProps.next}
+            className={`question__btn link _next ${this.props.navProps.nextClass}`}
+          >
+            next <Arrow />
+          </Link>
+
+          <a
+            href="/results"
+            className={`question__btn link _next ${this.props.navProps.resultClass}`}
+          >
+            results
+            <Arrow />
+          </a>
         </div>
         <ul className="question-grade grade">{grades.map(grade => grade)}</ul>
         <div className="grade__note _low">{this.props.question.range[0]}</div>

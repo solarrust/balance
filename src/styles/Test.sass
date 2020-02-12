@@ -90,8 +90,18 @@
 		bottom: 185px
 		display: flex
 	&__btn
+		position: relative
 		display: flex
 		align-items: center
+		transition: all 0.5s
+		&._hidden
+			visibility: hidden
+			opacity: 0
+			left: -10%
+		&._visible
+			visibility: visible
+			opacity: 1
+			left: 0
 		& svg
 			width: 70px
 			height: 62px
