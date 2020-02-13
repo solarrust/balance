@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  HashRouter,
-  Link,
-  NavLink,
-  Redirect,
-  Route,
-  Switch
-} from "react-router-dom";
+import { HashRouter, NavLink, Redirect, Route, Switch } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Question from "./Question";
 import data from "../../data";

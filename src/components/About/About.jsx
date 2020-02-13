@@ -10,7 +10,7 @@ import {
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import AboutCard from "./AboutCard";
 import Menu from "../Main/Menu";
-import data from "../../data";
+import data from "../../data.json";
 import img from "../../img/balance-card.jpg";
 import Arrow from "../SVG/Arrow";
 import CircleBkg from "../../img/about-ellipse.png";
