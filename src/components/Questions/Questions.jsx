@@ -77,20 +77,20 @@ class Questions extends Component {
                     };
 
                     if (i === 0) {
-                      if (this.grades[i] && this.grades[i] != 0) {
+                      if (this.grades[i] && this.grades[i] !== 0) {
                         navPropsObj.next = `${questions[i + 1].link}`;
                         navPropsObj.nextClass = "_visible";
                       }
                     } else if (i === questions.length - 1) {
                       navPropsObj.prev = `${questions[i - 1].link}`;
                       navPropsObj.prevClass = "_visible";
-                      if (this.grades.join("").length === 8) {
+                      if (this.grades.length === 8) {
                         navPropsObj.resultClass = "_visible";
                       }
                     } else {
                       navPropsObj.prev = `${questions[i - 1].link}`;
                       navPropsObj.prevClass = "_visible";
-                      if (this.grades[i] && this.grades[i] != 0) {
+                      if (this.grades[i] && this.grades[i] !== 0) {
                         navPropsObj.next = `${questions[i + 1].link}`;
                         navPropsObj.nextClass = "_visible";
                       }

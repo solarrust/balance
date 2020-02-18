@@ -1,5 +1,5 @@
 .page.results
-	padding-top: 24.07vh
+	padding-top: 13.43vh
 
 	display: flex
 	justify-content: space-between
@@ -12,6 +12,7 @@
 	align-items: center
 	width: 100%
 	height: 100%
+	padding-top: 10.64vh
 
 .result-circle
 	position: absolute
@@ -32,11 +33,44 @@
 	transform-origin: center
 	&__name
 		color: rgba(0, 0, 0, 0.2)
+		font-size: 1.125em
 		font-weight: 600
 		white-space: nowrap
 	&__grade
 		font-family: "B-Wide", -apple-system, sans-serif
 		font-size: 5vw
 
-
+.view-icons
+	display: flex
+	flex-wrap: wrap
+	align-self: flex-start
+	margin-left: 60px
+	&__text
+		display: block
+		width: 100%
+		margin-bottom: 14px
+		font-size: 1.125em
+		font-weight: 600
+	
+.view-icon
+	display: none
+	&__label
+		display: inline-block
+		width: 2.5vw
+		height: 2.5vw
+		padding: 3% 2%
+		border: 2px solid
+		text-indent: -99999px
+		opacity: 0.3
+		cursor: pointer
+		&:last-of-type
+			margin-left: 0.3vw
+	&._row + label
+		background: url("../img/row-icon.svg") no-repeat center / 80%
+	&._col + label
+		background: url("../img/row-icon.svg") no-repeat center / 80%
+		transform: rotate(90deg)
+	&:checked + label
+		opacity: 1
+		transition: 0.5s
 
