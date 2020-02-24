@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import data from "../../data.json";
 import RowView from "./RowView";
 import ColView from "./ColView";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Menu from "../Main/Menu";
+import Arrow from "../SVG/Arrow";
 
 const { questions } = data;
 
@@ -13,7 +14,7 @@ const { questions } = data;
 class Result extends Component {
   constructor(props) {
     super(props);
-    this.grades = localStorage.getItem("grades").split("/");
+    this.grades = sessionStorage.getItem("grades").split("/");
     this.state = {
       view: "col-view"
     };
@@ -21,7 +22,7 @@ class Result extends Component {
   }
 
   componentDidMount() {
-    this.grades = localStorage.getItem("grades").split("/");
+    this.grades = sessionStorage.getItem("grades").split("/");
     this.viewSwitchHandler();
     this.resultCircles = Array.from(
       document.querySelectorAll(".results-wrapper > div")
@@ -35,13 +36,6 @@ class Result extends Component {
 
     document.getElementById(this.state.view).checked = true;
   };
-
-  changeActiveHandler(e) {
-    document.querySelectorAll("[data-test-menu-link]").forEach(el => {
-      el.classList.remove("_active");
-    });
-    e.target.classList.add("_active");
-  }
 
   render() {
     return (
@@ -76,24 +70,6 @@ class Result extends Component {
               grades={this.grades}
               circles={this.resultCircles}
             />
-            <Menu className="main-menu questions-menu text-menu">
-              {questions.map((question, i) => (
-                <li
-                  className="main-menu__link text test-menu__item"
-                  key={i}
-                  data-test-menu-link={i}
-                  onClick={this.changeActiveHandler}
-                >
-                  {question.sphere}
-                  <span
-                    className={"test-menu__circle"}
-                    style={{
-                      background: `linear-gradient(${question.bkg})`
-                    }}
-                  ></span>
-                </li>
-              ))}
-            </Menu>
           </>
         ) : (
           <RowView

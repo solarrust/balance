@@ -52,12 +52,14 @@ function About() {
                         </div>
                         <div className="page-content__block about-card-content">
                           <p className="page-content__text text">
-                            The balance card is&nbsp;a&nbsp;tool by&nbsp;which
-                            you analyze your priorities and find out
-                            in&nbsp;which area of&nbsp;life you need
-                            to&nbsp;make an&nbsp;effort to&nbsp;achieve inner
-                            harmony, regain a&nbsp;positive attitude and start
-                            living a&nbsp;full life.
+                            The life of&nbsp;a&nbsp;modern person, more than
+                            ever in&nbsp;history, has many areas where you need
+                            to&nbsp;succeed in&nbsp;order to&nbsp;feel
+                            successful. Due to&nbsp;the enormous speed
+                            of&nbsp;life, people do&nbsp;not have time
+                            to&nbsp;analyze and determine their life priorities.
+                            Finally, they can&rsquo;t monitor the reasons
+                            of&nbsp;feeling so&nbsp;depressed and unhappy.
                           </p>
                           <Link
                             to="/dates"
@@ -93,19 +95,18 @@ function About() {
                         </div>
                         <div className="page-content__block about-card-content _dates-content">
                           <p className="page-content__text text">
-                            Our solution to&nbsp;this problem was to&nbsp;create
-                            a&nbsp;balance card, which is&nbsp;based on&nbsp;the
-                            well-known exercise &laquo;Wheel of&nbsp;Life
-                            Balance&raquo;. It&nbsp;appeared in&nbsp;the USA
-                            at&nbsp;the end of&nbsp;the 70s of&nbsp;the 20th
-                            century and soon turned into one of&nbsp;the most
-                            popular coaching techniques in&nbsp;the world. The
-                            essence of&nbsp;the exercise
-                            is&nbsp;to&nbsp;visually depict the basic values
-                            of&nbsp;a&nbsp;person in&nbsp;the form
-                            of&nbsp;a&nbsp;drawing, where they are represented
-                            as&nbsp;the radii of&nbsp;the life circle
-                            or&nbsp;wheel spokes.
+                            Our solution to&nbsp;this problem
+                            is&nbsp;to&nbsp;create a&nbsp;Balance Card based
+                            on&nbsp;the well-known exercise &laquo;Wheel
+                            of&nbsp;Life Balance&raquo;. It&nbsp;originated
+                            in&nbsp;the United States in&nbsp;the late 70s
+                            of&nbsp;the&nbsp;XX century and soon became one
+                            of&nbsp;the most popular coaching techniques
+                            in&nbsp;the world. Exercise essence
+                            is&nbsp;to&nbsp;visually represent the basic values
+                            of&nbsp;a&nbsp;person as&nbsp;a&nbsp;drawing, where
+                            they are shown as&nbsp;the radius
+                            of&nbsp;a&nbsp;vital circle or&nbsp;wheel spokes.
                           </p>
                           <Link
                             to="/diagnostics"
@@ -142,17 +143,19 @@ function About() {
 
                         <div className="page-content__block about-card-content">
                           <p className="page-content__text text">
-                            Diagnostics on&nbsp;the balance wheel is&nbsp;very
-                            approximate&nbsp;&mdash; it&nbsp;depends on&nbsp;the
-                            mood of&nbsp;a&nbsp;person and many other factors.
-                            To&nbsp;make it&nbsp;more accurate, we&nbsp;offer
-                            the user to&nbsp;answer eight simple questions, each
-                            of&nbsp;which is&nbsp;devoted
-                            to&nbsp;a&nbsp;particular area of&nbsp;life. The
-                            question has parameters that need
-                            to&nbsp;be&nbsp;evaluated on&nbsp;a&nbsp;ten-point
-                            scale. Estimates make it&nbsp;clear how satisfied
-                            a&nbsp;person is&nbsp;with one area or&nbsp;another.
+                            Diagnostics based on&nbsp;the balance wheel
+                            is&nbsp;very approximate&nbsp;&mdash;
+                            it&nbsp;depends on&nbsp;the mood of&nbsp;the person
+                            and many other factors. To&nbsp;make it&nbsp;more
+                            accurate, we&nbsp;invite the user to&nbsp;answer
+                            eight simple questions, each of&nbsp;which
+                            is&nbsp;dedicated to&nbsp;a&nbsp;specific area
+                            of&nbsp;life. The question has parameters, which are
+                            needed to&nbsp;be&nbsp;evaluated
+                            on&nbsp;a&nbsp;ten-point scale. According
+                            to&nbsp;estimates, it&nbsp;becomes clear how
+                            satisfied a&nbsp;person is&nbsp;with
+                            a&nbsp;particular area.
                           </p>
                           <Link
                             to="/total"
@@ -184,12 +187,11 @@ function About() {
                         <div className="page-content__block about-card-content">
                           <p className="page-content__text text">
                             The result is&nbsp;the creation
-                            of&nbsp;an&nbsp;individual balance sheet, which
-                            clearly shows which area is&nbsp;the most
-                            problematic. Based on&nbsp;the answers, we&nbsp;form
-                            a&nbsp;small encouraging recommendation for further
-                            actions in&nbsp;this direction, which will help
-                            to&nbsp;change the situation for the better.
+                            of&nbsp;an&nbsp;individual Balance Card, which
+                            clearly shows the most problematic area. Then
+                            we&nbsp;create a&nbsp;small encouraging further
+                            actions recommendation based on&nbsp;the answers,
+                            which will help to&nbsp;make a&nbsp;difference.
                           </p>
                           <a
                             href="/"

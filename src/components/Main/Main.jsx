@@ -140,14 +140,14 @@ class Main extends Component {
               </h1>
               <div className="page-content__block">
                 <p className="page-content__text text">
-                  The Balance map is&nbsp;a&nbsp;tool by&nbsp;which you can
-                  analyze your priorities and find out in&nbsp;which area
-                  of&nbsp;life you need to&nbsp;make an&nbsp;effort
-                  to&nbsp;achieve inner harmony, regain a&nbsp;positive attitude
-                  and start living a&nbsp;full life.
+                  The Balance Card is&nbsp;a&nbsp;tool to&nbsp;help you
+                  to&nbsp;analyze your priorities and find out the area
+                  of&nbsp;life you need to&nbsp;make efforts
+                  in&nbsp;to&nbsp;achieve inner harmony, restore a&nbsp;positive
+                  attitude and start living a&nbsp;full life.
                 </p>
                 <Link to="/test" className="page-content__link link">
-                  begin <Arrow />
+                  start <Arrow />
                 </Link>
               </div>
             </div>

@@ -19,73 +19,116 @@
     {
       "sphere": "work",
       "link": "q-work",
-      "title": "how much do you like your work",
-      "range": ["I'm not happy with my work", "My work inspires me"],
-      "bkg": "179.58deg, #E5D7C9 0.42%, #71A7B7 99.12%"
+      "title": "How do you rate your job?",
+      "range": [
+        "No professional growth",
+        "I am constantly developing as a specialist"
+      ],
+      "bkg": "179.58deg, #E5D7C9 0.42%, #71A7B7 99.12%",
+      "recommendations": {
+        "low": "Problems at work bring an imbalance into your life. Try to build relationships with colleagues and drift towards growth. Or finally quit your job.",
+        "middle": "Разнообразный и богатый опыт укрепление и развитие структуры обеспечивает широкому кругу (специалистов) участие в формировании позиций, занимаемых участниками в отношении поставленных задач. Разнообразный и богатый опыт рамки и место обучения кадров требуют от нас анализа форм развития. ",
+        "high": "Задача организации, в особенности же реализация намеченных плановых заданий позволяет оценить значение системы обучения кадров, соответствует насущным потребностям."
+      }
     },
     {
       "sphere": "relationship",
       "link": "q-relationship",
-      "title": "what relationship do you have with your partner",
-      "range": [
-        "We have difficulty in the relationship",
-        "I'm absolutely happy in my relationship"
-      ],
-      "bkg": "180deg, #A8ACB8 0%, rgba(168, 172, 184, 0) 100%"
+      "title": "How would you describe the relationship with your partner?",
+      "range": ["I lack frankness", "I can entrust everything to my partner"],
+      "bkg": "180deg, #A8ACB8 0%, rgba(168, 172, 184, 0) 100%",
+      "recommendations": {
+        "low": "The reason for the imbalance is your relationship with a partner. Perhaps they can still be reanimated. Talk frankly about what does not suit both of you and try to find a compromise.",
+        "middle": "5",
+        "high": "10"
+      }
     },
     {
       "sphere": "family",
       "link": "q-family",
-      "title": "how would you rate relationship with your family",
+      "title": "How are you getting along with your family?",
       "range": [
-        "We communicate very rarely",
-        "I can always depend on my relatives"
+        "I don’t feel family support",
+        "I can always count on relatives"
       ],
-      "bkg": "0.02deg, #87B1CC 3.52%, #C3C9DD 99.99%"
+      "bkg": "0.02deg, #87B1CC 3.52%, #C3C9DD 99.99%",
+      "recommendations": {
+        "low": "Harmony in your life is violated by poor relationships with your family. Whatever the reason - the old offenses or your difficult characters - it is worth going to reconciliation. After all, balance in the family is exactly what you are missing.",
+        "middle": "5",
+        "high": "10"
+      }
     },
     {
       "sphere": "health",
       "link": "q-health",
-      "title": "how would you rate your physical condition",
-      "range": ["Regularly ailments suffer", "I don't have any problems"],
-      "bkg": "179.58deg, #649677 0.42%, #D1C1B0 99.12%"
+      "title": "How is your health?",
+      "range": [
+        "Constantly tormented by indispositions",
+        "I do not observe any problems"
+      ],
+      "bkg": "179.58deg, #649677 0.42%, #D1C1B0 99.12%",
+      "recommendations": {
+        "low": "The weakest link in your balance card is health. It's time to take care of yourself: make an appointment with a doctor and start a healthy lifestyle. Seriously, that's nothing to joke about!",
+        "middle": "5",
+        "high": "10"
+      }
     },
     {
       "sphere": "friends",
       "link": "q-friends",
-      "title": "how are your social connections",
+      "title": "How satisfied are you with your relationships with friends?",
       "range": [
-        "I don't communicate with anyone",
-        "Chatting with friends inspires me"
+        "We become to communicate very rarely",
+        "Best friends are always in touch"
       ],
-      "bkg": "180deg, #D0C06B 0%, #DCAD9F 100%"
+      "bkg": "180deg, #D0C06B 0%, #DCAD9F 100%",
+      "recommendations": {
+        "low": "Relationship with friends and lack of socialization contribute to the imbalance in your card. To become happier, you need to renew friendships, make new friends and go out more often.",
+        "middle": "5",
+        "high": "10"
+      }
     },
     {
-      "sphere": "finance",
-      "link": "q-finance",
-      "title": "how satisfied are you with your financial condition",
-      "range": ["I earn frankly little", "I'm happy with my income"],
-      "bkg": "180deg, #768CC4 0%, #CDBAB9 100%"
+      "sphere": "money",
+      "link": "q-money",
+      "title": "How satisfied are you with your finance?",
+      "range": ["I earn frankly little", "I can call my income level high"],
+      "bkg": "180deg, #768CC4 0%, #CDBAB9 100%",
+      "recommendations": {
+        "low": "You cannot find balance due to financial problems. To gain confidence and peace of mind, try to find a reliable source of income and start saving your money regularly.",
+        "middle": "5",
+        "high": "10"
+      }
     },
     {
-      "sphere": "relax",
+      "sphere": "relaxation",
       "link": "q-relax",
-      "title": "how often do you relax",
+      "title": "How do you relax?",
       "range": [
-        "I don't have time to relax and often feel tired",
-        "Relax to charge for the whole week"
+        "Enough to just hang at home watching TV",
+        "I prefer a varied and active holiday"
       ],
-      "bkg": "0deg, #A5CFDB 0%, #ACB6C5 100%"
+      "bkg": "0deg, #A5CFDB 0%, #ACB6C5 100%",
+      "recommendations": {
+        "low": "Balance is impossible if you have no time to take a break. Learn to plan your time, give up unnecessary obligations and remember - you are not married to the job!",
+        "middle": "5",
+        "high": "10"
+      }
     },
     {
       "sphere": "self-realization",
       "link": "q-self-realization",
-      "title": "what about personal goals",
+      "title": "How are things with personal goals?",
       "range": [
-        "It seems I have not goal",
-        "Clearly see the goal and go to it"
+        "I do not have time for any personal projects",
+        "Personal goals are my priority"
       ],
-      "bkg": "180deg, #B7635B 0%, #C4A693 100%"
+      "bkg": "180deg, #B7635B 0%, #C4A693 100%",
+      "recommendations": {
+        "low": "Your main goal is to learn how to set and achieve goals. Do it, and your life will be in the right balance.",
+        "middle": "5",
+        "high": "10"
+      }
     }
   ]
 }

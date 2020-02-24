@@ -22,17 +22,17 @@ class Questions extends Component {
   }
 
   componentDidMount() {
-    this.grades = localStorage.getItem("grades")
-      ? localStorage.getItem("grades").split("/")
+    this.grades = sessionStorage.getItem("grades")
+      ? sessionStorage.getItem("grades").split("/")
       : [];
 
     document.addEventListener("click", () => {
-      localStorage.setItem("grades", this.grades.join("/"));
+      sessionStorage.setItem("grades", this.grades.join("/"));
     });
   }
 
   componentWillUnmount() {
-    localStorage.setItem("grades", this.grades.join("/"));
+    sessionStorage.setItem("grades", this.grades.join("/"));
   }
 
   handleChange = e => {

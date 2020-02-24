@@ -15,8 +15,9 @@
 	height: 100%
 	padding-top: 10.64vh
 	&._col
+		position: fixed
+		bottom: -60vmax
 		flex-direction: column-reverse
-		height: 300vh
 		z-index: -999
 
 .result-circle
@@ -49,18 +50,28 @@
 	justify-content: flex-start
 	padding: 8.3vw
 	text-align: center
+	transform-style: preserve-3d
 	&__name
 		color: currentColor
 		font-size: 5.4vw
 		&:before
 			content: "sphere of life"
-			display: block
+			display: none
 			margin-bottom: 10px
 			font-size: 0.21em
 			font-weight: normal
-	&__grade
+	&__recommendation
 		display: none
+		opacity: 0
+		._active &
+			display: block
 
+.result-circle._active
+	.result-circle__name:before
+		display: block
+	.result-circle__recommendation
+		display: block
+			
 .view-icons
 	display: flex
 	flex-wrap: wrap
@@ -96,6 +107,7 @@
 		transition: 0.5s
 
 .test-menu
+	position: fixed
 	&__item
 		position: relative
 		margin-right: 25px
@@ -119,11 +131,14 @@
 		border: 2px solid #000
 		transition: opacity 0.2s, all 1s, border 0.2s 0.5s
 		._active &
-			top: -50%
 			right: -46px
 			opacity: 1
 			width: 36px
 			height: 36px
 			border-width: 0
 			transition: opacity 0.2s, all 1s, border 0.1s
-
+	&__level
+		display: block
+		font-size: 0.78em
+		font-weight: normal
+		pointer-events: none
