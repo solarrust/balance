@@ -15,8 +15,7 @@
 	height: 100%
 	padding-top: 10.64vh
 	&._col
-		position: fixed
-		bottom: -60vmax
+		bottom: 0
 		flex-direction: column-reverse
 		z-index: -999
 
@@ -51,6 +50,8 @@
 	padding: 8.3vw
 	text-align: center
 	transform-style: preserve-3d
+	transform: scale(0.1)
+	transition: transform 0.5s
 	&__name
 		color: currentColor
 		font-size: 5.4vw

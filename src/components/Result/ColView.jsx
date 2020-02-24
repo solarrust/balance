@@ -1,63 +1,78 @@
 import React, { Component } from "react";
 import { TweenMax } from "gsap";
 import Menu from "../Main/Menu";
+let resultCircles;
+let parent;
 
 class ColView extends Component {
   constructor(props) {
     super(props);
+    this.activeCircle = this.activeCircle.bind(this);
   }
 
   componentDidMount() {
+    resultCircles = Array.from(
+      document.querySelectorAll(".results-wrapper > div")
+    );
+    parent = document.querySelector(".results-wrapper");
     this.innerAnimation();
   }
 
   innerAnimation = () => {
-    let resultCircles = Array.from(
-      document.querySelectorAll(".results-wrapper > div")
-    );
-    let parent = document.querySelector(".results-wrapper");
-    let height = 0;
+    let circleSize = 93;
+    let height =
+      resultCircles.length * (document.body.offsetHeight / 100) * circleSize;
+    parent.style.height = height + "px";
 
     resultCircles.map((el, i) => {
+      let children = Array.from(el.children);
+      el.style.width = circleSize + "vmax";
+      el.style.height = circleSize + "vmax";
+
       TweenMax.fromTo(
         el,
-        0.5 * (resultCircles.length - 1),
-        { width: 0, height: 0, zIndex: -i, bottom: 0, scale: 0 },
-        {
-          width: `93vmax`,
-          height: `93vmax`,
-          bottom: `${60 * i}vmax`,
-          scale: 0.2
-        }
+        0.2 * (resultCircles.length - 1),
+        { zIndex: -i },
+        { bottom: `${60 * i}vmax` }
       );
-      height += (document.body.offsetHeight / 100) * 93;
-      let children = Array.from(el.children);
 
       children.forEach(child => {
         TweenMax.fromTo(child, 2, { opacity: 0 }, { delay: 1, opacity: 1 });
       });
     });
 
-    parent.style.height = height + "px";
-
-    this.activeCircle(resultCircles[0], 0);
+    this.activeCircle(0);
   };
 
-  activeCircle(element, index) {
-    TweenMax.to(element, 0.5, { scale: 1 });
+  activeCircle(index) {
+    resultCircles.forEach(el => {
+      el.classList.remove("_active");
+      TweenMax.to(el, 0.2, { scale: 0.1 });
+    });
+
+    let positionOfCircle = getComputedStyle(resultCircles[index]);
+    console.log(positionOfCircle.bottom);
+
     let menuLink = Array.from(
       document.querySelectorAll("[data-test-menu-link]")
     )[index];
-    element.classList.add("_active");
+
+    TweenMax.to(parent, 0.1 * resultCircles.length, {
+      bottom: `-${parseInt(positionOfCircle.bottom) +
+        (document.body.offsetWidth / 100) * 60}`
+    });
+    TweenMax.to(resultCircles[index], 0.5, { scale: 1 });
+    resultCircles[index].classList.add("_active");
     menuLink.classList.add("_active");
   }
 
-  changeActiveHandler(e) {
+  changeActiveHandler = e => {
     document.querySelectorAll("[data-test-menu-link]").forEach(el => {
       el.classList.remove("_active");
     });
     e.target.classList.add("_active");
-  }
+    this.activeCircle(e.target.getAttribute("data-test-menu-link"));
+  };
 
   render() {
     let levels = [];
@@ -65,13 +80,10 @@ class ColView extends Component {
       if (grade) {
         if (grade > 5) {
           levels[i] = "high";
-          // menuNote = "Just Fine";
         } else if (grade < 5) {
           levels[i] = "low";
-          // menuNote = "Below Average";
         } else {
           levels[i] = "middle";
-          // menuNote = "Midpoint";
         }
       }
       return levels[i];
