@@ -47,11 +47,13 @@
 ._col .result-circle
 	align-items: center
 	justify-content: flex-start
+	min-width: auto
+	min-height: auto
 	padding: 8.3vw
 	text-align: center
 	transform-style: preserve-3d
 	transform: scale(0.1)
-	transition: transform 0.5s
+	transition: transform 1.2s
 	&__name
 		color: currentColor
 		font-size: 5.4vw
@@ -62,17 +64,25 @@
 			font-size: 0.21em
 			font-weight: normal
 	&__recommendation
-		display: none
+		//display: none
 		opacity: 0
+		max-width: 45%
+		margin-top: 15px
+		transition: all 0.5s 1.2s
 		._active &
 			display: block
 
-.result-circle._active
+._col .result-circle._active
+	transform: scale(1)
 	.result-circle__name:before
 		display: block
 	.result-circle__recommendation
-		display: block
-			
+		//display: block
+		opacity: 1
+		margin-top: 25px
+	& + .result-circle
+		transform: scale(0.3)
+
 .view-icons
 	display: flex
 	flex-wrap: wrap
@@ -109,10 +119,12 @@
 
 .test-menu
 	position: fixed
+	padding-top: 13.5vh
 	&__item
 		position: relative
 		margin-right: 25px
 		cursor: pointer
+		line-height: 1
 		transition: margin 1.2s
 		&:not(:last-child)
 			margin-bottom: 2.6vw
@@ -143,3 +155,19 @@
 		font-size: 0.78em
 		font-weight: normal
 		pointer-events: none
+	&__grade
+		position: fixed
+		bottom: 80px
+		right: 60px
+		+B-Wide
+		font-size: 7.5vw
+		color: black
+		line-height: 0.9
+		opacity: 0
+		pointer-events: none
+		user-select: none
+		transition: none
+		._active &
+			opacity: 1
+			bottom: 60px
+			transition: all 0.5s 1.2s

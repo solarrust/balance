@@ -39,8 +39,8 @@
       "bkg": "180deg, #A8ACB8 0%, rgba(168, 172, 184, 0) 100%",
       "recommendations": {
         "low": "The reason for the imbalance is your relationship with a partner. Perhaps they can still be reanimated. Talk frankly about what does not suit both of you and try to find a compromise.",
-        "middle": "5",
-        "high": "10"
+        "middle": "The reason for the imbalance is your relationship with a partner. Perhaps they can still be reanimated. Talk frankly about what does not suit both of you and try to find a compromise.",
+        "high": "The reason for the imbalance is your relationship with a partner. Perhaps they can still be reanimated. Talk frankly about what does not suit both of you and try to find a compromise."
       }
     },
     {
@@ -54,8 +54,8 @@
       "bkg": "0.02deg, #87B1CC 3.52%, #C3C9DD 99.99%",
       "recommendations": {
         "low": "Harmony in your life is violated by poor relationships with your family. Whatever the reason - the old offenses or your difficult characters - it is worth going to reconciliation. After all, balance in the family is exactly what you are missing.",
-        "middle": "5",
-        "high": "10"
+        "middle": "Harmony in your life is violated by poor relationships with your family. Whatever the reason - the old offenses or your difficult characters - it is worth going to reconciliation. After all, balance in the family is exactly what you are missing.",
+        "high": "Harmony in your life is violated by poor relationships with your family. Whatever the reason - the old offenses or your difficult characters - it is worth going to reconciliation. After all, balance in the family is exactly what you are missing."
       }
     },
     {
@@ -69,8 +69,8 @@
       "bkg": "179.58deg, #649677 0.42%, #D1C1B0 99.12%",
       "recommendations": {
         "low": "The weakest link in your balance card is health. It's time to take care of yourself: make an appointment with a doctor and start a healthy lifestyle. Seriously, that's nothing to joke about!",
-        "middle": "5",
-        "high": "10"
+        "middle": "The weakest link in your balance card is health. It's time to take care of yourself: make an appointment with a doctor and start a healthy lifestyle. Seriously, that's nothing to joke about!",
+        "high": "The weakest link in your balance card is health. It's time to take care of yourself: make an appointment with a doctor and start a healthy lifestyle. Seriously, that's nothing to joke about!"
       }
     },
     {
@@ -84,8 +84,8 @@
       "bkg": "180deg, #D0C06B 0%, #DCAD9F 100%",
       "recommendations": {
         "low": "Relationship with friends and lack of socialization contribute to the imbalance in your card. To become happier, you need to renew friendships, make new friends and go out more often.",
-        "middle": "5",
-        "high": "10"
+        "middle": "Relationship with friends and lack of socialization contribute to the imbalance in your card. To become happier, you need to renew friendships, make new friends and go out more often.",
+        "high": "Relationship with friends and lack of socialization contribute to the imbalance in your card. To become happier, you need to renew friendships, make new friends and go out more often."
       }
     },
     {
@@ -96,8 +96,8 @@
       "bkg": "180deg, #768CC4 0%, #CDBAB9 100%",
       "recommendations": {
         "low": "You cannot find balance due to financial problems. To gain confidence and peace of mind, try to find a reliable source of income and start saving your money regularly.",
-        "middle": "5",
-        "high": "10"
+        "middle": "You cannot find balance due to financial problems. To gain confidence and peace of mind, try to find a reliable source of income and start saving your money regularly.",
+        "high": "You cannot find balance due to financial problems. To gain confidence and peace of mind, try to find a reliable source of income and start saving your money regularly."
       }
     },
     {
@@ -111,8 +111,8 @@
       "bkg": "0deg, #A5CFDB 0%, #ACB6C5 100%",
       "recommendations": {
         "low": "Balance is impossible if you have no time to take a break. Learn to plan your time, give up unnecessary obligations and remember - you are not married to the job!",
-        "middle": "5",
-        "high": "10"
+        "middle": "Balance is impossible if you have no time to take a break. Learn to plan your time, give up unnecessary obligations and remember - you are not married to the job!",
+        "high": "Balance is impossible if you have no time to take a break. Learn to plan your time, give up unnecessary obligations and remember - you are not married to the job!"
       }
     },
     {
@@ -126,8 +126,8 @@
       "bkg": "180deg, #B7635B 0%, #C4A693 100%",
       "recommendations": {
         "low": "Your main goal is to learn how to set and achieve goals. Do it, and your life will be in the right balance.",
-        "middle": "5",
-        "high": "10"
+        "middle": "Your main goal is to learn how to set and achieve goals. Do it, and your life will be in the right balance.",
+        "high": "Your main goal is to learn how to set and achieve goals. Do it, and your life will be in the right balance."
       }
     }
   ]

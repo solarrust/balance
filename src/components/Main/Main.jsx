@@ -8,6 +8,8 @@ import data from "../../data";
 const menuLinks = data.mainMenu;
 let index = 0;
 
+// TODO: переписать анимацию кругов
+
 class Main extends Component {
   circleChangerInterval = 0;
   menuChangerInterval = 0;
