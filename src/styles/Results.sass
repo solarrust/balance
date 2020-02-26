@@ -5,6 +5,8 @@
 	justify-content: space-between
 	padding-left: 0
 	padding-right: 0
+	background-color: #e1dcdb
+	background-image: none
 
 .results-wrapper
 	position: absolute
@@ -54,6 +56,15 @@
 	transform-style: preserve-3d
 	transform: scale(0.1)
 	transition: transform 1.2s
+	&:after
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		border-radius: 50% / 0
+		background-image: linear-gradient(0deg, #e1dcdb 65%, transparent 90%)
 	&__name
 		color: currentColor
 		font-size: 5.4vw
@@ -68,7 +79,7 @@
 		opacity: 0
 		max-width: 45%
 		margin-top: 15px
-		transition: all 0.5s 1.2s
+		transition: all 0.25s 0.6s
 		._active &
 			display: block
 
@@ -81,7 +92,7 @@
 		opacity: 1
 		margin-top: 25px
 	& + .result-circle
-		transform: scale(0.3)
+		transform: scale(0.4)
 
 .view-icons
 	display: flex
@@ -122,18 +133,18 @@
 	padding-top: 13.5vh
 	&__item
 		position: relative
-		margin-right: 25px
+		padding-right: 25px
 		cursor: pointer
 		line-height: 1
-		transition: margin 1.2s
+		transition: padding 0.6s
 		&:not(:last-child)
-			margin-bottom: 2.6vw
+			margin-bottom: 30px
 		&._active
-			margin-right: 46px
+			padding-right: 46px
 	&__circle
 		position: absolute
-		top: 0
-		right: -25px
+		top: 2px
+		right: 0
 		display: inline-block
 		vertical-align: middle
 		opacity: 0.2
@@ -142,14 +153,14 @@
 		margin-left: 10px
 		border-radius: 50%
 		border: 2px solid #000
-		transition: opacity 0.2s, all 1s, border 0.2s 0.5s
+		transition: all 0.5s, border 0.2s, opacity 0s
+		pointer-events: none
 		._active &
-			right: -46px
 			opacity: 1
 			width: 36px
 			height: 36px
 			border-width: 0
-			transition: opacity 0.2s, all 1s, border 0.1s
+			transition: all 0.5s, border 0.1s, opacity 0s
 	&__level
 		display: block
 		font-size: 0.78em
@@ -170,4 +181,4 @@
 		._active &
 			opacity: 1
 			bottom: 60px
-			transition: all 0.5s 1.2s
+			transition: all 0.25s 0.6s

@@ -34,7 +34,7 @@ class ColView extends Component {
         0.2 * (resultCircles.length - 1),
         { zIndex: -i },
         {
-          bottom: `${50 * i}vmax`
+          bottom: `${45 * i}vmax`
           // y: "-50%"
           // marginTop: "-50%"
           // scale: (1 - (1 / (resultCircles.length - 1)) * i)
@@ -47,6 +47,7 @@ class ColView extends Component {
     });
 
     this.activeCircle(0);
+    this.bkgForMenuItem(0);
   }
 
   activeCircle(index) {
@@ -65,7 +66,7 @@ class ColView extends Component {
       document.querySelectorAll("[data-test-menu-link]")
     )[index];
 
-    TweenMax.to(parent, 0.1 * (resultCircles.length - 1), {
+    TweenMax.to(parent, 0.08 * (resultCircles.length - 1), {
       bottom: `-${parseInt(positionOfCircle.bottom) +
         (document.body.offsetWidth / 100) * 60}px`
       // onComplete: circleAnimation
@@ -80,7 +81,18 @@ class ColView extends Component {
     });
     e.target.classList.add("_active");
     this.activeCircle(e.target.getAttribute("data-test-menu-link"));
+    this.bkgForMenuItem(e.target.getAttribute("data-test-menu-link"));
   };
+
+  bkgForMenuItem(index) {
+    let menuItems = document.querySelectorAll(
+      "[data-test-menu-link] > .test-menu__circle"
+    );
+    menuItems.forEach(item => (item.style.backgroundImage = "none"));
+    menuItems[
+      index
+    ].style.backgroundImage = `linear-gradient(${this.props.items[index].bkg})`;
+  }
 
   render() {
     let levels = [];
@@ -136,9 +148,11 @@ class ColView extends Component {
               </span>
               <span
                 className={"test-menu__circle"}
-                style={{
-                  background: `linear-gradient(${question.bkg})`
-                }}
+                style={
+                  {
+                    // background: `linear-gradient(${question.bkg})`
+                  }
+                }
               />
               <span className={"test-menu__grade"}>{this.props.grades[i]}</span>
             </li>

@@ -36,7 +36,7 @@
       "link": "q-relationship",
       "title": "How would you describe the relationship with your partner?",
       "range": ["I lack frankness", "I can entrust everything to my partner"],
-      "bkg": "180deg, #A8ACB8 0%, rgba(168, 172, 184, 0) 100%",
+      "bkg": "180deg, #A8ACB8 0%, #C9D1DE 100%",
       "recommendations": {
         "low": "The reason for the imbalance is your relationship with a partner. Perhaps they can still be reanimated. Talk frankly about what does not suit both of you and try to find a compromise.",
         "middle": "The reason for the imbalance is your relationship with a partner. Perhaps they can still be reanimated. Talk frankly about what does not suit both of you and try to find a compromise.",
