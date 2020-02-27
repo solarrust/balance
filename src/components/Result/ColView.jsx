@@ -34,7 +34,7 @@ class ColView extends Component {
         0.2 * (resultCircles.length - 1),
         { zIndex: -i },
         {
-          bottom: `${41 * i}vmax`
+          bottom: `${45 * i}vmax`
           // y: "-50%"
           // marginTop: "-50%"
           // scale: (1 - (1 / (resultCircles.length - 1)) * i)
