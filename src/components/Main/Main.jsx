@@ -16,7 +16,6 @@ class Main extends Component {
 
   componentDidMount() {
     this.circleChanger();
-    this.circleRise();
     this.menuChanger();
     document.addEventListener("visibilitychange", this.visibilityHandler);
   }
@@ -33,28 +32,18 @@ class Main extends Component {
       clearInterval(this.menuChangerInterval);
     } else {
       this.circleChanger();
-      this.circleRise();
       this.menuChanger();
     }
   };
 
-  circleRise() {
-    let items = Array.from(document.querySelectorAll(".main-circle"));
-    let firstItem = items[0];
-    if (!index) {
-      TweenMax.fromTo(
-        firstItem,
-        1.5,
-        { scale: 0.1 },
-        { scale: 1, ease: Power1.easeOut }
-      );
-    }
-  }
-
   circleChanger() {
     let circleParent = document.querySelector(".main-circles");
     let circleItems = Array.from(document.querySelectorAll(".main-circle"));
-    circleParent.style.width = 93 * circleItems.length - 1 + "vw";
+
+    if (index === 0 || !index) {
+      circleItems.forEach(el => el.classList.remove("_half"));
+      circleRise();
+    }
 
     function animateCircles(el) {
       let compStylesCircle = window.getComputedStyle(circleItems[index]);
@@ -63,26 +52,50 @@ class Main extends Component {
       if (!index) {
         TweenMax.to(el, 0, { x: 0 });
       } else {
-        TweenMax.to(el, 1.5, { x: -(circleWidth * index) + "px" });
+        TweenMax.to(el, 1.2, { x: -(circleWidth * index) + "px" });
+      }
+
+      if (index === 0 || !index) {
+        circleItems.forEach(el => el.classList.remove("_half"));
       }
     }
 
-    function shrinkCircle(el) {
-      TweenMax.fromTo(
-        el,
-        1.5,
-        { scale: 1 },
-        { scale: 0.9, ease: Power1.easeOut }
-      );
-    }
+    function circleRise() {
+      let items = Array.from(document.querySelectorAll(".main-circle"));
+      let firstItem = items[0];
+      // firstItem.style.transform = "matrix(1, 0, 0, 0.1, 0, 0)";
 
-    function stretchCircle(el) {
       TweenMax.fromTo(
-        el,
-        1.5,
+        firstItem,
+        1,
         { scale: 0.5 },
         { scale: 1, ease: Power1.easeOut }
       );
+    }
+
+    function shrinkCircle(el) {
+      // TweenMax.fromTo(
+      //   el,
+      //   0.5,
+      //   { scale: 1 },
+      //   {
+      //     scale: 0.99,
+      //     ease: Power1.easeOut
+      //   }
+      // );
+      el.classList.add("_half");
+    }
+
+    function stretchCircle(el) {
+      // TweenMax.fromTo(
+      //   el,
+      //   1.5,
+      //   { scale: 0.5 },
+      //   {
+      //     scale: 1,
+      //     ease: Power1.easeOut
+      //   }
+      // );
     }
 
     this.circleChangerInterval = setInterval(() => {
@@ -127,8 +140,14 @@ class Main extends Component {
       <>
         <div className="main page">
           <div className="main-circles">
-            {menuLinks.map((link, index) => (
-              <div className="main-circle" key={index} />
+            {data.questions.map((el, index) => (
+              <div
+                className="main-circle"
+                key={index}
+                style={{
+                  backgroundImage: `linear-gradient(${el.bkg})`
+                }}
+              />
             ))}
           </div>
           <div className="page-content">

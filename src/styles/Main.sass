@@ -1,3 +1,6 @@
+$circle-size: 100vw
+$circleChangeTime: 1.5s
+
 .main
 	background-color: #C4C4C4
 	background-image: linear-gradient(180deg, #E8DFDA 0%, #C9D1E0 100%)
@@ -66,32 +69,41 @@
 	position: absolute
 	left: 0
 	bottom: 0
-	display: flex
-	width: 100%
+	width: calc(900vw + 40px)
 	height: 100%
 	z-index: -1
+	will-change: transform
 
 .main-circle
+	display: inline-block
 	margin-top: -2.86vw
 	z-index: -1
-	width: 93vw
-	height: 93vw
-	border-radius: 50%
+	width: 100vw
+	height: 100vw
+	//border-radius: 50%
 	transform-origin: bottom center
+	clip-path: circle(50% at center)
+	transition: clip-path 1s
+	will-change: clip-path
+	&._half
+		clip-path: circle(50% at center right)
+		transition: clip-path 1s
 	&:first-child
 		margin-left: 40vw
-		background: linear-gradient(359.48deg, rgba(229, 215, 201, 0) 16.31%, #71A7B7 102.4%)
-	&:nth-child(2)
-		background: linear-gradient(179.98deg, #A8ACB8 0.01%, rgba(168, 172, 184, 0) 65.03%)
-	&:nth-child(3)
-		background: linear-gradient(180.43deg, #87B1CC 0.33%, #C3C9DD 64.46%)
-	&:nth-child(4)
-		background: linear-gradient(178.46deg, #649677 0.84%, rgba(209, 193, 176, 0) 78.32%)
-	&:nth-child(5)
-		background: linear-gradient(180deg, #D0C06B -0.02%, rgba(220, 173, 159, 0) 81.81%)
-	&:nth-child(6)
-		background: linear-gradient(179.99deg, #6D83BA 0.01%, rgba(205, 186, 185, 0) 82.64%)
-	&:nth-child(7)
-		background: linear-gradient(180deg, #A5CFDB -0.02%, rgba(172, 182, 197, 0) 81.98%)
-	&:nth-child(8)
-		background: linear-gradient(179.99deg, #B7635B 0.01%, rgba(196, 166, 147, 0) 77.33%)
+//	background: linear-gradient(359.48deg, rgba(229, 215, 201, 0) 16.31%, #71A7B7 102.4%)
+	//&:nth-child(2)
+	//	background: linear-gradient(179.98deg, #A8ACB8 0.01%, rgba(168, 172, 184, 0) 65.03%)
+	//&:nth-child(3)
+	//	background: linear-gradient(180.43deg, #87B1CC 0.33%, #C3C9DD 64.46%)
+	//&:nth-child(4)
+	//	background: linear-gradient(178.46deg, #649677 0.84%, rgba(209, 193, 176, 0) 78.32%)
+	//&:nth-child(5)
+	//	background: linear-gradient(180deg, #D0C06B -0.02%, rgba(220, 173, 159, 0) 81.81%)
+	//&:nth-child(6)
+	//	background: linear-gradient(179.99deg, #6D83BA 0.01%, rgba(205, 186, 185, 0) 82.64%)
+	//&:nth-child(7)
+	//	background: linear-gradient(180deg, #A5CFDB -0.02%, rgba(172, 182, 197, 0) 81.98%)
+	//&:nth-child(8)
+	//	background: linear-gradient(179.99deg, #B7635B 0.01%, rgba(196, 166, 147, 0) 77.33%)
+
+
