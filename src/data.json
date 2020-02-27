@@ -13,7 +13,8 @@
     { "pageName": "Balance card", "pageLink": "/balance-card" },
     { "pageName": "Dates", "pageLink": "/dates" },
     { "pageName": "Diagnostics", "pageLink": "/diagnostics" },
-    { "pageName": "Total", "pageLink": "/total" }
+    { "pageName": "Total", "pageLink": "/total" },
+    { "pageName": "Team", "pageLink": "/team" }
   ],
   "questions": [
     {

@@ -15,6 +15,11 @@ import img from "../../img/balance-card.jpg";
 import Arrow from "../SVG/Arrow";
 import CircleBkg from "../../img/about-ellipse.png";
 import GooseBkg from "../../img/goose-bkg.png";
+import NatashaPic from "../../img/Natasha.png";
+import DanilinaPic from "../../img/Danilina.png";
+import ElenaPic from "../../img/Elena.png";
+import ElinaPic from "../../img/Elina.png";
+import AlenaPic from "../../img/Alena.png";
 
 const menuLinks = data.aboutMenu;
 
@@ -193,6 +198,134 @@ function About() {
                             actions recommendation based on&nbsp;the answers,
                             which will help to&nbsp;make a&nbsp;difference.
                           </p>
+                          <Link
+                            to="/team"
+                            className="page-content__link about-card__link link"
+                          >
+                            next <Arrow />
+                          </Link>
+                        </div>
+                      </AboutCard>
+                    )}
+                  />
+                  <Route
+                    path="/team"
+                    render={() => (
+                      <AboutCard>
+                        <div className="page-content__block about-card-content _team">
+                          <div className="about-card__team team-container">
+                            <div className="team-item">
+                              <div className="team-item__picture">
+                                <img src={NatashaPic} alt="" />
+                              </div>
+                              <div className="team-item__content">
+                                <h3 className="team-item__name">
+                                  Natasha Yankelevich
+                                </h3>
+                                <span className="team-item__position">
+                                  Photography
+                                </span>
+                                <ul className="team-item__social-list social-list">
+                                  <li className="social-list__item _fb">
+                                    <a
+                                      target={"_blank"}
+                                      href="https://facebook.com/"
+                                    />
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div className="team-item">
+                              <div className="team-item__picture">
+                                <img src={DanilinaPic} alt="" />
+                              </div>
+                              <div className="team-item__content">
+                                <h3 className="team-item__name">
+                                  Natasha Danilina
+                                </h3>
+                                <span className="team-item__position">
+                                  Copywriter
+                                </span>
+                                <ul className="team-item__social-list social-list">
+                                  <li className="social-list__item _fb">
+                                    <a
+                                      target={"_blank"}
+                                      href="https://facebook.com/"
+                                    />
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div className="team-item">
+                              <div className="team-item__picture">
+                                <img src={ElenaPic} alt="" />
+                              </div>
+                              <div className="team-item__content">
+                                <h3 className="team-item__name">
+                                  Elena Saharova
+                                </h3>
+                                <span className="team-item__position">
+                                  Idea & Web design
+                                </span>
+                                <ul className="team-item__social-list social-list">
+                                  <li className="social-list__item _fb">
+                                    <a
+                                      target={"_blank"}
+                                      href="https://facebook.com/"
+                                    />
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div className="team-item">
+                              <div className="team-item__picture">
+                                <img src={ElinaPic} alt="" />
+                              </div>
+                              <div className="team-item__content">
+                                <h3 className="team-item__name">
+                                  Elina Chanieva
+                                </h3>
+                                <span className="team-item__position">
+                                  Logo & Web design
+                                </span>
+                                <ul className="team-item__social-list social-list">
+                                  <li className="social-list__item _fb">
+                                    <a
+                                      target={"_blank"}
+                                      href="https://facebook.com/"
+                                    />
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div className="team-item">
+                              <div className="team-item__picture">
+                                <img src={AlenaPic} alt="" />
+                              </div>
+                              <div className="team-item__content">
+                                <h3 className="team-item__name">
+                                  Alena Batitskaya
+                                </h3>
+                                <span className="team-item__position">
+                                  Frontend & Backend
+                                </span>
+                                <ul className="team-item__social-list social-list">
+                                  <li className="social-list__item _fb">
+                                    <a
+                                      target={"_blank"}
+                                      href="https://www.facebook.com/ABatickaya"
+                                    />
+                                  </li>
+                                  <li className="social-list__item _tw">
+                                    <a
+                                      target={"_blank"}
+                                      href="https://twitter.com/ABatickaya"
+                                    />
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
                           <a
                             href="/"
                             className="page-content__link about-card__link link"
