@@ -42,6 +42,7 @@ class Questions extends Component {
       .querySelectorAll(".grade__item")
       .forEach(el => el.classList.remove("_choice"));
     e.target.parentNode.classList.add("_choice");
+    this.forceUpdate();
   };
 
   questionChanged = num => {
