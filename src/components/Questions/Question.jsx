@@ -12,12 +12,25 @@ class Question extends Component {
     this.props.onQuestionChange(this.props.index);
   }
 
+  preloader() {}
+
   render() {
     const grades = [];
     for (let i = 0; i < 10; i++) {
+      let classList = "grade__item";
+      const choiceClass = "_choice";
+      if (
+        this.props.grades[this.props.index] &&
+        this.props.grades[this.props.index] !== "" &&
+        this.props.grades[this.props.index] - 1 == i
+      ) {
+        classList += ` ${choiceClass}`;
+      }
       grades.push(
-        <li key={i} className="grade__item" onClick={this.props.onChange}>
-          {i + 1}
+        <li key={i} className={classList}>
+          <Link to={this.props.navProps.next} onClick={this.props.onChange}>
+            {i + 1}
+          </Link>
         </li>
       );
     }

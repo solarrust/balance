@@ -26,6 +26,7 @@
         "I am constantly developing as a specialist"
       ],
       "bkg": "179.58deg, #E5D7C9 0.42%, #71A7B7 99.12%",
+      "preloaderImg": "img/preloader_work.jpg",
       "recommendations": {
         "low": "Problems at work bring an imbalance into your life. Try to build relationships with colleagues and drift towards growth. Or finally quit your job.",
         "middle": "Разнообразный и богатый опыт укрепление и развитие структуры обеспечивает широкому кругу (специалистов) участие в формировании позиций, занимаемых участниками в отношении поставленных задач. Разнообразный и богатый опыт рамки и место обучения кадров требуют от нас анализа форм развития. ",
@@ -38,6 +39,7 @@
       "title": "How would you describe the relationship with your partner?",
       "range": ["I lack frankness", "I can entrust everything to my partner"],
       "bkg": "180deg, #A8ACB8 0%, #C9D1DE 100%",
+      "preloaderImg": "img/preloader_rel.jpg",
       "recommendations": {
         "low": "The reason for the imbalance is your relationship with a partner. Perhaps they can still be reanimated. Talk frankly about what does not suit both of you and try to find a compromise.",
         "middle": "The reason for the imbalance is your relationship with a partner. Perhaps they can still be reanimated. Talk frankly about what does not suit both of you and try to find a compromise.",
@@ -53,6 +55,7 @@
         "I can always count on relatives"
       ],
       "bkg": "0.02deg, #87B1CC 3.52%, #C3C9DD 99.99%",
+      "preloaderImg": "img/preloader_family.jpg",
       "recommendations": {
         "low": "Harmony in your life is violated by poor relationships with your family. Whatever the reason - the old offenses or your difficult characters - it is worth going to reconciliation. After all, balance in the family is exactly what you are missing.",
         "middle": "Harmony in your life is violated by poor relationships with your family. Whatever the reason - the old offenses or your difficult characters - it is worth going to reconciliation. After all, balance in the family is exactly what you are missing.",
@@ -68,6 +71,7 @@
         "I do not observe any problems"
       ],
       "bkg": "179.58deg, #649677 0.42%, #D1C1B0 99.12%",
+      "preloaderImg": "img/preloader_health.jpg",
       "recommendations": {
         "low": "The weakest link in your balance card is health. It's time to take care of yourself: make an appointment with a doctor and start a healthy lifestyle. Seriously, that's nothing to joke about!",
         "middle": "The weakest link in your balance card is health. It's time to take care of yourself: make an appointment with a doctor and start a healthy lifestyle. Seriously, that's nothing to joke about!",
@@ -83,6 +87,7 @@
         "Best friends are always in touch"
       ],
       "bkg": "180deg, #D0C06B 0%, #DCAD9F 100%",
+      "preloaderImg": "img/preloader_friends.jpg",
       "recommendations": {
         "low": "Relationship with friends and lack of socialization contribute to the imbalance in your card. To become happier, you need to renew friendships, make new friends and go out more often.",
         "middle": "Relationship with friends and lack of socialization contribute to the imbalance in your card. To become happier, you need to renew friendships, make new friends and go out more often.",
@@ -95,6 +100,7 @@
       "title": "How satisfied are you with your finance?",
       "range": ["I earn frankly little", "I can call my income level high"],
       "bkg": "180deg, #768CC4 0%, #CDBAB9 100%",
+      "preloaderImg": "img/preloader_finance.jpg",
       "recommendations": {
         "low": "You cannot find balance due to financial problems. To gain confidence and peace of mind, try to find a reliable source of income and start saving your money regularly.",
         "middle": "You cannot find balance due to financial problems. To gain confidence and peace of mind, try to find a reliable source of income and start saving your money regularly.",
@@ -110,6 +116,7 @@
         "I prefer a varied and active holiday"
       ],
       "bkg": "0deg, #A5CFDB 0%, #ACB6C5 100%",
+      "preloaderImg": "img/preloader_relax.jpg",
       "recommendations": {
         "low": "Balance is impossible if you have no time to take a break. Learn to plan your time, give up unnecessary obligations and remember - you are not married to the job!",
         "middle": "Balance is impossible if you have no time to take a break. Learn to plan your time, give up unnecessary obligations and remember - you are not married to the job!",
@@ -125,6 +132,7 @@
         "Personal goals are my priority"
       ],
       "bkg": "180deg, #B7635B 0%, #C4A693 100%",
+      "preloaderImg": "img/preloader_self.jpg",
       "recommendations": {
         "low": "Your main goal is to learn how to set and achieve goals. Do it, and your life will be in the right balance.",
         "middle": "Your main goal is to learn how to set and achieve goals. Do it, and your life will be in the right balance.",

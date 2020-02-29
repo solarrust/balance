@@ -122,23 +122,63 @@
 	justify-content: space-between
 	width: 100%
 	&__item
+		position: relative
 		display: flex
+		flex-direction: column
 		justify-content: center
 		align-items: center
 		width: 7vw
 		height: 7vw
-		border-bottom: 2px solid #000
+		//border-bottom: 2px solid #000
+		color: rgba(#000, 0.2)
 		font-size: 1.875vw
 		font-weight: bold
 		text-align: center
-		opacity: 0.2
+		//opacity: 0.2
 		transition: all 0.2s
 		cursor: pointer
-		&._choice
-			border: 2px solid #000
+		& > a
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 100%
+			height: 100%
+			z-index: 10
+			color: currentColor
+			text-decoration: navajowhite
+		&:after
+			content: ""
+			position: absolute
+			bottom: 0
+			width: 100%
+			height: 2px
+			background-color: rgba(#000, 0.2)
+			transition: all 0.2s
+		&:before
+			content: ""
+			position: absolute
+			top: 0
+			left: 0
+			opacity: 0
+			width: 100%
+			height: 100%
 			border-radius: 50%
-			opacity: 1
-			transition: all 0.5s
+			border: 2px solid #000
+			transform: scale(0.75)
+			transition: 0.2s
+		&:hover,
+		&._choice
+			color: #000
+			&:after
+				bottom: -20px
+				opacity: 0
+				transition: 0.2s
+			&:before
+				opacity: 1
+				transform: scale(1)
+		&._choice
+			cursor: default
+			//pointer-events: none
 	&__note
 		position: absolute
 		bottom: -40px
@@ -162,3 +202,43 @@
 		font-size: 22px
 		font-style: italic
 		opacity: 0.2
+
+.preloader
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100vh
+	z-index: 110
+	overflow: hidden
+	opacity: 0
+	&:after
+		content: ""
+		position: absolute
+		top: -5vh
+		left: 50%
+		width: 110vh
+		height: 110vh
+		border-radius: 50%
+		transform: translateX(-50%)
+		background:
+			repeat: no-repeat
+			position: center
+			size: auto 110vh
+
+._0:after
+	background-image: url("../img/preloader_work.jpg")
+._1:after
+	background-image: url("../img/preloader_rel.jpg")
+._2:after
+	background-image: url("../img/preloader_family.jpg")
+._3:after
+	background-image: url("../img/preloader_health.jpg")
+._4:after
+	background-image: url("../img/preloader_friends.jpg")
+._5:after
+	background-image: url("../img/preloader_finance.jpg")
+._6:after
+	background-image: url("../img/preloader_relax.jpg")
+._7:after
+	background-image: url("../img/preloader_self.jpg")

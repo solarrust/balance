@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { TweenMax } from "gsap";
 import { HashRouter, NavLink, Redirect, Route, Switch } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Question from "./Question";
@@ -36,16 +37,18 @@ class Questions extends Component {
   }
 
   handleChange = e => {
+    this.grades[this.state.active] = e.target.innerHTML;
     document
       .querySelectorAll(".grade__item")
       .forEach(el => el.classList.remove("_choice"));
-    e.target.classList.add("_choice");
-    this.grades[this.state.active] = e.target.innerHTML;
-    this.forceUpdate();
+    e.target.parentNode.classList.add("_choice");
   };
 
   questionChanged = num => {
     this.setState({ active: num });
+    let preloader = document.querySelector(".preloader");
+    TweenMax.to(preloader, 0, { opacity: 1 });
+    TweenMax.to(preloader, 0.5, { opacity: 0, zIndex: -1, delay: 5 });
   };
 
   gradeShower = index => {
@@ -77,8 +80,8 @@ class Questions extends Component {
                     };
 
                     if (i === 0) {
+                      navPropsObj.next = `${questions[i + 1].link}`;
                       if (this.grades[i] && this.grades[i] !== 0) {
-                        navPropsObj.next = `${questions[i + 1].link}`;
                         navPropsObj.nextClass = "_visible";
                       }
                     } else if (i === questions.length - 1) {
@@ -88,10 +91,11 @@ class Questions extends Component {
                         navPropsObj.resultClass = "_visible";
                       }
                     } else {
+                      navPropsObj.next = `${questions[i + 1].link}`;
+
                       navPropsObj.prev = `${questions[i - 1].link}`;
                       navPropsObj.prevClass = "_visible";
                       if (this.grades[i] && this.grades[i] !== 0) {
-                        navPropsObj.next = `${questions[i + 1].link}`;
                         navPropsObj.nextClass = "_visible";
                       }
                     }
@@ -101,20 +105,30 @@ class Questions extends Component {
                         key={question.link}
                         path={`/${question.link}`}
                         render={() => (
-                          <div
-                            className="page questions"
-                            style={{
-                              background: `linear-gradient(${question.bkg})`
-                            }}
-                          >
-                            <Question
-                              index={i}
-                              question={question}
-                              onChange={this.handleChange}
-                              onQuestionChange={this.questionChanged}
-                              navProps={navPropsObj}
+                          <>
+                            <div
+                              className={`preloader test-card__preloader question__preloader _${i}`}
+                              style={{
+                                background: `linear-gradient(${question.bkg})`
+                              }}
                             />
-                          </div>
+
+                            <div
+                              className="page questions"
+                              style={{
+                                background: `linear-gradient(${question.bkg})`
+                              }}
+                            >
+                              <Question
+                                index={i}
+                                question={question}
+                                onChange={this.handleChange}
+                                onQuestionChange={this.questionChanged}
+                                navProps={navPropsObj}
+                                grades={this.grades}
+                              />
+                            </div>
+                          </>
                         )}
                       />
                     );
