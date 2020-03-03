@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Arrow from "../SVG/Arrow";
+import { TweenMax } from "gsap";
+
+let numbers;
+let customCursor;
 
 class Question extends Component {
   constructor(props) {
@@ -9,10 +13,33 @@ class Question extends Component {
   }
 
   componentDidMount() {
+    numbers = Array.from(document.querySelectorAll(".grade__item"));
+    customCursor = document.querySelector(".cursor");
+
     this.props.onQuestionChange(this.props.index);
+    this.cursorHoverHandler();
   }
 
-  preloader() {}
+  cursorHoverHandler() {
+    numbers.forEach(el => {
+      el.addEventListener("mouseout", () => {
+        TweenMax.fromTo(
+          customCursor,
+          0.2,
+          { width: "7vw", height: "7vw" },
+          { width: "42px", height: "42px" }
+        );
+      });
+      el.addEventListener("mouseover", () => {
+        TweenMax.fromTo(
+          customCursor,
+          0.2,
+          { width: "42px", height: "42px" },
+          { width: "7vw", height: "7vw" }
+        );
+      });
+    });
+  }
 
   render() {
     const grades = [];

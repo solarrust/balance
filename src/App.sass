@@ -12,6 +12,11 @@
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
 	box-sizing: border-box
+	&:hover
+		cursor: none
+
+body
+	cursor: none
 
 h1, h2, h3, h4, h5, h6, p, ul
 	margin: 0
@@ -29,6 +34,8 @@ ul
 	line-height: 1.5
 	color: currentColor
 	text-decoration: none
+	& > *
+		pointer-events: none
 
 .lead-title
 	font-size: 5.4vw
@@ -64,3 +71,20 @@ ul
 	-webkit-text-stroke: 1px #000
 	text-stroke: 1px #000
 	opacity: 0.1
+
+.cursor
+	position: absolute
+	width: 42px
+	height: 42px
+	border: 2px solid black
+	border-radius: 50%
+	z-index: 9999
+	transition-timing-function: ease-out
+	will-change: top, left, transform
+	pointer-events: none
+	//transform: scale(1)
+
+a:hover ~ .cursor
+	cursor: none
+	//transform: scale(1.33)
+	//transition: transform 0.2s ease-out
