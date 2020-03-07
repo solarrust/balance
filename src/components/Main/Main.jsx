@@ -7,6 +7,7 @@ import data from "../../data";
 
 const menuLinks = data.mainMenu;
 let index = 0;
+let animationTime = 0.3;
 
 // TODO: переписать анимацию кругов
 
@@ -52,7 +53,9 @@ class Main extends Component {
       if (!index) {
         TweenMax.to(el, 0, { x: 0 });
       } else {
-        TweenMax.to(el, 1.2, { x: -(circleWidth * index) + "px" });
+        TweenMax.to(el, animationTime * 3, {
+          x: -(circleWidth * index) + "px"
+        });
       }
 
       if (index === 0 || !index) {
@@ -68,7 +71,7 @@ class Main extends Component {
       TweenMax.fromTo(
         firstItem,
         1,
-        { scale: 0.5 },
+        { scale: animationTime },
         { scale: 1, ease: Power1.easeOut }
       );
     }
@@ -123,7 +126,7 @@ class Main extends Component {
       el.textContent = index + 1;
       TweenMax.fromTo(
         el,
-        0.8,
+        animationTime,
         { opacity: 0, y: -10 },
         { opacity: 1, y: 0, ease: Power1.easeOut }
       );

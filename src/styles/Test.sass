@@ -12,21 +12,30 @@
 .test-header
 	width: 44vw
 	margin-top: 10vh
-	margin-left: auto
-	margin-right: calc(27vw - 60px)
+	//margin-left: auto
+	//margin-right: calc(27vw - 60px)
 	&.lead-title
 		line-height: 1.05
 
 .test-subheader
 	position: absolute
-	bottom: 7vh
-	max-width: 40vw
+	left: 35vw
+	bottom: 17vh
+	//width: 60vw
+	& span
+		display: block
+		&:nth-child(2)
+			padding-left: 12.5vw
+		&:last-child
+			padding-left: 18.75vw
+
 
 .test-text
 	width: 32vw
-	margin-top: 7vh
-	margin-right: calc(14vw - 60px)
-	margin-left: auto
+	margin-top: 2.78vh
+	margin-left: 9.375vw
+	//margin-right: calc(14vw - 60px)
+	//margin-left: auto
 
 .test-decoration
 	&._circle
@@ -110,7 +119,7 @@
 		& + &
 			margin-left: 40px
 		&._prev
-			& svg
+			& .arrow
 				margin-left: 0
 				margin-right: 20px
 				transform: rotate(-180deg)
@@ -138,6 +147,7 @@
 		transition: all 0.2s
 		cursor: pointer
 		& > a
+			+B-Wide
 			display: flex
 			justify-content: center
 			align-items: center
@@ -224,7 +234,8 @@
 		background:
 			repeat: no-repeat
 			position: center
-			size: auto 110vh
+			//size: auto 110vh
+			size: cover
 
 ._0:after
 	background-image: url("../img/preloader_work.jpg")

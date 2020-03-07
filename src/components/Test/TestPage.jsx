@@ -11,12 +11,16 @@ function TestPage() {
           aria-hidden="true"
           data-animated-circle
         />
-        <h2 className="test-header lead-title">answer a&nbsp;few questions</h2>
+        <h2 className="test-header lead-title">
+          you need to&nbsp;answer a&nbsp;few question now
+        </h2>
         <h3
           className="test-subheader _stroke-text bkg-title"
           data-animated-text
         >
-          are you ready?
+          <span>are</span>
+          <span>you</span>
+          <span>ready?</span>
         </h3>
         <p className="test-text text">
           To&nbsp;draw up&nbsp;your Balance Card we&nbsp;will ask eight

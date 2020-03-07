@@ -20,13 +20,14 @@ class App extends React.Component {
 
   cursorMoverHandler = () => {
     document.addEventListener("mousemove", e => {
+      let cursorCoords = customCursor.getBoundingClientRect();
       TweenMax.fromTo(
         customCursor,
         0.05,
         {},
         {
-          top: `${e.pageY - 10}px`,
-          left: `${e.pageX - 10}px`
+          top: `${e.pageY - cursorCoords.width / 2}px`,
+          left: `${e.pageX - cursorCoords.width / 2}px`
         }
       );
     });
@@ -38,20 +39,22 @@ class App extends React.Component {
     let links = document.querySelectorAll("a");
     links.forEach(el => {
       el.addEventListener("mouseout", () => {
-        TweenMax.fromTo(
-          customCursor,
-          0.2,
-          { width: "55px", height: "55px" },
-          { width: "42px", height: "42px" }
-        );
+        customCursor.classList.remove("_medium");
+        // TweenMax.fromTo(
+        //   customCursor,
+        //   0.2,
+        //   { width: "55px", height: "55px" },
+        //   { width: "42px", height: "42px" }
+        // );
       });
       el.addEventListener("mouseover", () => {
-        TweenMax.fromTo(
-          customCursor,
-          0.2,
-          { width: "42px", height: "42px" },
-          { width: "55px", height: "55px" }
-        );
+        customCursor.classList.add("_medium");
+        // TweenMax.fromTo(
+        //   customCursor,
+        //   0.2,
+        //   { width: "42px", height: "42px" },
+        //   { width: "55px", height: "55px" }
+        // );
       });
     });
   };

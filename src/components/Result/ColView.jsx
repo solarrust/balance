@@ -98,7 +98,7 @@ class ColView extends Component {
     let levels = [];
     this.props.grades.map((grade, i) => {
       if (grade) {
-        if (grade > 5) {
+        if (grade > 7) {
           levels[i] = "high";
         } else if (grade < 5) {
           levels[i] = "low";

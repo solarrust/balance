@@ -5,6 +5,8 @@ import { TweenMax } from "gsap";
 
 let numbers;
 let customCursor;
+const smallCursor = "42px";
+const bigCursor = "7vw";
 
 class Question extends Component {
   constructor(props) {
@@ -22,21 +24,40 @@ class Question extends Component {
 
   cursorHoverHandler() {
     numbers.forEach(el => {
+      let cursorCoords = customCursor.getBoundingClientRect();
+      let cursorLeft = 0;
+      let cursorTop = 0;
+
       el.addEventListener("mouseout", () => {
-        TweenMax.fromTo(
-          customCursor,
-          0.2,
-          { width: "7vw", height: "7vw" },
-          { width: "42px", height: "42px" }
-        );
+        customCursor.classList.remove("_big");
+        // TweenMax.to(
+        //   customCursor,
+        //   0.2,
+        //   // { width: "7vw", height: "7vw" },
+        //   { width: smallCursor, height: smallCursor }
+        // );
+
+        TweenMax.to(el, 0.1, { x: 0, y: 0 });
       });
-      el.addEventListener("mouseover", () => {
-        TweenMax.fromTo(
-          customCursor,
-          0.2,
-          { width: "42px", height: "42px" },
-          { width: "7vw", height: "7vw" }
-        );
+      el.addEventListener("mouseover", e => {
+        customCursor.classList.add("_big");
+        // TweenMax.to(
+        //   customCursor,
+        //   0.2,
+        //   // { width: "42px", height: "42px" },
+        //   {
+        //     width: bigCursor,
+        //     height: bigCursor
+        //   }
+        // );
+        // console.log(cursorCoords.top - e.pageY);
+
+        // if (customCursor.pageX - elCoords.left > 0) {
+        //   elLeft = 10;
+        //   console.log(elLeft);
+        // }
+
+        // TweenMax.to(el, 0.1, { x: "10px", y: "10px" });
       });
     });
   }

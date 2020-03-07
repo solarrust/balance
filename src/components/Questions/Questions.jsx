@@ -49,6 +49,7 @@ class Questions extends Component {
     this.setState({ active: num });
     let preloader = document.querySelector(".preloader");
     TweenMax.to(preloader, 0, { opacity: 1 });
+    // TweenMax.to(preloader, 0.5, { opacity: 0, zIndex: -1, delay: 5 });
     TweenMax.to(preloader, 0.5, { opacity: 0, zIndex: -1, delay: 5 });
   };
 

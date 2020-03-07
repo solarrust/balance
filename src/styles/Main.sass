@@ -19,16 +19,50 @@ $circleChangeTime: 1.5s
 	&__block
 		flex: 0 0 35vw
 		max-width: 475px
-		margin-left: 9.1vw
+		margin-left: 14vw
 	&__text
 		color: rgba(0, 0, 0, 0.6)
 	&__link
 		display: flex
 		align-items: center
 		margin-top: 3.125vw
-		& svg
-			width: 70px
-			margin-left: 30px
+		&:hover .arrow
+			& span
+				width: 70px
+
+.arrow
+	cursor: pointer
+	position: relative
+	width: 80px
+	//height: 45px
+	margin-left: 20px
+	& span
+		position: relative
+		top: 50%
+		display: block
+		width: 50px
+		height: 2px
+		background-color: currentColor
+		left: 0
+		transition: width 0.2s
+		&::after
+			content: ''
+			position: absolute
+			width: 25px
+			height: 2px
+			top: -8px
+			right: -4px
+			background-color: currentColor
+			transform: rotate(45deg)
+		&::before
+			content: ''
+			position: absolute
+			width: 25px
+			height: 2px
+			top: 8px
+			right: -4px
+			background-color: currentColor
+			transform: rotate(-45deg)
 
 .main-menu
 	display: flex
@@ -107,3 +141,10 @@ $circleChangeTime: 1.5s
 	//	background: linear-gradient(179.99deg, #B7635B 0.01%, rgba(196, 166, 147, 0) 77.33%)
 
 
+//@keyframes arrow
+//	0%
+//		left: 0
+//	50%
+//		left: 10px
+//	100%
+//		left: 0
