@@ -9,14 +9,13 @@ import Arrow from "../SVG/Arrow";
 const { questions } = data;
 
 // TODO: заглушка для страницы результатов, когда тест не пройден
-// TODO: заменить иконку на кнопке вида "в столбик" на правильную
 
 class Result extends Component {
   constructor(props) {
     super(props);
     this.grades = [];
     this.state = {
-      view: "col-view"
+      view: "row-view"
     };
     this.resultCircles = [];
   }

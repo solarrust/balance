@@ -29,14 +29,24 @@
 	align-items: flex-start
 	box-sizing: border-box
 	width: 0
-	min-width: 12.5vw
+	//min-width: 12.5vw
 	height: 0
-	min-height: 12.5vw
+	//min-height: 12.5vw
 	padding: 2.6vw
-	border-radius: 50%
 	backface-visibility: hidden
 	background-color: transparent
-	transform-origin: center
+	transform-style: preserve-3d
+	transform-origin: right center
+	will-change: width, height
+	&__bkg
+		position: absolute
+		top: 0
+		left: 0
+		z-index: -1
+		width: 100%
+		height: 100%
+		border-radius: 50%
+		will-change: opacity
 	&__name
 		color: rgba(0, 0, 0, 0.2)
 		font-size: 1.125em
@@ -45,6 +55,7 @@
 	&__grade
 		font-family: "B-Wide", -apple-system, sans-serif
 		font-size: 5vw
+		will-change: opacity, margin
 
 ._col .result-circle
 	align-items: center
@@ -52,7 +63,9 @@
 	min-width: auto
 	min-height: auto
 	padding: 8.3vw
+	border-radius: 50%
 	text-align: center
+	transform-origin: center
 	transform-style: preserve-3d
 	transform: scale(0.1)
 	transition: transform 1.2s
