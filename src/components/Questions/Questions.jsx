@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TweenMax } from "gsap";
+import { Power0, Power4, Power2, TweenMax } from "gsap";
 import { HashRouter, NavLink, Redirect, Route, Switch } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Question from "./Question";
@@ -7,10 +7,6 @@ import data from "../../data";
 import Menu from "../Main/Menu";
 
 const questions = data.questions;
-
-// TODO: Убрать мигание при смене вопроса
-// TODO: Для цифр оценки в меню сделать эффект вырезанного в круге текста
-// TODO: Подкрутить анимацию оценок в нижней шкале
 
 class Questions extends Component {
   constructor(props) {
@@ -48,9 +44,31 @@ class Questions extends Component {
   questionChanged = num => {
     this.setState({ active: num });
     let preloader = document.querySelector(".preloader");
-    TweenMax.to(preloader, 0, { opacity: 1 });
+    let preloaderImg = document.querySelector(".preloader__img");
+    let preloaderText = document.querySelector(".preloader__content");
+    let ease = "circ.out";
+
+    console.log(preloaderImg);
+    TweenMax.fromTo(
+      preloaderImg,
+      1.5,
+      { scale: 2.5 },
+      { scale: 1, ease: ease }
+    );
+    TweenMax.to(preloaderText, 0.3, { opacity: 1, delay: 1.5, ease: ease });
+    TweenMax.to(preloader, 0.5, {
+      opacity: 0,
+      zIndex: -100,
+      delay: 3,
+      ease: ease
+    });
     // TweenMax.to(preloader, 0.5, { opacity: 0, zIndex: -1, delay: 5 });
-    TweenMax.to(preloader, 0.5, { opacity: 0, zIndex: -1, delay: 5 });
+    // TweenMax.to(preloader, 0.5, {
+    //   scale: 1,
+    //   opacity: 0,
+    //   zIndex: -1,
+    //   delay: 5
+    // });
   };
 
   gradeShower = index => {
@@ -113,7 +131,25 @@ class Questions extends Component {
                               style={{
                                 background: `linear-gradient(${question.bkg})`
                               }}
-                            />
+                            >
+                              <div className="preloader__img" />
+                              <div className="preloader__content">
+                                <span className="preloader__text _left">
+                                  balance
+                                </span>
+                                <div className="preloader__logo inner-logo">
+                                  <div className="inner-logo__circle _half" />
+                                  <div className="inner-logo__circle _full">
+                                    <span className="preloader__text _center">
+                                      your
+                                    </span>
+                                  </div>
+                                </div>
+                                <span className="preloader__text _right">
+                                  {question.sphere}
+                                </span>
+                              </div>
+                            </div>
 
                             <div
                               className="page questions"

@@ -217,39 +217,98 @@
 	position: fixed
 	top: 0
 	left: 0
+	display: flex
+	justify-content: center
+	align-items: center
 	width: 100%
 	height: 100vh
 	z-index: 110
 	overflow: hidden
-	opacity: 0
-	&:after
-		content: ""
+	//opacity: 0
+	&__img
 		position: absolute
 		top: -5vh
-		left: 50%
+		left: 0
+		right: 0
 		width: 110vh
 		height: 110vh
+		margin: auto
 		border-radius: 50%
-		transform: translateX(-50%)
+		//transform: translateX(-50%)
+		transform-origin: center
 		background:
 			repeat: no-repeat
 			position: center
 			//size: auto 110vh
 			size: cover
+	&__content
+		display: flex
+		justify-content: center
+		align-items: center
+		z-index: 1
+		opacity: 0
+	&__text
+		color: white
+		font-size: 2.5vw
+		z-index: 0
 
-._0:after
+._0 .preloader__img
 	background-image: url("../img/preloader_work.jpg")
-._1:after
+._1 .preloader__img
 	background-image: url("../img/preloader_rel.jpg")
-._2:after
+._2 .preloader__img
 	background-image: url("../img/preloader_family.jpg")
-._3:after
+._3 .preloader__img
 	background-image: url("../img/preloader_health.jpg")
-._4:after
+._4 .preloader__img
 	background-image: url("../img/preloader_friends.jpg")
-._5:after
+._5 .preloader__img
 	background-image: url("../img/preloader_finance.jpg")
-._6:after
+._6 .preloader__img
 	background-image: url("../img/preloader_relax.jpg")
-._7:after
+._7 .preloader__img
 	background-image: url("../img/preloader_self.jpg")
+
+.inner-logo
+	display: flex
+	width: 16.5vw
+	margin: 0 4.17vw
+	z-index: 0
+	&__circle
+		flex: 0 0 auto
+		display: flex
+		justify-content: center
+		align-items: center
+		width: 11vw
+		height: 11vw
+		background: white
+		border-radius: 50%
+		&._half
+			margin-left: -5.5vw
+			border-radius: 0
+			clip-path: circle(50% at center right)
+
+._0 .inner-logo
+	&__circle._full
+		background-color: #7C929D
+._1 .inner-logo
+	&__circle._full
+		background-color: #92949F
+._2 .inner-logo
+	&__circle._full
+		background-color: #192F3D
+._3 .inner-logo
+	&__circle._full
+		background-color: #4C7B5E
+._4 .inner-logo
+	&__circle._full
+		background-color: #D8AA52
+._5 .inner-logo
+	&__circle._full
+		background-color: #5B6787
+._6 .inner-logo
+	&__circle._full
+		background-color: #92AEBC
+._7 .inner-logo
+	&__circle._full
+		background-color: #B7645B
