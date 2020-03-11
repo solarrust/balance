@@ -92,8 +92,8 @@
       }
     },
     {
-      "sphere": "money",
-      "link": "q-money",
+      "sphere": "finance",
+      "link": "q-finance",
       "title": "how satisfied are you  with your financial condition",
       "range": ["I earn frankly little", "I'm happy with my income"],
       "bkg": "180deg, #768CC4 0%, #CDBAB9 100%",

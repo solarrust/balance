@@ -5,6 +5,7 @@ import ColView from "./ColView";
 import { Link, NavLink } from "react-router-dom";
 import Menu from "../Main/Menu";
 import Arrow from "../SVG/Arrow";
+import ShareResultImg from "./ShareResultImg";
 
 const { questions } = data;
 
@@ -15,7 +16,8 @@ class Result extends Component {
     super(props);
     this.grades = [];
     this.state = {
-      view: "row-view"
+      view: "row-view",
+      rotation: 0
     };
     this.resultCircles = [];
   }
@@ -32,7 +34,13 @@ class Result extends Component {
         document.querySelectorAll(".results-wrapper > div")
       );
     }
+    requestAnimationFrame(this.tick);
   }
+
+  tick = () => {
+    this.setState({ rotation: this.state.rotation + 0.01 });
+    requestAnimationFrame(this.tick);
+  };
 
   viewSwitchHandler = () => {
     this.setState({
@@ -49,6 +57,9 @@ class Result extends Component {
     if (this.grades.length > 0) {
       return (
         <div className="main results page">
+          {/*<div className={"result-img"}>*/}
+          {/*  <ShareResultImg rotation={this.state.rotation} />*/}
+          {/*</div>*/}
           <div className="view-icons">
             <span className="view-icons__text">view:</span>
             <input

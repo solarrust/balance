@@ -26,9 +26,6 @@ $circleChangeTime: 1.5s
 		display: flex
 		align-items: center
 		margin-top: 3.125vw
-		&:hover .arrow
-			& span
-				width: 70px
 
 .arrow
 	cursor: pointer
@@ -64,6 +61,10 @@ $circleChangeTime: 1.5s
 			background-color: currentColor
 			transform: rotate(-45deg)
 
+a:hover .arrow
+	& span
+		width: 70px
+
 .main-menu
 	display: flex
 	flex-direction: column
@@ -89,6 +90,7 @@ $circleChangeTime: 1.5s
 		display: block
 		color: currentColor
 		text-decoration: none
+		text-transform: capitalize
 		transition: color 0.5s ease-in
 		&.active
 			color: rgba(0, 0, 0, 1)
