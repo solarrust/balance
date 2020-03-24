@@ -92,7 +92,7 @@ class Question extends Component {
         <h3 className="question__decoration _stroke-text bkg-title">
           question
         </h3>
-        <h2 className="question__title lead-title">
+        <h2 className="question__title lead-title" data-auto-show-slow>
           {this.props.question.title}
         </h2>
         <div className="question__btns nav-btns">

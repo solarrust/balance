@@ -155,7 +155,7 @@ class Main extends Component {
           </div>
           <div className="page-content">
             <div className="page-content__wrapper">
-              <h1 className="page-content__title lead-title">
+              <h1 className="page-content__title lead-title" data-auto-show>
                 how
                 <br />
                 to&nbsp;find
@@ -163,7 +163,7 @@ class Main extends Component {
                 a&nbsp;balance
               </h1>
               <div className="page-content__block">
-                <p className="page-content__text text">
+                <p className="page-content__text text" data-auto-show>
                   The Balance Card is&nbsp;a&nbsp;tool to&nbsp;help you
                   to&nbsp;analyze your priorities and find out the area
                   of&nbsp;life you need to&nbsp;make efforts

@@ -72,7 +72,7 @@ class App extends React.Component {
           <Route path="/results" exact component={Result} />
         </Switch>
 
-        <div className="cursor"></div>
+        <div className="cursor" />
       </>
     );
   }

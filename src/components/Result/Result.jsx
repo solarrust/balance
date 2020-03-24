@@ -6,6 +6,8 @@ import { Link, NavLink } from "react-router-dom";
 import Menu from "../Main/Menu";
 import Arrow from "../SVG/Arrow";
 import ShareResultImg from "./ShareResultImg";
+import html2canvas from "html2canvas";
+import ShareBtns from "./ShareBtns";
 
 const { questions } = data;
 
@@ -16,14 +18,12 @@ class Result extends Component {
     super(props);
     this.grades = [];
     this.state = {
-      view: "row-view",
-      rotation: 0
+      view: "row-view"
     };
     this.resultCircles = [];
   }
 
   componentDidMount() {
-    console.log(sessionStorage.getItem("grades").length);
     this.grades =
       sessionStorage.getItem("grades").length > 0
         ? sessionStorage.getItem("grades").split("/")
@@ -34,13 +34,7 @@ class Result extends Component {
         document.querySelectorAll(".results-wrapper > div")
       );
     }
-    requestAnimationFrame(this.tick);
   }
-
-  tick = () => {
-    this.setState({ rotation: this.state.rotation + 0.01 });
-    requestAnimationFrame(this.tick);
-  };
 
   viewSwitchHandler = () => {
     this.setState({
@@ -52,14 +46,34 @@ class Result extends Component {
     }
   };
 
+  sharePicGeneration = () => {
+    html2canvas(document.querySelector(".results-wrapper._row")).then(function(
+      canvas
+    ) {
+      document.body.appendChild(canvas);
+    });
+
+    let canvas = document.getElementsByTagName("canvas");
+    // let resultImg = canvas.toDataURL();
+    console.log(canvas);
+
+    // console.log(resultImg);
+    // let aLink = document.createElement("a");
+    // let evt = document.createEvent("HTMLEvents");
+    // evt.initEvent("click");
+    // aLink.download = "image.png";
+    // aLink.href = resultImg;
+    // aLink.dispatchEvent(evt);
+    // return resultImg;
+  };
+
+  //TODO: добавить кнопки шеринга
+  //TODO: вызывать скриншот по клику на кнопку шеринга
   render() {
     console.log(this.grades.length);
     if (this.grades.length > 0) {
       return (
         <div className="main results page">
-          {/*<div className={"result-img"}>*/}
-          {/*  <ShareResultImg rotation={this.state.rotation} />*/}
-          {/*</div>*/}
           <div className="view-icons">
             <span className="view-icons__text">view:</span>
             <input
@@ -83,6 +97,8 @@ class Result extends Component {
               column view
             </label>
           </div>
+          <ShareBtns onClick={this.sharePicGeneration} />
+
           {this.state.view === "row-view" ? (
             <>
               <ColView
@@ -96,6 +112,7 @@ class Result extends Component {
               items={questions}
               grades={this.grades}
               circles={this.resultCircles}
+              resultPic={this.sharePicGeneration}
             />
           )}
         </div>

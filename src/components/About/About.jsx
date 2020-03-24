@@ -8,7 +8,6 @@ import {
   Switch
 } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import AboutCard from "./AboutCard";
 import Menu from "../Main/Menu";
 import data from "../../data.json";
 import img from "../../img/balance-card.jpg";
@@ -43,7 +42,7 @@ function About() {
                   <Route
                     path="/balance-card"
                     render={() => (
-                      <AboutCard>
+                      <div className="about-card">
                         <div
                           data-animated-circle
                           className="about-circle balance-circle"
@@ -56,7 +55,7 @@ function About() {
                           <img className="about-card__img" src={img} alt="" />
                         </div>
                         <div className="page-content__block about-card-content">
-                          <p className="page-content__text text">
+                          <p className="page-content__text text" data-auto-show>
                             The life of&nbsp;a&nbsp;modern person, more than
                             ever in&nbsp;history, has many areas where you need
                             to&nbsp;succeed in&nbsp;order to&nbsp;feel
@@ -73,13 +72,13 @@ function About() {
                             next <Arrow />
                           </Link>
                         </div>
-                      </AboutCard>
+                      </div>
                     )}
                   />
                   <Route
                     path="/dates"
                     render={() => (
-                      <AboutCard>
+                      <div className="about-card">
                         <div
                           data-animated-circle
                           className="about-circle dates-circle"
@@ -99,7 +98,7 @@ function About() {
                           usa
                         </div>
                         <div className="page-content__block about-card-content _dates-content">
-                          <p className="page-content__text text">
+                          <p className="page-content__text text" data-auto-show>
                             Our solution to&nbsp;this problem
                             is&nbsp;to&nbsp;create a&nbsp;Balance Card based
                             on&nbsp;the well-known exercise &laquo;Wheel
@@ -120,13 +119,13 @@ function About() {
                             next <Arrow />
                           </Link>
                         </div>
-                      </AboutCard>
+                      </div>
                     )}
                   />
                   <Route
                     path="/diagnostics"
                     render={() => (
-                      <AboutCard>
+                      <div className="about-card">
                         <div
                           data-animated-circle
                           className="about-circle diagnostics-circle"
@@ -147,7 +146,7 @@ function About() {
                         </div>
 
                         <div className="page-content__block about-card-content">
-                          <p className="page-content__text text">
+                          <p className="page-content__text text" data-auto-show>
                             Diagnostics based on&nbsp;the balance wheel
                             is&nbsp;very approximate&nbsp;&mdash;
                             it&nbsp;depends on&nbsp;the mood of&nbsp;the person
@@ -169,13 +168,13 @@ function About() {
                             next <Arrow />
                           </Link>
                         </div>
-                      </AboutCard>
+                      </div>
                     )}
                   />
                   <Route
                     path="/total"
                     render={() => (
-                      <AboutCard>
+                      <div className="about-card">
                         <div
                           data-animated-circle
                           className="about-circle total-circle"
@@ -190,7 +189,7 @@ function About() {
                         />
 
                         <div className="page-content__block about-card-content">
-                          <p className="page-content__text text">
+                          <p className="page-content__text text" data-auto-show>
                             The result is&nbsp;the creation
                             of&nbsp;an&nbsp;individual Balance Card, which
                             clearly shows the most problematic area. Then
@@ -205,13 +204,13 @@ function About() {
                             next <Arrow />
                           </Link>
                         </div>
-                      </AboutCard>
+                      </div>
                     )}
                   />
                   <Route
                     path="/team"
                     render={() => (
-                      <AboutCard>
+                      <div className="about-card">
                         <div className="page-content__block about-card-content _team">
                           <div className="about-card__team team-container">
                             <div className="team-item">
@@ -228,7 +227,7 @@ function About() {
                                 <ul className="team-item__social-list social-list">
                                   <li className="social-list__item _fb">
                                     <a
-                                      target={"_blank"}
+                                      target="_blank"
                                       href="https://facebook.com/"
                                     />
                                   </li>
@@ -249,7 +248,7 @@ function About() {
                                 <ul className="team-item__social-list social-list">
                                   <li className="social-list__item _fb">
                                     <a
-                                      target={"_blank"}
+                                      target="_blank"
                                       href="https://facebook.com/"
                                     />
                                   </li>
@@ -270,7 +269,7 @@ function About() {
                                 <ul className="team-item__social-list social-list">
                                   <li className="social-list__item _fb">
                                     <a
-                                      target={"_blank"}
+                                      target="_blank"
                                       href="https://facebook.com/"
                                     />
                                   </li>
@@ -291,7 +290,7 @@ function About() {
                                 <ul className="team-item__social-list social-list">
                                   <li className="social-list__item _fb">
                                     <a
-                                      target={"_blank"}
+                                      target="_blank"
                                       href="https://facebook.com/"
                                     />
                                   </li>
@@ -312,13 +311,13 @@ function About() {
                                 <ul className="team-item__social-list social-list">
                                   <li className="social-list__item _fb">
                                     <a
-                                      target={"_blank"}
+                                      target="_blank"
                                       href="https://www.facebook.com/ABatickaya"
                                     />
                                   </li>
                                   <li className="social-list__item _tw">
                                     <a
-                                      target={"_blank"}
+                                      target="_blank"
                                       href="https://twitter.com/ABatickaya"
                                     />
                                   </li>
@@ -333,7 +332,7 @@ function About() {
                             go to the main page <Arrow />
                           </a>
                         </div>
-                      </AboutCard>
+                      </div>
                     )}
                   />
                   <Redirect from="/" to="/balance-card" />

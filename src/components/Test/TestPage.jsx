@@ -11,7 +11,7 @@ function TestPage() {
           aria-hidden="true"
           data-animated-circle
         />
-        <h2 className="test-header lead-title">
+        <h2 className="test-header lead-title" data-auto-show>
           you need to&nbsp;answer a&nbsp;few question now
         </h2>
         <h3
@@ -22,7 +22,7 @@ function TestPage() {
           <span>you</span>
           <span>ready?</span>
         </h3>
-        <p className="test-text text">
+        <p className="test-text text" data-auto-show>
           To&nbsp;draw up&nbsp;your Balance Card we&nbsp;will ask eight
           questions about the main areas of&nbsp;life. Each question has
           parameters, which will help&nbsp;us to&nbsp;identify how satisfied you

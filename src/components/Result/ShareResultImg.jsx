@@ -14,21 +14,22 @@ class ShareResultImg extends Component {
 
   componentDidUpdate() {
     const context = ReactDOM.findDOMNode(this).getContext("2d");
-    context.clearRect(0, 0, 200, 200);
+    context.clearRect(0, 0, 1000, 1000);
     this.paint(context);
   }
 
   paint(context) {
-    context.save();
-    context.translate(100, 100);
-    context.rotate(this.props.rotation, 100, 100);
-    context.fillStyle = "#F00";
-    context.fillRect(-50, -50, 100, 100);
-    context.restore();
+    this.props.items.forEach((el, i) => {
+      let questionCircle = new Path2D();
+      questionCircle.moveTo(`${12.5 * i}%`, "50%");
+      context.save();
+      context.fillStyle = "#000";
+      context.restore();
+    });
   }
 
   render() {
-    return <canvas width={200} height={200} />;
+    return <canvas width={1000} height={1000} />;
   }
 }
 

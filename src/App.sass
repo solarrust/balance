@@ -6,6 +6,7 @@
 @import "./styles/About"
 @import "./styles/Test"
 @import "./styles/Results"
+@import '~react-sharingbuttons/dist/main.css'
 
 *
 	+Poppins
@@ -94,3 +95,22 @@ ul
 
 a:hover ~ .cursor
 	cursor: none
+
+[data-auto-show]
+	opacity: 0
+	animation: textAnimation 0.75s linear
+	animation-iteration-count: 1
+	animation-delay: 0.15s
+	animation-fill-mode: forwards
+
+@keyframes textAnimation
+	0%
+		transform: translateY(-25px)
+		opacity: 0
+	100%
+		transform: translateY(0)
+		opacity: 1
+
+[data-auto-show-slow]
+	@extend [data-auto-show]
+	animation-delay: 2.75s

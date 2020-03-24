@@ -14,7 +14,55 @@
 	& > *
 		pointer-events: none
 
+.logo-circles
+	position: relative
+	overflow: hidden
+	display: flex
+	flex: 0 0 auto
+	//margin-left: 1.19vw
+	width: calc(1.82vw * 2)
+	height: 1.82vw
+	&__item
+		position: absolute
+		right: 0
+		top: 0
+		width: 1.82vw
+		height: 1.82vw
+		//animation: logoSecondAnimation 1.2s linear infinite
+		&:after
+			content: ""
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			border-radius: 50%
+			background-color: currentColor
+		&:first-of-type
+			left: 0
+			top: 0
+			overflow: hidden
+			clip-path: circle(50% at center right)
+		//animation: logoFirstAnimation 1s linear infinite
+
 .header-logo
+	display: flex
+	align-items: center
 	width: 165px
+	color: #000
 	& svg *
-		fill: #000
+		fill: currentColor
+
+@keyframes logoFirstAnimation
+	from
+		clip-path: circle(50% at center)
+	to
+		clip-path: circle(50% at center right)
+
+@keyframes logoSecondAnimation
+	0%
+		right: -1.82vw
+	50%
+		right: 0
+	100%
+		right: -1.82vw
