@@ -69,9 +69,16 @@ ul
 
 ._stroke-text
 	color: transparent
-	-webkit-text-stroke: 1px #000
-	text-stroke: 1px #000
-	opacity: 0.4
+	-webkit-text-stroke: 1px rgba(#000, 0.4)
+	text-stroke: 1px rgba(#000, 0.4)
+	transition: all 0.2s
+	&._triggered
+		opacity: 0
+	&._copy
+		font-style: italic
+		opacity: 0
+		._triggered + &
+			opacity: 1
 
 .cursor
 	position: absolute

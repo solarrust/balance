@@ -8,6 +8,8 @@ let customCursor;
 const smallCursor = "42px";
 const bigCursor = "7vw";
 
+// TODO: добить плавное (побуквенное) изменение аутлайного текста по ховеру
+
 class Question extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +22,7 @@ class Question extends Component {
 
     this.props.onQuestionChange(this.props.index);
     this.cursorHoverHandler();
+    this.hoverHandler();
   }
 
   cursorHoverHandler() {
@@ -62,6 +65,39 @@ class Question extends Component {
     });
   }
 
+  hoverHandler = () => {
+    let links = Array.from(document.querySelectorAll("[data-trigger-link]"));
+
+    let text = this.strokeCopying();
+
+    links.forEach(link => {
+      link.onmouseenter = () => {
+        text.classList.add("_triggered");
+      };
+
+      link.onmouseleave = () => {
+        text.classList.remove("_triggered");
+      };
+    });
+  };
+
+  strokeCopying = () => {
+    let text = document.querySelector("[data-triggered-text]");
+
+    if (text) {
+      let textClasses = text.classList;
+
+      let copyText = document.createElement("h3");
+      copyText.classList = textClasses;
+      copyText.classList.add("_copy");
+      copyText.setAttribute("aria-hidden", "true");
+      copyText.innerHTML = text.innerHTML;
+      text.after(copyText);
+    }
+
+    return text;
+  };
+
   render() {
     const grades = [];
     for (let i = 0; i < 10; i++) {
@@ -75,7 +111,7 @@ class Question extends Component {
         classList += ` ${choiceClass}`;
       }
       grades.push(
-        <li key={i} className={classList}>
+        <li key={i} className={classList} data-trigger-link>
           <Link to={this.props.navProps.next} onClick={this.props.onChange}>
             {i + 1}
           </Link>
@@ -89,7 +125,10 @@ class Question extends Component {
           <span className="counter__number">{this.props.index + 1}</span>
           <span className="counter__static"> of 8</span>
         </div>
-        <h3 className="question__decoration _stroke-text bkg-title">
+        <h3
+          className="question__decoration _stroke-text bkg-title"
+          data-triggered-text
+        >
           question
         </h3>
         <h2 className="question__title lead-title" data-auto-show-slow>
