@@ -70,8 +70,6 @@ class App extends React.Component {
         delay = autoShowingText.getAttribute("data-auto-show-title") * 1000;
       }
 
-      console.log(typeof delay);
-
       autoShowingText.innerHTML = autoShowingText.innerHTML.replace(
         /(?![^<]*>)[^<]/g,
         c => `<span>${c}</span>`
