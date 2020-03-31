@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import { Power0, Power4, Power2, TweenMax } from "gsap";
+import { TweenMax } from "gsap";
 import { HashRouter, NavLink, Redirect, Route, Switch } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Question from "./Question";
 import data from "../../data";
 import Menu from "../Main/Menu";
+
+// TODO: отключить меню навигации перед выкатом на бой
+// TODO: при выборе оценки на последнем вопросе перекидывать на страницу результатов
 
 const questions = data.questions;
 

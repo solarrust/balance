@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import data from "../../data.json";
 import RowView from "./RowView";
 import ColView from "./ColView";
-import { Link, NavLink } from "react-router-dom";
-import Menu from "../Main/Menu";
-import Arrow from "../SVG/Arrow";
-import ShareResultImg from "./ShareResultImg";
 import html2canvas from "html2canvas";
 import ShareBtns from "./ShareBtns";
 

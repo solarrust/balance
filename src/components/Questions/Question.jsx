@@ -5,8 +5,6 @@ import { TweenMax } from "gsap";
 
 let numbers;
 let customCursor;
-const smallCursor = "42px";
-const bigCursor = "7vw";
 
 // TODO: добить плавное (побуквенное) изменение аутлайного текста по ховеру
 
