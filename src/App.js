@@ -16,6 +16,7 @@ class App extends React.Component {
     customCursor = document.querySelector(".cursor");
 
     this.cursorMoverHandler();
+    this.textAutoShowing();
   }
 
   cursorMoverHandler = () => {
@@ -59,17 +60,70 @@ class App extends React.Component {
     });
   };
 
+  textAutoShowing = function() {
+    let autoShowingText = document.querySelector("[data-auto-show-title]");
+
+    if (autoShowingText) {
+      let delay = 0;
+
+      if (autoShowingText.getAttribute("data-auto-show-title") !== true) {
+        delay = autoShowingText.getAttribute("data-auto-show-title") * 1000;
+      }
+
+      console.log(typeof delay);
+
+      autoShowingText.innerHTML = autoShowingText.innerHTML.replace(
+        /(?![^<]*>)[^<]/g,
+        c => `<span>${c}</span>`
+      );
+
+      setTimeout(() => {
+        Array.from(autoShowingText.children).forEach((ch, i) => {
+          TweenMax.fromTo(
+            ch,
+            0.25,
+            {
+              opacity: 0,
+              y: 25
+            },
+            { opacity: 1, y: 0, delay: i * 0.05 }
+          );
+        });
+      }, delay);
+    }
+  };
+
   render() {
     return (
       <>
         <Header />
 
         <Switch>
-          <Route path="/" exact component={Main} />
-          <Route path="/about" exact component={About} />
-          <Route path="/test" exact component={TestPage} />
-          <Route path="/questions" exact component={Questions} />
-          <Route path="/results" exact component={Result} />
+          <Route
+            path="/"
+            exact
+            component={() => <Main animation={this.textAutoShowing} />}
+          />
+          <Route
+            path="/about"
+            exact
+            component={() => <About animation={this.textAutoShowing} />}
+          />
+          <Route
+            path="/test"
+            exact
+            component={() => <TestPage animation={this.textAutoShowing} />}
+          />
+          <Route
+            path="/questions"
+            exact
+            component={() => <Questions animation={this.textAutoShowing} />}
+          />
+          <Route
+            path="/results"
+            exact
+            component={() => <Result animation={this.textAutoShowing} />}
+          />
         </Switch>
 
         <div className="cursor" />

@@ -19,6 +19,7 @@ class Questions extends Component {
     this.state = {
       active: 0
     };
+    this.animation = this.props.animation;
   }
 
   componentDidMount() {
@@ -51,7 +52,6 @@ class Questions extends Component {
     let preloaderText = document.querySelector(".preloader__content");
     let ease = "circ.out";
 
-    console.log(preloaderImg);
     TweenMax.fromTo(
       preloaderImg,
       1.5,
@@ -167,6 +167,7 @@ class Questions extends Component {
                                 onQuestionChange={this.questionChanged}
                                 navProps={navPropsObj}
                                 grades={this.grades}
+                                animation={this.animation}
                               />
                             </div>
                           </>

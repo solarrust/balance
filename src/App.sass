@@ -103,16 +103,23 @@ ul
 a:hover ~ .cursor
 	cursor: none
 
+[data-auto-show-title]
+	& > span
+		opacity: 0
+		display: inline-block
+		min-width: 20px
+		will-change: opacity, transform
+
 [data-auto-show]
 	opacity: 0
-	animation: textAnimation 0.75s linear
+	animation: textAnimation 0.3s linear
 	animation-iteration-count: 1
 	animation-delay: 0.15s
 	animation-fill-mode: forwards
 
 @keyframes textAnimation
 	0%
-		transform: translateY(-25px)
+		transform: translateY(25px)
 		opacity: 0
 	100%
 		transform: translateY(0)
@@ -120,4 +127,4 @@ a:hover ~ .cursor
 
 [data-auto-show-slow]
 	@extend [data-auto-show]
-	animation-delay: 2.75s
+	animation-delay: 2.3s

@@ -341,7 +341,7 @@ function About() {
             </TransitionGroup>
           )}
         />
-        <h1 className="about__title lead-title">
+        <h1 className="about__title lead-title" data-auto-show-title>
           about
           <br />
           project

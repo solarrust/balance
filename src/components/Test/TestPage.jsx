@@ -7,6 +7,7 @@ import Arrow from "../SVG/Arrow";
 class TestPage extends React.Component {
   componentDidMount() {
     this.hoverHandler();
+    this.props.animation();
   }
 
   hoverHandler = () => {
@@ -51,8 +52,12 @@ class TestPage extends React.Component {
             aria-hidden="true"
             data-animated-circle
           />
-          <h2 className="test-header lead-title" data-auto-show>
-            you need to&nbsp;answer a&nbsp;few question now
+          <h2 className="test-header lead-title" data-auto-show-title>
+            you need
+            <br />
+            to answer a few
+            <br />
+            question now
           </h2>
           <h3
             className="test-subheader _stroke-text bkg-title"

@@ -21,44 +21,18 @@ class Question extends Component {
     this.props.onQuestionChange(this.props.index);
     this.cursorHoverHandler();
     this.hoverHandler();
+    this.props.animation();
   }
 
   cursorHoverHandler() {
     numbers.forEach(el => {
-      let cursorCoords = customCursor.getBoundingClientRect();
-      let cursorLeft = 0;
-      let cursorTop = 0;
-
       el.addEventListener("mouseout", () => {
         customCursor.classList.remove("_big");
-        // TweenMax.to(
-        //   customCursor,
-        //   0.2,
-        //   // { width: "7vw", height: "7vw" },
-        //   { width: smallCursor, height: smallCursor }
-        // );
 
         TweenMax.to(el, 0.1, { x: 0, y: 0 });
       });
-      el.addEventListener("mouseover", e => {
+      el.addEventListener("mouseover", () => {
         customCursor.classList.add("_big");
-        // TweenMax.to(
-        //   customCursor,
-        //   0.2,
-        //   // { width: "42px", height: "42px" },
-        //   {
-        //     width: bigCursor,
-        //     height: bigCursor
-        //   }
-        // );
-        // console.log(cursorCoords.top - e.pageY);
-
-        // if (customCursor.pageX - elCoords.left > 0) {
-        //   elLeft = 10;
-        //   console.log(elLeft);
-        // }
-
-        // TweenMax.to(el, 0.1, { x: "10px", y: "10px" });
       });
     });
   }
@@ -129,9 +103,11 @@ class Question extends Component {
         >
           question
         </h3>
-        <h2 className="question__title lead-title" data-auto-show-slow>
-          {this.props.question.title}
-        </h2>
+        <h2
+          className="question__title lead-title"
+          data-auto-show-title={"3"}
+          dangerouslySetInnerHTML={{ __html: this.props.question.title }}
+        />
         <div className="question__btns nav-btns">
           <Link
             to={this.props.navProps.prev}

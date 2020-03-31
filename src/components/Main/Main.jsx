@@ -19,6 +19,7 @@ class Main extends Component {
     this.circleChanger();
     this.menuChanger();
     document.addEventListener("visibilitychange", this.visibilityHandler);
+    this.props.animation();
   }
 
   componentWillUnmount() {
@@ -155,12 +156,14 @@ class Main extends Component {
           </div>
           <div className="page-content">
             <div className="page-content__wrapper">
-              <h1 className="page-content__title lead-title" data-auto-show>
+              <h1
+                className="page-content__title lead-title"
+                data-auto-show-title
+              >
                 how
                 <br />
-                to&nbsp;find
-                <br />
-                a&nbsp;balance
+                to find
+                <br />a balance
               </h1>
               <div className="page-content__block">
                 <p className="page-content__text text" data-auto-show>
