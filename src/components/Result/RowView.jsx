@@ -20,14 +20,14 @@ class RowView extends Component {
     );
 
     resultCircles.map((el, i) => {
-      let delay = i + 1;
-      let duration = 0.2 * (resultCircles.length - 1);
+      let delay = i * 0.1;
+      let duration = 0.1 * (resultCircles.length - 1);
       el.style.left = `${12.5 * i}%`;
       resultBkg[i].style.opacity = 0;
       resultGrades[i].style.opacity = 0;
       TweenMax.fromTo(
         el,
-        0.8,
+        0.5,
         {
           width: 0,
           height: 0
@@ -47,7 +47,7 @@ class RowView extends Component {
 
       TweenMax.fromTo(
         resultGrades[i],
-        0.8,
+        0.5,
         {
           opacity: 0,
           marginLeft: "1vw"
