@@ -50,15 +50,36 @@ class Questions extends Component {
     let preloader = document.querySelector(".preloader");
     let preloaderImg = document.querySelector(".preloader__img");
     let preloaderText = document.querySelector(".preloader__content");
+    let logoText = document.querySelector(".preloader__text._center");
+    let leftText = document.querySelector(".preloader__text._left");
+    let rightText = document.querySelector(".preloader__text._right");
     let ease = "circ.out";
 
     TweenMax.fromTo(
       preloaderImg,
-      1.5,
-      { scale: 2.5 },
-      { scale: 1, ease: ease }
+      1,
+      { rotate: "90deg" },
+      { rotate: 0, ease: ease }
     );
-    TweenMax.to(preloaderText, 0.3, { opacity: 1, delay: 1.5, ease: ease });
+    TweenMax.to(preloaderText, 0.3, { opacity: 1, delay: 1, ease: ease });
+    TweenMax.fromTo(
+      logoText,
+      0.5,
+      { rotate: "180deg" },
+      { rotate: 0, delay: 1, ease: ease }
+    );
+    // TweenMax.fromTo(
+    //   leftText,
+    //   0.3,
+    //   { opacity: 0, x: -10 },
+    //   { opacity: 1, x: 0, delay: 2 }
+    // );
+    TweenMax.fromTo(
+      rightText,
+      0.3,
+      { opacity: 0, x: 10 },
+      { opacity: 1, x: 0, delay: 1.5, ease: ease }
+    );
     TweenMax.to(preloader, 0.5, {
       opacity: 0,
       zIndex: -100,
