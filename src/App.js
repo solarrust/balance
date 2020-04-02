@@ -91,6 +91,109 @@ class App extends React.Component {
     }
   };
 
+  strokeHoverHandler = () => {
+    let links = Array.from(document.querySelectorAll("[data-trigger-link]"));
+
+    let texts = this.strokeCopying();
+    let chars = Array.from(texts.original.querySelectorAll("span"));
+    let copyChars = Array.from(texts.copy.querySelectorAll("span"));
+    copyChars.forEach(ch => (ch.style.opacity = "0"));
+
+    links.forEach(link => {
+      link.onmouseenter = () => {
+        chars.forEach((ch, i) => {
+          TweenMax.fromTo(
+            ch,
+            0.2,
+            {
+              opacity: 1,
+              y: 0
+            },
+            {
+              opacity: 0,
+              y: -10,
+              delay: i * 0.03
+            }
+          );
+        });
+        copyChars.forEach((ch, i) => {
+          TweenMax.fromTo(
+            ch,
+            0.2,
+            {
+              opacity: 0,
+              y: -10
+            },
+            {
+              opacity: 1,
+              y: 0,
+              delay: 0.2 + i * 0.03
+            }
+          );
+        });
+      };
+
+      link.onmouseleave = () => {
+        chars.forEach((ch, i) => {
+          TweenMax.fromTo(
+            ch,
+            0.2,
+            {
+              opacity: 0,
+              y: -10
+            },
+            {
+              opacity: 1,
+              y: 0,
+              delay: 0.2 + i * 0.03
+            }
+          );
+        });
+        copyChars.forEach((ch, i) => {
+          TweenMax.fromTo(
+            ch,
+            0.2,
+            {
+              opacity: 1,
+              y: 0
+            },
+            {
+              opacity: 0,
+              y: -10,
+              delay: i * 0.03
+            }
+          );
+        });
+      };
+    });
+  };
+
+  strokeCopying = () => {
+    let text = document.querySelector("[data-triggered-text]");
+    let copyText;
+
+    if (text) {
+      let textClasses = text.classList;
+
+      copyText = document.createElement("h3");
+      copyText.classList = textClasses;
+      copyText.classList.add("_copy");
+      copyText.setAttribute("aria-hidden", "true");
+      copyText.innerHTML = text.innerHTML.replace(
+        /(?![^<]*>)[^<]/g,
+        c => `<span>${c}</span>`
+      );
+      text.after(copyText);
+
+      text.innerHTML = text.innerHTML.replace(
+        /(?![^<]*>)[^<]/g,
+        c => `<span>${c}</span>`
+      );
+    }
+
+    return { original: text, copy: copyText };
+  };
+
   render() {
     return (
       <>
@@ -110,12 +213,22 @@ class App extends React.Component {
           <Route
             path="/test"
             exact
-            component={() => <TestPage animation={this.textAutoShowing} />}
+            component={() => (
+              <TestPage
+                animation={this.textAutoShowing}
+                strokeAnimation={this.strokeHoverHandler}
+              />
+            )}
           />
           <Route
             path="/questions"
             exact
-            component={() => <Questions animation={this.textAutoShowing} />}
+            component={() => (
+              <Questions
+                animation={this.textAutoShowing}
+                strokeAnimation={this.strokeHoverHandler}
+              />
+            )}
           />
           <Route
             path="/results"

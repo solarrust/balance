@@ -6,42 +6,9 @@ import Arrow from "../SVG/Arrow";
 
 class TestPage extends React.Component {
   componentDidMount() {
-    this.hoverHandler();
+    this.props.strokeAnimation();
     this.props.animation();
   }
-
-  hoverHandler = () => {
-    let links = Array.from(document.querySelectorAll("[data-trigger-link]"));
-
-    let text = this.strokeCopying();
-
-    links.forEach(link => {
-      link.onmouseenter = () => {
-        text.classList.add("_triggered");
-      };
-
-      link.onmouseleave = () => {
-        text.classList.remove("_triggered");
-      };
-    });
-  };
-
-  strokeCopying = () => {
-    let text = document.querySelector("[data-triggered-text]");
-
-    if (text) {
-      let textClasses = text.classList;
-
-      let copyText = document.createElement("h3");
-      copyText.classList = textClasses;
-      copyText.classList.add("_copy");
-      copyText.setAttribute("aria-hidden", "true");
-      copyText.innerHTML = text.innerHTML;
-      text.after(copyText);
-    }
-
-    return text;
-  };
 
   render() {
     return (
@@ -64,9 +31,9 @@ class TestPage extends React.Component {
             data-animated-text
             data-triggered-text
           >
-            <span>are</span>
-            <span>you</span>
-            <span>ready?</span>
+            <div>are</div>
+            <div>you</div>
+            <div>ready?</div>
           </h3>
           <p className="test-text text" data-auto-show>
             To&nbsp;draw up&nbsp;your Balance Card we&nbsp;will ask eight

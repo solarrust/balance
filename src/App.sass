@@ -72,13 +72,12 @@ ul
 	-webkit-text-stroke: 1px rgba(#000, 0.4)
 	text-stroke: 1px rgba(#000, 0.4)
 	transition: all 0.2s
-	&._triggered
-		opacity: 0
+	& span
+		display: inline-block
 	&._copy
 		font-style: italic
-		opacity: 0
-		._triggered + &
-			opacity: 1
+		& span
+			display: inline-block
 
 .cursor
 	position: absolute
