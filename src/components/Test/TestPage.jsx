@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { TweenMax } from "gsap";
 import Arrow from "../SVG/Arrow";
 
 // TODO: добить плавное (побуквенное) изменение аутлайного текста по ховеру
@@ -8,6 +9,29 @@ class TestPage extends React.Component {
   componentDidMount() {
     this.props.strokeAnimation();
     this.props.animation();
+    this.linkHoverHandler();
+  }
+
+  linkHoverHandler() {
+    const link = document.querySelector("[data-trigger-link]");
+    const circle = document.querySelector("[data-animated-circle]");
+
+    function rise(e) {
+      if (e.type === "mouseenter") {
+        TweenMax.to(circle, 0.15, {
+          scale: 2.8,
+          ease: "circ.out"
+        });
+      } else {
+        TweenMax.to(circle, 0.15, {
+          scale: 1,
+          ease: "circ.out"
+        });
+      }
+    }
+
+    link.addEventListener("mouseenter", rise);
+    link.addEventListener("mouseleave", rise);
   }
 
   render() {
