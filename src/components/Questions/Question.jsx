@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Arrow from "../SVG/Arrow";
 import { TweenMax } from "gsap";
+import Arrow from "../SVG/Arrow";
 
 let numbers;
 let customCursor;
-
-// TODO: добить плавное (побуквенное) изменение аутлайного текста по ховеру
 
 class Question extends Component {
   constructor(props) {
@@ -22,16 +20,17 @@ class Question extends Component {
     this.cursorHoverHandler();
     this.props.animation();
     this.props.strokeAnimation();
+    this.props.linkParallax();
   }
 
   cursorHoverHandler() {
-    numbers.forEach(el => {
-      el.addEventListener("mouseout", () => {
+    numbers.forEach(number => {
+      number.addEventListener("mouseout", () => {
         customCursor.classList.remove("_big");
 
-        TweenMax.to(el, 0.1, { x: 0, y: 0 });
+        TweenMax.to(number, 0.1, { x: 0, y: 0 });
       });
-      el.addEventListener("mouseover", () => {
+      number.addEventListener("mouseover", () => {
         customCursor.classList.add("_big");
       });
     });
@@ -50,8 +49,13 @@ class Question extends Component {
         classList += ` ${choiceClass}`;
       }
       grades.push(
-        <li key={i} className={classList}>
-          <Link to={this.props.navProps.next} onClick={this.props.onChange}>
+        <li key={i} className={classList} data-parallax-link-scene>
+          <Link
+            to={this.props.navProps.next}
+            onClick={this.props.onChange}
+            data-parallax-link
+            data-depth="2"
+          >
             {i + 1}
           </Link>
         </li>

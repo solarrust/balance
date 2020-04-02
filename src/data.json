@@ -23,7 +23,7 @@
       "title": "how do you rate<br />your job",
       "range": ["I'm not happy with my work", "My work inspires me"],
       "bkg": "179.58deg, #E5D7C9 0.42%, #71A7B7 99.12%",
-      "preloaderImg": "img/preloader_work.jpg",
+      "preloaderImg": "preloader_work.jpg",
       "recommendations": {
         "low": "Problems at work bring an imbalance into your life. Try to build relationships with colleagues and drift towards growth. Or finally quit your job.",
         "middle": "You’re keeping an eye on business, and that’s commendable. Even if you don’t like it, you’ll find a way to fix it.",
@@ -39,7 +39,7 @@
         "I’m absolutely happy in my relationship"
       ],
       "bkg": "180deg, #A8ACB8 0%, #C9D1DE 100%",
-      "preloaderImg": "img/preloader_rel.jpg",
+      "preloaderImg": "preloader_rel.jpg",
       "recommendations": {
         "low": "The reason for the imbalance is your relationship with a partner. Perhaps they can still be reanimated. Talk frankly about what does not suit both of you and try to find a compromise.",
         "middle": "You and your partner get along well. Remember that we all have quarreling and crises.",
@@ -55,7 +55,7 @@
         "I can always depend on my relatives"
       ],
       "bkg": "0.02deg, #87B1CC 3.52%, #C3C9DD 99.99%",
-      "preloaderImg": "img/preloader_family.jpg",
+      "preloaderImg": "preloader_family.jpg",
       "recommendations": {
         "low": "Harmony in your life is violated by poor relationships with your family. Whatever the reason - the old offenses or your difficult characters - it’s worth going to reconciliation. After all, balance in the family is exactly what you are missing.",
         "middle": "May your relationship with your family not be perfect, but this area of life is very important for you. And you have every chance to achieve harmonious relations with your family.",
@@ -68,7 +68,7 @@
       "title": "how would you<br />rate your physical<br />condition",
       "range": ["Regularly ailments suffer", "I don’t have any problems"],
       "bkg": "179.58deg, #649677 0.42%, #D1C1B0 99.12%",
-      "preloaderImg": "img/preloader_health.jpg",
+      "preloaderImg": "preloader_health.jpg",
       "recommendations": {
         "low": "The weakest link in your balance card is health. It's time to take care of yourself: make an appointment with a doctor and start a healthy lifestyle. Seriously, that's nothing to joke about!",
         "middle": "It seems to be all right, but something is bothering you. Isn't it time get to a doctor?",
@@ -84,7 +84,7 @@
         "Chatting with friends inspires me"
       ],
       "bkg": "180deg, #D0C06B 0%, #DCAD9F 100%",
-      "preloaderImg": "img/preloader_friends.jpg",
+      "preloaderImg": "preloader_friends.jpg",
       "recommendations": {
         "low": "Relationship with friends and lack of socialization contribute to the imbalance in your card. To become happier, you need to renew friendships, make new friends and go out more often.",
         "middle": "You spend time with friends, but you can make this sphere of life even more harmonious.",
@@ -97,7 +97,7 @@
       "title": "how satisfied<br />are you with your<br />financial condition",
       "range": ["I earn frankly little", "I'm happy with my income"],
       "bkg": "180deg, #768CC4 0%, #CDBAB9 100%",
-      "preloaderImg": "img/preloader_finance.jpg",
+      "preloaderImg": "preloader_finance.jpg",
       "recommendations": {
         "low": "You can’t find balance due to financial problems. To gain confidence and peace of mind, try to find a reliable source of income and start saving your money regularly.",
         "middle": "You aren’t too worried about financial problems, but you haven’t yet reached the perfect balance in this area.",
@@ -113,7 +113,7 @@
         "Relax to charge for the whole week."
       ],
       "bkg": "0deg, #A5CFDB 0%, #ACB6C5 100%",
-      "preloaderImg": "img/preloader_relax.jpg",
+      "preloaderImg": "preloader_relax.jpg",
       "recommendations": {
         "low": "Balance is impossible if you have no time to take a break. Learn to plan your time, give up unnecessary obligations and remember - you aren’t married to the job!",
         "middle": "You know how to relax, but to achieve the perfect balance, you have to rest even more and better.",
@@ -129,7 +129,7 @@
         "Clearly see the goal and go to it"
       ],
       "bkg": "180deg, #B7635B 0%, #C4A693 100%",
-      "preloaderImg": "img/preloader_self.jpg",
+      "preloaderImg": "preloader_self.jpg",
       "recommendations": {
         "low": "Your main goal is to learn how to set and achieve goals. Do it, and your life will be in the right balance.",
         "middle": "You know how to set personal goals and achieve them, but sometimes you retreat before obstacles. Keep pumping this area!",

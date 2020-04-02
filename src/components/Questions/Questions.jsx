@@ -20,6 +20,9 @@ class Questions extends Component {
       active: 0
     };
     this.animation = this.props.animation;
+    this.strokeAnimation = this.props.strokeAnimation;
+    this.bkgParallax = this.props.bkgParallax;
+    this.linkParallax = this.props.linkParallax;
   }
 
   componentDidMount() {
@@ -30,6 +33,8 @@ class Questions extends Component {
     document.addEventListener("click", () => {
       sessionStorage.setItem("grades", this.grades.join("/"));
     });
+
+    this.bkgParallax();
   }
 
   componentWillUnmount() {
@@ -51,7 +56,6 @@ class Questions extends Component {
     let preloaderImg = document.querySelector(".preloader__img");
     let preloaderText = document.querySelector(".preloader__content");
     let logoText = document.querySelector(".preloader__text._center");
-    let leftText = document.querySelector(".preloader__text._left");
     let rightText = document.querySelector(".preloader__text._right");
     let ease = "circ.out";
 
@@ -100,6 +104,22 @@ class Questions extends Component {
       return this.grades[index];
     }
   };
+
+  bgImage(props) {
+    let imageUrl = require(`../../img/${props}`);
+
+    return (
+      <img
+        className="preloader__img"
+        // style={{ backgroundImage: `url(${imageUrl})` }}
+        src={imageUrl}
+        rel="prefetch"
+        rel="preload"
+        alt={"preloader photo"}
+        aria-hidden={true}
+      />
+    );
+  }
 
   render() {
     return (
@@ -156,7 +176,7 @@ class Questions extends Component {
                                 background: `linear-gradient(${question.bkg})`
                               }}
                             >
-                              <div className="preloader__img" />
+                              {this.bgImage(question.preloaderImg)}
                               <div className="preloader__content">
                                 <span className="preloader__text _left">
                                   balance
@@ -175,12 +195,13 @@ class Questions extends Component {
                               </div>
                             </div>
 
-                            <div
-                              className="page questions"
-                              style={{
-                                background: `linear-gradient(${question.bkg})`
-                              }}
-                            >
+                            <div className="page questions">
+                              <div
+                                className={"questions__bkg"}
+                                style={{
+                                  background: `linear-gradient(${question.bkg})`
+                                }}
+                              />
                               <Question
                                 index={i}
                                 question={question}
@@ -189,6 +210,8 @@ class Questions extends Component {
                                 navProps={navPropsObj}
                                 grades={this.grades}
                                 animation={this.animation}
+                                strokeAnimation={this.strokeAnimation}
+                                linkParallax={this.linkParallax}
                               />
                             </div>
                           </>

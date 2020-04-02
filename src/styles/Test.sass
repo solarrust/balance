@@ -82,6 +82,14 @@
 			transform: scale(1)
 
 .questions
+	position: relative
+	&__bkg
+		position: absolute
+		top: 0
+		left: 0
+		width: 110vmax
+		height: 110vmax
+		transform: rotate(0deg)
 	& > div
 		width: 100%
 		height: 100%
@@ -132,6 +140,7 @@
 	display: flex
 	justify-content: space-between
 	width: 100%
+	padding-top: 2vw
 	&__item
 		position: relative
 		display: flex
@@ -153,8 +162,6 @@
 			display: flex
 			justify-content: center
 			align-items: center
-			width: 100%
-			height: 100%
 			z-index: 10
 			color: currentColor
 			text-decoration: navajowhite
@@ -245,6 +252,7 @@
 			//size: auto 110vh
 			size: cover
 		will-change: transform, opacity
+		object-fit: cover
 	&__content
 		display: flex
 		justify-content: center

@@ -8,6 +8,7 @@ import TestPage from "./components/Test/TestPage";
 import Header from "./components/Header/Header";
 import Questions from "./components/Questions/Questions";
 import Result from "./components/Result/Result";
+import Parallax from "parallax-js";
 
 let customCursor;
 
@@ -194,10 +195,29 @@ class App extends React.Component {
     return { original: text, copy: copyText };
   };
 
+  bkgParallax() {}
+
+  linksParallax() {
+    let links = document.querySelectorAll("[data-parallax-link]");
+
+    console.log(links);
+
+    links.forEach(link => {
+      let scene = link.parentElement;
+      let parallaxInstance = new Parallax(scene, {
+        relativeInput: true,
+        hoverOnly: true,
+        invertX: false,
+        invertY: false,
+        pointerEvents: true
+      });
+    });
+  }
+
   render() {
     return (
       <>
-        <Header />
+        <Header linkParallax={this.linksParallax} />
 
         <Switch>
           <Route
@@ -227,6 +247,8 @@ class App extends React.Component {
               <Questions
                 animation={this.textAutoShowing}
                 strokeAnimation={this.strokeHoverHandler}
+                bkgParallax={this.bkgParallax}
+                linkParallax={this.linksParallax}
               />
             )}
           />
