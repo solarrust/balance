@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { TweenMax } from "gsap";
 import Menu from "../Main/Menu";
+import Parallax from "parallax-js";
 let resultCircles;
 let parent;
 let circleSize = 93;
@@ -17,6 +18,7 @@ class ColView extends Component {
     );
     parent = document.querySelector(".results-wrapper");
     this.innerAnimation();
+    // this.circlesParallax();
   }
 
   innerAnimation() {
@@ -94,6 +96,22 @@ class ColView extends Component {
     ].style.backgroundImage = `linear-gradient(${this.props.items[index].bkg})`;
   }
 
+  // circlesParallax() {
+  //   let circles = document.querySelectorAll("[data-parallax]");
+  //
+  //   circles.forEach(circle => {
+  //     let scene = circle.parentElement;
+  //     let parallaxInstance = new Parallax(scene, {
+  //       relativeInput: true,
+  //       clipRelativeInput: true,
+  //       hoverOnly: true,
+  //       invertX: false,
+  //       invertY: false,
+  //       pointerEvents: true
+  //     });
+  //   });
+  // }
+
   render() {
     let levels = [];
     this.props.grades.map((grade, i) => {
@@ -148,12 +166,10 @@ class ColView extends Component {
               </span>
               <span
                 className={"test-menu__circle"}
-                style={
-                  {
-                    // background: `linear-gradient(${question.bkg})`
-                  }
-                }
+                data-parallax
+                data-depth="0.5"
               />
+
               <span className={"test-menu__grade"}>{this.props.grades[i]}</span>
             </li>
           ))}

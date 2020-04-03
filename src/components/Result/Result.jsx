@@ -14,7 +14,7 @@ class Result extends Component {
     super(props);
     this.grades = [];
     this.state = {
-      view: "row-view"
+      view: "col-view"
     };
     this.resultCircles = [];
   }

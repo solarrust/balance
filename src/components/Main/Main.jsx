@@ -43,74 +43,76 @@ class Main extends Component {
     let circleParent = document.querySelector(".main-circles");
     let circleItems = Array.from(document.querySelectorAll(".main-circle"));
 
-    if (index === 0 || !index) {
-      circleItems.forEach(el => el.classList.remove("_half"));
-      circleRise();
-    }
-
-    function animateCircles(el) {
-      let compStylesCircle = window.getComputedStyle(circleItems[index]);
-      let circleWidth = parseInt(compStylesCircle.getPropertyValue("width"));
-
-      if (!index) {
-        TweenMax.to(el, 0, { x: 0 });
-      } else {
-        TweenMax.to(el, animationTime * 3, {
-          x: -(circleWidth * index) + "px"
-        });
-      }
-
+    if (circleParent) {
       if (index === 0 || !index) {
         circleItems.forEach(el => el.classList.remove("_half"));
+        circleRise();
       }
-    }
 
-    function circleRise() {
-      let items = Array.from(document.querySelectorAll(".main-circle"));
-      let firstItem = items[0];
-      // firstItem.style.transform = "matrix(1, 0, 0, 0.1, 0, 0)";
+      function animateCircles(el) {
+        let compStylesCircle = window.getComputedStyle(circleItems[index]);
+        let circleWidth = parseInt(compStylesCircle.getPropertyValue("width"));
 
-      TweenMax.fromTo(
-        firstItem,
-        1,
-        { scale: animationTime },
-        { scale: 1, ease: Power1.easeOut }
-      );
-    }
+        if (!index) {
+          TweenMax.to(el, 0, { x: 0 });
+        } else {
+          TweenMax.to(el, animationTime * 3, {
+            x: -(circleWidth * index) + "px"
+          });
+        }
 
-    function shrinkCircle(el) {
-      // TweenMax.fromTo(
-      //   el,
-      //   0.5,
-      //   { scale: 1 },
-      //   {
-      //     scale: 0.99,
-      //     ease: Power1.easeOut
-      //   }
-      // );
-      el.classList.add("_half");
-    }
-
-    function stretchCircle(el) {
-      // TweenMax.fromTo(
-      //   el,
-      //   1.5,
-      //   { scale: 0.5 },
-      //   {
-      //     scale: 1,
-      //     ease: Power1.easeOut
-      //   }
-      // );
-    }
-
-    this.circleChangerInterval = setInterval(() => {
-      index < circleItems.length - 1 ? index++ : (index = 0);
-      animateCircles(circleParent);
-      if (index > 0) {
-        shrinkCircle(circleItems[index - 1]);
+        if (index === 0 || !index) {
+          circleItems.forEach(el => el.classList.remove("_half"));
+        }
       }
-      stretchCircle(circleItems[index]);
-    }, 5000);
+
+      function circleRise() {
+        let items = Array.from(document.querySelectorAll(".main-circle"));
+        let firstItem = items[0];
+        // firstItem.style.transform = "matrix(1, 0, 0, 0.1, 0, 0)";
+
+        TweenMax.fromTo(
+          firstItem,
+          1,
+          { scale: animationTime },
+          { scale: 1, ease: Power1.easeOut }
+        );
+      }
+
+      function shrinkCircle(el) {
+        // TweenMax.fromTo(
+        //   el,
+        //   0.5,
+        //   { scale: 1 },
+        //   {
+        //     scale: 0.99,
+        //     ease: Power1.easeOut
+        //   }
+        // );
+        el.classList.add("_half");
+      }
+
+      function stretchCircle(el) {
+        // TweenMax.fromTo(
+        //   el,
+        //   1.5,
+        //   { scale: 0.5 },
+        //   {
+        //     scale: 1,
+        //     ease: Power1.easeOut
+        //   }
+        // );
+      }
+
+      this.circleChangerInterval = setInterval(() => {
+        index < circleItems.length - 1 ? index++ : (index = 0);
+        animateCircles(circleParent);
+        if (index > 0) {
+          shrinkCircle(circleItems[index - 1]);
+        }
+        stretchCircle(circleItems[index]);
+      }, 5000);
+    }
   }
 
   menuChanger() {

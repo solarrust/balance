@@ -80,12 +80,12 @@ class App extends React.Component {
         Array.from(autoShowingText.children).forEach((ch, i) => {
           TweenMax.fromTo(
             ch,
-            0.25,
+            0.15,
             {
               opacity: 0,
               y: 25
             },
-            { opacity: 1, y: 0, delay: i * 0.05 }
+            { opacity: 1, y: 0, delay: i * 0.03 }
           );
         });
       }, delay);
@@ -100,72 +100,56 @@ class App extends React.Component {
     let copyChars = Array.from(texts.copy.querySelectorAll("span"));
     copyChars.forEach(ch => (ch.style.opacity = "0"));
 
-    links.forEach(link => {
-      link.onmouseenter = () => {
-        chars.forEach((ch, i) => {
-          TweenMax.fromTo(
-            ch,
-            0.2,
-            {
-              opacity: 1,
-              y: 0
-            },
-            {
-              opacity: 0,
-              y: -10,
-              delay: i * 0.03
-            }
-          );
-        });
-        copyChars.forEach((ch, i) => {
-          TweenMax.fromTo(
-            ch,
-            0.2,
-            {
-              opacity: 0,
-              y: -10
-            },
-            {
-              opacity: 1,
-              y: 0,
-              delay: 0.2 + i * 0.03
-            }
-          );
-        });
-      };
+    function italicShown() {
+      this.removeEventListener("mouseleave", italicHidden);
+      setTimeout(() => {
+        this.addEventListener("mouseleave", italicHidden);
+      }, 1000);
 
-      link.onmouseleave = () => {
-        chars.forEach((ch, i) => {
-          TweenMax.fromTo(
-            ch,
-            0.2,
-            {
-              opacity: 0,
-              y: -10
-            },
-            {
-              opacity: 1,
-              y: 0,
-              delay: 0.2 + i * 0.03
-            }
-          );
+      chars.forEach((ch, i) => {
+        TweenMax.to(ch, 0.2, {
+          opacity: 0,
+          y: -10,
+          delay: 0.15 + i * 0.03
         });
-        copyChars.forEach((ch, i) => {
-          TweenMax.fromTo(
-            ch,
-            0.2,
-            {
-              opacity: 1,
-              y: 0
-            },
-            {
-              opacity: 0,
-              y: -10,
-              delay: i * 0.03
-            }
-          );
+      });
+      copyChars.forEach((ch, i) => {
+        ch.style.translateY = -10;
+        TweenMax.to(ch, 0.2, {
+          opacity: 1,
+          y: 0,
+          delay: 0.35 + i * 0.05
         });
-      };
+      });
+    }
+
+    function italicHidden() {
+      this.removeEventListener("mouseenter", italicShown);
+      setTimeout(() => {
+        this.addEventListener("mouseenter", italicShown);
+      }, 1000);
+      chars.forEach((ch, i) => {
+        ch.style.translateY = -10;
+
+        TweenMax.to(ch, 0.2, {
+          opacity: 1,
+          y: 0,
+          delay: 0.35 + i * 0.03
+        });
+      });
+      copyChars.forEach((ch, i) => {
+        TweenMax.to(ch, 0.2, {
+          opacity: 0,
+          y: -10,
+          delay: 0.15 + i * 0.05
+        });
+      });
+    }
+
+    links.forEach(link => {
+      link.addEventListener("mouseenter", italicShown);
+
+      link.addEventListener("mouseleave", italicHidden);
     });
   };
 
