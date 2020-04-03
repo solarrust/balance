@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { TweenMax } from "gsap";
+import Parallax from "parallax-js";
 
 class RowView extends Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class RowView extends Component {
 
   componentDidMount() {
     this.innerAnimation();
+    this.circlesParallax();
   }
 
   innerAnimation = () => {
@@ -61,18 +63,36 @@ class RowView extends Component {
     });
   };
 
+  circlesParallax() {
+    let circles = document.querySelectorAll("[data-parallax]");
+
+    circles.forEach(circle => {
+      let scene = circle.parentElement;
+      let parallaxInstance = new Parallax(scene, {
+        relativeInput: true,
+        clipRelativeInput: true,
+        hoverOnly: true
+      });
+    });
+  }
+
   render() {
     return (
       <div className="results-wrapper _row">
         {this.props.grades.map((grade, i) => {
           return (
             <div className={"result-circle"} index={i} key={i}>
-              <div
-                className={"result-circle__bkg"}
-                style={{
-                  backgroundImage: `linear-gradient(${this.props.items[i].bkg})`
-                }}
-              />
+              <div data-parallax-scene>
+                <div
+                  className={"result-circle__bkg"}
+                  style={{
+                    backgroundImage: `linear-gradient(${this.props.items[i].bkg})`
+                  }}
+                  data-parallax
+                  data-depth="0.5"
+                />
+              </div>
+
               <div className="result-circle__name">
                 {this.props.items[i].sphere}
               </div>

@@ -200,12 +200,11 @@ class App extends React.Component {
   linksParallax() {
     let links = document.querySelectorAll("[data-parallax-link]");
 
-    console.log(links);
-
     links.forEach(link => {
       let scene = link.parentElement;
       let parallaxInstance = new Parallax(scene, {
         relativeInput: true,
+        clipRelativeInput: true,
         hoverOnly: true,
         invertX: false,
         invertY: false,
