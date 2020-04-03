@@ -20,6 +20,7 @@ class Main extends Component {
     this.menuChanger();
     document.addEventListener("visibilitychange", this.visibilityHandler);
     this.props.animation();
+    this.props.linkParallax();
   }
 
   componentWillUnmount() {
@@ -174,7 +175,10 @@ class Main extends Component {
                   attitude and start living a&nbsp;full life.
                 </p>
                 <Link to="/test" className="page-content__link link">
-                  start <Arrow />
+                  start
+                  <div data-parallax-link-scene>
+                    <Arrow />
+                  </div>
                 </Link>
               </div>
             </div>

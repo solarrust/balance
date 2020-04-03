@@ -9,6 +9,7 @@ class TestPage extends React.Component {
   componentDidMount() {
     this.props.strokeAnimation();
     this.props.animation();
+    this.props.linkParallax();
     this.linkHoverHandler();
   }
 
@@ -72,7 +73,10 @@ class TestPage extends React.Component {
             className="page-content__link test-link link"
             data-trigger-link
           >
-            Let&rsquo;s go <Arrow />
+            Let&rsquo;s go{" "}
+            <div data-parallax-link-scene>
+              <Arrow />
+            </div>
           </Link>
         </div>
       </div>

@@ -223,7 +223,12 @@ class App extends React.Component {
           <Route
             path="/"
             exact
-            component={() => <Main animation={this.textAutoShowing} />}
+            component={() => (
+              <Main
+                animation={this.textAutoShowing}
+                linkParallax={this.linksParallax}
+              />
+            )}
           />
           <Route
             path="/about"
@@ -237,6 +242,7 @@ class App extends React.Component {
               <TestPage
                 animation={this.textAutoShowing}
                 strokeAnimation={this.strokeHoverHandler}
+                linkParallax={this.linksParallax}
               />
             )}
           />
