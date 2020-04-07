@@ -77,10 +77,10 @@ class App extends React.Component {
         Array.from(autoShowingText.children).forEach((ch, i) => {
           TweenMax.fromTo(
             ch,
-            0.15,
+            0.1,
             {
               opacity: 0,
-              y: 25
+              y: 5
             },
             { opacity: 1, y: 0, delay: i * 0.03 }
           );
