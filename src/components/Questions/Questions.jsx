@@ -5,6 +5,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Question from "./Question";
 import data from "../../data";
 import Menu from "../Main/Menu";
+import QuestionPreloader from "./QuestionPreloader";
 
 // TODO: отключить меню навигации перед выкатом на бой
 // TODO: при выборе оценки на последнем вопросе перекидывать на страницу результатов
@@ -17,7 +18,8 @@ class Questions extends Component {
     this.props = props;
     this.grades = [];
     this.state = {
-      active: 0
+      active: 0,
+      angle: 180
     };
     this.animation = this.props.animation;
     this.strokeAnimation = this.props.strokeAnimation;
@@ -105,22 +107,6 @@ class Questions extends Component {
     }
   };
 
-  bgImage(props) {
-    let imageUrl = require(`../../img/${props}`);
-
-    return (
-      <img
-        className="preloader__img"
-        // style={{ backgroundImage: `url(${imageUrl})` }}
-        src={imageUrl}
-        rel="prefetch"
-        rel="preload"
-        alt={"preloader photo"}
-        aria-hidden={true}
-      />
-    );
-  }
-
   render() {
     return (
       <HashRouter>
@@ -133,7 +119,7 @@ class Questions extends Component {
                 timeout={600}
               >
                 <Switch location={location}>
-                  {questions.map((question, i) => {
+                  {questions.map((question, idx) => {
                     let navPropsObj = {
                       next: false,
                       nextClass: "_hidden",
@@ -143,23 +129,23 @@ class Questions extends Component {
                       resultClass: "_hidden"
                     };
 
-                    if (i === 0) {
-                      navPropsObj.next = `${questions[i + 1].link}`;
-                      if (this.grades[i] && this.grades[i] !== 0) {
+                    if (idx === 0) {
+                      navPropsObj.next = `${questions[idx + 1].link}`;
+                      if (this.grades[idx] && this.grades[idx] !== 0) {
                         navPropsObj.nextClass = "_visible";
                       }
-                    } else if (i === questions.length - 1) {
-                      navPropsObj.prev = `${questions[i - 1].link}`;
+                    } else if (idx === questions.length - 1) {
+                      navPropsObj.prev = `${questions[idx - 1].link}`;
                       navPropsObj.prevClass = "_visible";
                       if (this.grades.length === 8) {
                         navPropsObj.resultClass = "_visible";
                       }
                     } else {
-                      navPropsObj.next = `${questions[i + 1].link}`;
+                      navPropsObj.next = `${questions[idx + 1].link}`;
 
-                      navPropsObj.prev = `${questions[i - 1].link}`;
+                      navPropsObj.prev = `${questions[idx - 1].link}`;
                       navPropsObj.prevClass = "_visible";
-                      if (this.grades[i] && this.grades[i] !== 0) {
+                      if (this.grades[idx] && this.grades[idx] !== 0) {
                         navPropsObj.nextClass = "_visible";
                       }
                     }
@@ -170,40 +156,22 @@ class Questions extends Component {
                         path={`/${question.link}`}
                         render={() => (
                           <>
-                            <div
-                              className={`preloader test-card__preloader question__preloader _${i}`}
-                              style={{
-                                background: `linear-gradient(${question.bkg})`
-                              }}
-                            >
-                              {this.bgImage(question.preloaderImg)}
-                              <div className="preloader__content">
-                                <span className="preloader__text _left">
-                                  balance
-                                </span>
-                                <div className="preloader__logo inner-logo">
-                                  <div className="inner-logo__circle _half" />
-                                  <div className="inner-logo__circle _full">
-                                    <span className="preloader__text _center">
-                                      your
-                                    </span>
-                                  </div>
-                                </div>
-                                <span className="preloader__text _right">
-                                  {question.sphere}
-                                </span>
-                              </div>
-                            </div>
+                            <QuestionPreloader
+                              gradient={question.bkg}
+                              image={question.preloaderImg}
+                              sphere={question.sphere}
+                              index={idx}
+                            />
 
                             <div className="page questions">
-                              <div
-                                className={"questions__bkg"}
-                                style={{
-                                  background: `linear-gradient(${question.bkg})`
-                                }}
-                              />
+                              {/*<div*/}
+                              {/*  className={"questions__bkg"}*/}
+                              {/*  style={{*/}
+                              {/*    background: `linear-gradient(${this.state.angle}deg, ${question.bkg})`*/}
+                              {/*  }}*/}
+                              {/*/>*/}
                               <Question
-                                index={i}
+                                index={idx}
                                 question={question}
                                 onChange={this.handleChange}
                                 onQuestionChange={this.questionChanged}

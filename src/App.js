@@ -10,6 +10,8 @@ import Questions from "./components/Questions/Questions";
 import Result from "./components/Result/Result";
 import Parallax from "parallax-js";
 
+// TODO: подключить nanoid и заменить все ключи
+
 let customCursor;
 
 class App extends React.Component {
@@ -23,15 +25,10 @@ class App extends React.Component {
   cursorMoverHandler = () => {
     document.addEventListener("mousemove", e => {
       let cursorCoords = customCursor.getBoundingClientRect();
-      TweenMax.fromTo(
-        customCursor,
-        0.05,
-        {},
-        {
-          top: `${e.pageY - cursorCoords.width / 2}px`,
-          left: `${e.pageX - cursorCoords.width / 2}px`
-        }
-      );
+      TweenMax.to(customCursor, 0.05, {
+        top: `${e.pageY - cursorCoords.width / 2}px`,
+        left: `${e.pageX - cursorCoords.width / 2}px`
+      });
     });
 
     this.cursorHoverHandler();

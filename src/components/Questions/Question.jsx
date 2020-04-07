@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { TweenMax } from "gsap";
 import Arrow from "../SVG/Arrow";
+let Granim = require("granim");
 
 let numbers;
 let customCursor;
@@ -21,6 +22,25 @@ class Question extends Component {
     this.props.animation();
     this.props.strokeAnimation();
     this.props.linkParallax();
+    this.gradientCanvas(this.props.question.bkg);
+  }
+
+  gradientCanvas(gradient) {
+    const reg = /(?:#)[0-9a-f]{8}|(?:#)[0-9a-f]{6}|(?:#)[0-9a-f]{4}|(?:#)[0-9a-f]{3}/gi;
+    const colorsArr = gradient.match(reg);
+    const colorsArrReversed = colorsArr.slice();
+    colorsArrReversed.reverse();
+
+    var granimInstance = new Granim({
+      element: ".questions__bkg",
+      direction: "top-bottom",
+      isPausedWhenNotInView: true,
+      states: {
+        "default-state": {
+          gradients: [colorsArr, colorsArrReversed]
+        }
+      }
+    });
   }
 
   cursorHoverHandler() {
@@ -37,22 +57,19 @@ class Question extends Component {
   }
 
   render() {
-    const grades = [];
+    const { index, question, navProps, grades, onChange } = this.props;
+    const gradesNodes = [];
     for (let i = 0; i < 10; i++) {
       let classList = "grade__item";
       const choiceClass = "_choice";
-      if (
-        this.props.grades[this.props.index] &&
-        this.props.grades[this.props.index] !== "" &&
-        this.props.grades[this.props.index] - 1 == i
-      ) {
+      if (grades[index] && grades[index] !== "" && grades[index] - 1 == i) {
         classList += ` ${choiceClass}`;
       }
-      grades.push(
+      gradesNodes.push(
         <li key={i} className={classList} data-parallax-link-scene>
           <Link
-            to={this.props.navProps.next}
-            onClick={this.props.onChange}
+            to={navProps.next}
+            onClick={onChange}
             data-parallax-link
             data-depth="2"
           >
@@ -63,51 +80,55 @@ class Question extends Component {
     }
 
     return (
-      <div className="test-card question">
-        <div className="counter question-counter">
-          <span className="counter__number">{this.props.index + 1}</span>
-          <span className="counter__static"> of 8</span>
-        </div>
-        <h3
-          className="question__decoration _stroke-text bkg-title"
-          data-triggered-text
-        >
-          question
-        </h3>
-        <h2
-          className="question__title lead-title"
-          data-auto-show-title={"3"}
-          dangerouslySetInnerHTML={{ __html: this.props.question.title }}
-        />
-        <div className="question__btns nav-btns">
-          <Link
-            to={this.props.navProps.prev}
-            className={`question__btn link _prev ${this.props.navProps.prevClass}`}
-          >
-            <Arrow />
-            prev
-          </Link>
-          <Link
-            to={this.props.navProps.next}
-            className={`question__btn link _next ${this.props.navProps.nextClass}`}
-          >
-            next <Arrow />
-          </Link>
+      <>
+        <canvas className="questions__bkg" />
 
-          <a
-            href="/results"
-            className={`question__btn link _next ${this.props.navProps.resultClass}`}
+        <div className="test-card question">
+          <div className="counter question-counter">
+            <span className="counter__number">{index + 1}</span>
+            <span className="counter__static"> of 8</span>
+          </div>
+          <h3
+            className="question__decoration _stroke-text bkg-title"
+            data-triggered-text
           >
-            results
-            <Arrow />
-          </a>
+            question
+          </h3>
+          <h2
+            className="question__title lead-title"
+            data-auto-show-title="3"
+            dangerouslySetInnerHTML={{ __html: question.title }}
+          />
+          <div className="question__btns nav-btns">
+            <Link
+              to={navProps.prev}
+              className={`question__btn link _prev ${navProps.prevClass}`}
+            >
+              <Arrow />
+              prev
+            </Link>
+            <Link
+              to={navProps.next}
+              className={`question__btn link _next ${navProps.nextClass}`}
+            >
+              next <Arrow />
+            </Link>
+
+            <a
+              href="/results"
+              className={`question__btn link _next ${navProps.resultClass}`}
+            >
+              results
+              <Arrow />
+            </a>
+          </div>
+          <ul className="question-grade grade" data-trigger-link>
+            {gradesNodes.map(gradeNode => gradeNode)}
+          </ul>
+          <div className="grade__note _low">{question.range[0]}</div>
+          <div className="grade__note _high">{question.range[1]}</div>
         </div>
-        <ul className="question-grade grade" data-trigger-link>
-          {grades.map(grade => grade)}
-        </ul>
-        <div className="grade__note _low">{this.props.question.range[0]}</div>
-        <div className="grade__note _high">{this.props.question.range[1]}</div>
-      </div>
+      </>
     );
   }
 }
