@@ -30,6 +30,7 @@ $circleChangeTime: 1.5s
 .arrow
 	cursor: pointer
 	position: relative
+	display: flex
 	width: 80px
 	padding: 40px 0
 	//height: 45px
@@ -43,24 +44,32 @@ $circleChangeTime: 1.5s
 		background-color: currentColor
 		left: 0
 		transition: width 0.2s
-		&::after
-			content: ''
-			position: absolute
-			width: 25px
-			height: 2px
-			top: -8px
-			right: -4px
-			background-color: currentColor
-			transform: rotate(45deg)
+		&::after,
 		&::before
 			content: ''
 			position: absolute
 			width: 25px
 			height: 2px
-			top: 8px
 			right: -4px
 			background-color: currentColor
+		&::after
+			top: -8px
+			transform: rotate(45deg)
+		&::before
+			top: 8px
 			transform: rotate(-45deg)
+	._prev &
+		margin-left: 0
+		margin-right: 20px
+		& span
+			margin-left: auto
+			&::after,
+			&::before
+				left: -4px
+				right: auto
+				transform: rotate(45deg)
+			&::after
+				transform: rotate(-45deg)
 
 a:hover .arrow
 	& span
