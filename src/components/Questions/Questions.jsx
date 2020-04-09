@@ -6,6 +6,7 @@ import Question from "./Question";
 import data from "../../data";
 import Menu from "../Main/Menu";
 import QuestionPreloader from "./QuestionPreloader";
+let Granim = require("granim");
 
 // TODO: отключить меню навигации перед выкатом на бой
 // TODO: при выборе оценки на последнем вопросе перекидывать на страницу результатов
@@ -107,6 +108,50 @@ class Questions extends Component {
     }
   };
 
+  gradientCanvas(gradient, prelGradient) {
+    const reg = /(?:#)[0-9a-f]{8}|(?:#)[0-9a-f]{6}|(?:#)[0-9a-f]{4}|(?:#)[0-9a-f]{3}/gi;
+    const colorsArr = gradient.match(reg);
+    const colorsArrReversed = colorsArr.slice();
+    colorsArrReversed.reverse();
+
+    let canvasEls = Array.from(document.querySelectorAll("[data-gradient]"));
+
+    let gradientColors = [colorsArrReversed, colorsArr];
+
+    canvasEls.forEach(cEl => {
+      if (cEl.getAttribute("data-gradient") === "preloader") {
+        let prevGrad = prelGradient.match(reg);
+        let bigGradArr = gradientColors.slice();
+        bigGradArr.unshift(prevGrad);
+        console.log(bigGradArr);
+        var granimInstance = new Granim({
+          element: cEl,
+          direction: "top-bottom",
+          stateTransitionSpeed: 500,
+          states: {
+            "default-state": {
+              gradients: bigGradArr,
+              loop: false,
+              transitionSpeed: 1000
+            }
+          }
+        });
+      } else {
+        var granimInstance = new Granim({
+          element: cEl,
+          direction: "top-bottom",
+          isPausedWhenNotInView: true,
+          states: {
+            "default-state": {
+              gradients: gradientColors,
+              transitionSpeed: 2500
+            }
+          }
+        });
+      }
+    });
+  }
+
   render() {
     return (
       <HashRouter>
@@ -150,6 +195,14 @@ class Questions extends Component {
                       }
                     }
 
+                    let prevGradient;
+
+                    if (idx === 0) {
+                      prevGradient = "#71A7B7 0, #cedbe4 100%";
+                    } else {
+                      prevGradient = questions[idx - 1].bkg;
+                    }
+
                     return (
                       <Route
                         key={question.link}
@@ -158,9 +211,11 @@ class Questions extends Component {
                           <>
                             <QuestionPreloader
                               gradient={question.bkg}
+                              prevGradient={prevGradient}
                               image={question.preloaderImg}
                               sphere={question.sphere}
                               index={idx}
+                              gradientAnimation={this.gradientCanvas}
                             />
 
                             <div className="page questions">
@@ -170,16 +225,19 @@ class Questions extends Component {
                               {/*    background: `linear-gradient(${this.state.angle}deg, ${question.bkg})`*/}
                               {/*  }}*/}
                               {/*/>*/}
+
                               <Question
                                 index={idx}
                                 question={question}
                                 onChange={this.handleChange}
                                 onQuestionChange={this.questionChanged}
                                 navProps={navPropsObj}
+                                prevGradient={prevGradient}
                                 grades={this.grades}
                                 animation={this.animation}
                                 strokeAnimation={this.strokeAnimation}
                                 linkParallax={this.linkParallax}
+                                gradientAnimation={this.gradientCanvas}
                               />
                             </div>
                           </>

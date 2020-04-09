@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { TweenMax } from "gsap";
 import Arrow from "../SVG/Arrow";
-let Granim = require("granim");
 
 let numbers;
 let customCursor;
@@ -18,29 +17,15 @@ class Question extends Component {
     customCursor = document.querySelector(".cursor");
 
     this.props.onQuestionChange(this.props.index);
-    this.cursorHoverHandler();
     this.props.animation();
     this.props.strokeAnimation();
     this.props.linkParallax();
-    this.gradientCanvas(this.props.question.bkg);
-  }
+    this.props.gradientAnimation(
+      this.props.question.bkg,
+      this.props.prevGradient
+    );
 
-  gradientCanvas(gradient) {
-    const reg = /(?:#)[0-9a-f]{8}|(?:#)[0-9a-f]{6}|(?:#)[0-9a-f]{4}|(?:#)[0-9a-f]{3}/gi;
-    const colorsArr = gradient.match(reg);
-    const colorsArrReversed = colorsArr.slice();
-    colorsArrReversed.reverse();
-
-    var granimInstance = new Granim({
-      element: ".questions__bkg",
-      direction: "top-bottom",
-      isPausedWhenNotInView: true,
-      states: {
-        "default-state": {
-          gradients: [colorsArr, colorsArrReversed]
-        }
-      }
-    });
+    this.cursorHoverHandler();
   }
 
   cursorHoverHandler() {
@@ -81,7 +66,7 @@ class Question extends Component {
 
     return (
       <>
-        <canvas className="questions__bkg" />
+        <canvas className="questions__bkg" data-gradient />
 
         <div className="test-card question">
           <div className="counter question-counter">

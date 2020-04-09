@@ -48,7 +48,7 @@
 		width: 93.75vw
 		height: 93.75vw
 		border-radius: 50%
-		background-image: linear-gradient(359.5deg, rgba(229, 215, 201, 0) -8.55%, #71A7B7 102.42%)
+		background-image: linear-gradient(#71A7B7 0, #cedbe4 100%)
 
 .test-link
 	position: absolute
@@ -104,6 +104,17 @@
 	& > div
 		width: 100%
 		height: 100%
+
+[data-gradient]
+	position: absolute
+	display: block
+	width: 100%
+	height: 100%
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	z-index: -1
 
 .question
 	&__title
