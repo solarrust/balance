@@ -52,7 +52,13 @@ function About() {
                           className="about-card__img-block"
                           aria-hidden="true"
                         >
-                          <img className="about-card__img" src={img} alt="" />
+                          <img
+                            className="about-card__img"
+                            src={img}
+                            alt=""
+                            rel="prefetch"
+                            rel="preload"
+                          />
                         </div>
                         <div className="page-content__block about-card-content">
                           <p className="page-content__text text" data-auto-show>
@@ -137,6 +143,8 @@ function About() {
                             backgroundImage: `url(${CircleBkg})`
                           }}
                           aria-hidden="true"
+                          rel="prefetch"
+                          rel="preload"
                         >
                           <div
                             className="about-decoration _small-circle"
@@ -186,6 +194,8 @@ function About() {
                           style={{
                             backgroundImage: `url(${GooseBkg})`
                           }}
+                          rel="prefetch"
+                          rel="preload"
                         />
 
                         <div className="page-content__block about-card-content">
