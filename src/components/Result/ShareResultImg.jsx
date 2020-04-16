@@ -29,7 +29,7 @@ class ShareResultImg extends Component {
   }
 
   render() {
-    return <canvas width={1000} height={1000} />;
+    return <canvas width={1000} height={1000} className="result-canvas" />;
   }
 }
 

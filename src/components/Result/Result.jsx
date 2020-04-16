@@ -14,12 +14,16 @@ class Result extends Component {
     super(props);
     this.grades = [];
     this.state = {
-      view: "row-view"
+      view: "row-view",
+      shareImgReady: false
     };
     this.resultCircles = [];
   }
 
   componentDidMount() {
+    this.blobPolyfill();
+    setTimeout(this.sharePicGeneration, 500);
+
     this.grades =
       sessionStorage.getItem("grades").length > 0
         ? sessionStorage.getItem("grades").split("/")
@@ -42,31 +46,87 @@ class Result extends Component {
     }
   };
 
+  blobPolyfill() {
+    if (!HTMLCanvasElement.prototype.toBlob) {
+      Object.defineProperty(HTMLCanvasElement.prototype, "toBlob", {
+        value: function(callback, type, quality) {
+          var canvas = this;
+          setTimeout(function() {
+            var binStr = atob(canvas.toDataURL(type, quality).split(",")[1]),
+              len = binStr.length,
+              arr = new Uint8Array(len);
+
+            for (var i = 0; i < len; i++) {
+              arr[i] = binStr.charCodeAt(i);
+            }
+
+            callback(new Blob([arr], { type: type || "image/png" }));
+          });
+        }
+      });
+    }
+  }
+
+  shareBtnsContentGenerator() {
+    if (this.state.shareImgReady) {
+      let img = document.querySelector("img.result-img");
+      let shareBtns = document.querySelectorAll("a.react-sharing-button__link");
+      // shareBtns.forEach(btn => {
+      //   btn.url = img.src;
+      // });
+    }
+  }
+
   sharePicGeneration = () => {
-    html2canvas(document.querySelector(".results-wrapper._row")).then(function(
-      canvas
-    ) {
-      document.body.appendChild(canvas);
-    });
+    let canvas;
+    html2canvas(document.querySelector("#root"), {
+      backgroundColor: "#e1dcdb",
+      ignoreElements: function(el) {
+        return (
+          el.classList.contains("view-icons") ||
+          el.classList.contains("share-btns") ||
+          el.classList.contains("link") ||
+          el.classList.contains("cursor")
+        );
+      }
+    })
+      .then(function(canvas) {
+        document.body.appendChild(canvas);
+      })
+      .then(function() {
+        canvas = document.querySelector("canvas");
+        canvas.toBlob(function(blob) {
+          let newImg = document.createElement("img"),
+            url = URL.createObjectURL(blob);
 
-    let canvas = document.getElementsByTagName("canvas");
-    // let resultImg = canvas.toDataURL();
-    console.log(canvas);
+          newImg.classList.add("result-img");
 
-    // console.log(resultImg);
-    // let aLink = document.createElement("a");
-    // let evt = document.createEvent("HTMLEvents");
-    // evt.initEvent("click");
-    // aLink.download = "image.png";
-    // aLink.href = resultImg;
-    // aLink.dispatchEvent(evt);
-    // return resultImg;
+          newImg.onload = function() {
+            URL.revokeObjectURL(url);
+          };
+
+          let reader = new FileReader();
+          reader.readAsDataURL(blob);
+
+          reader.onload = function() {
+            newImg.src = reader.result;
+            shareImgURLExtractor(reader.result);
+          };
+        });
+      });
+
+    function shareImgURLExtractor(URL) {
+      let metaOG = document.createElement("meta");
+      metaOG.setAttribute("property", "og:image");
+      metaOG.content = URL;
+
+      document.head.appendChild(metaOG);
+    }
   };
 
   //TODO: добавить кнопки шеринга
   //TODO: вызывать скриншот по клику на кнопку шеринга
   render() {
-    console.log(this.grades.length);
     if (this.grades.length > 0) {
       return (
         <div className="main results page">
