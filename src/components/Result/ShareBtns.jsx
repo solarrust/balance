@@ -3,11 +3,14 @@ import { Facebook, Twitter } from "react-sharingbuttons";
 
 class ShareBtns extends Component {
   render() {
+    const url = `${window.location.hostname}/share.html`;
+    const shareText = "Check this site!";
+
     return (
       <div className="share-btns">
-        <Facebook url={`${window.location.hostname}/share.html`} />
+        <Facebook url={url} text={shareText} />
         {/*<Facebook url="https://balance-test.herokuapp.com/" />*/}
-        <Twitter url={`${window.location.hostname}/share.html`} />
+        <Twitter url={url} shareText={shareText} />
         {/*<Twitter url="http://balance.com/" />*/}
       </div>
     );
