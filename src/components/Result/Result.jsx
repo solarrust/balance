@@ -4,10 +4,10 @@ import RowView from "./RowView";
 import ColView from "./ColView";
 import html2canvas from "html2canvas";
 import ShareBtns from "./ShareBtns";
+import UploadClient from "@uploadcare/upload-client";
 
+const client = new UploadClient({ publicKey: "83c160907f01bd6a3574" });
 const { questions } = data;
-
-// TODO: заглушка для страницы результатов, когда тест не пройден
 
 class Result extends Component {
   constructor(props) {
@@ -21,8 +21,7 @@ class Result extends Component {
   }
 
   componentDidMount() {
-    this.blobPolyfill();
-    setTimeout(this.sharePicGeneration, 500);
+    setTimeout(this.sharePicGeneration, 1500);
 
     this.grades =
       sessionStorage.getItem("grades").length > 0
@@ -46,38 +45,7 @@ class Result extends Component {
     }
   };
 
-  blobPolyfill() {
-    if (!HTMLCanvasElement.prototype.toBlob) {
-      Object.defineProperty(HTMLCanvasElement.prototype, "toBlob", {
-        value: function(callback, type, quality) {
-          var canvas = this;
-          setTimeout(function() {
-            var binStr = atob(canvas.toDataURL(type, quality).split(",")[1]),
-              len = binStr.length,
-              arr = new Uint8Array(len);
-
-            for (var i = 0; i < len; i++) {
-              arr[i] = binStr.charCodeAt(i);
-            }
-
-            callback(new Blob([arr], { type: type || "image/png" }));
-          });
-        }
-      });
-    }
-  }
-
-  shareBtnsContentGenerator() {
-    if (this.state.shareImgReady) {
-      let img = document.querySelector("img.result-img");
-      let shareBtns = document.querySelectorAll("a.react-sharing-button__link");
-      // shareBtns.forEach(btn => {
-      //   btn.url = img.src;
-      // });
-    }
-  }
-
-  sharePicGeneration = () => {
+  sharePicGeneration = (data, options) => {
     let canvas;
     html2canvas(document.querySelector("#root"), {
       backgroundColor: "#e1dcdb",
@@ -96,36 +64,28 @@ class Result extends Component {
       .then(function() {
         canvas = document.querySelector("canvas");
         canvas.toBlob(function(blob) {
-          let newImg = document.createElement("img"),
-            url = URL.createObjectURL(blob);
-
-          newImg.classList.add("result-img");
-
-          newImg.onload = function() {
-            URL.revokeObjectURL(url);
-          };
-
-          let reader = new FileReader();
-          reader.readAsDataURL(blob);
-
-          reader.onload = function() {
-            newImg.src = reader.result;
-            shareImgURLExtractor(reader.result);
-          };
+          shareImgURLExtractor(blob);
         });
       });
 
-    function shareImgURLExtractor(URL) {
-      let metaOG = document.createElement("meta");
-      metaOG.setAttribute("property", "og:image");
-      metaOG.content = URL;
+    function shareBtnsContentGenerator(UUID) {
+      let btns = Array.from(
+        document.querySelectorAll(".react-sharing-button__link")
+      );
 
-      document.head.appendChild(metaOG);
+      btns.forEach(btn => {
+        let href = btn.getAttribute("href");
+        btn.setAttribute("href", `${href}/${UUID}`);
+      });
+    }
+
+    function shareImgURLExtractor(URL) {
+      client
+        .uploadFile(URL, options)
+        .then(file => shareBtnsContentGenerator(file.uuid));
     }
   };
 
-  //TODO: добавить кнопки шеринга
-  //TODO: вызывать скриншот по клику на кнопку шеринга
   render() {
     if (this.grades.length > 0) {
       return (
@@ -153,7 +113,7 @@ class Result extends Component {
               column view
             </label>
           </div>
-          <ShareBtns onClick={this.sharePicGeneration} />
+          <ShareBtns />
 
           {this.state.view === "row-view" ? (
             <>
@@ -168,7 +128,6 @@ class Result extends Component {
               items={questions}
               grades={this.grades}
               circles={this.resultCircles}
-              resultPic={this.sharePicGeneration}
             />
           )}
         </div>

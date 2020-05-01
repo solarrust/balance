@@ -17,9 +17,13 @@ $circleChangeTime: 1.5s
 		align-items: flex-end
 		width: 100%
 	&__block
+		align-items: flex-end
 		flex: 0 0 35vw
 		max-width: 475px
 		margin-left: 14vw
+		@media (max-width: 1366px)
+			margin-left: 7.3vw
+
 	&__text
 		color: rgba(0, 0, 0, 0.6)
 	&__link
@@ -32,7 +36,7 @@ $circleChangeTime: 1.5s
 	position: relative
 	display: flex
 	width: 50px
-	padding: 40px 0
+	padding: 20px 0
 	//height: 45px
 	margin-left: 20px
 	& span
@@ -93,6 +97,8 @@ $circleChangeTime: 1.5s
 		transition: color 0.5s ease-in
 		&:not(:last-child)
 			margin-bottom: 1.56vw
+			@media (max-width: 1366px)
+				margin-bottom: 18px
 		&._active,
 		&.active
 			color: rgba(0, 0, 0, 1)

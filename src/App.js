@@ -9,18 +9,35 @@ import Header from "./components/Header/Header";
 import Questions from "./components/Questions/Questions";
 import Result from "./components/Result/Result";
 import Parallax from "parallax-js";
+import Share from "./pages/Share.js";
 
 // TODO: подключить nanoid и заменить все ключи
 
 let customCursor;
 
 class App extends React.Component {
+  state = {
+    data: null
+  };
   componentDidMount() {
     customCursor = document.querySelector(".cursor");
 
     this.cursorMoverHandler();
     this.textAutoShowing();
+    // this.callBackendAPI()
+    //   .then(res => this.setState({ data: res.express }))
+    //   .catch(err => console.log(err));
   }
+  //
+  // callBackendAPI = async () => {
+  //   const response = await fetch("/share/:uuid");
+  //   const body = await response.json();
+  //
+  //   if (response.status !== 200) {
+  //     throw Error(body.message);
+  //   }
+  //   return body;
+  // };
 
   cursorMoverHandler = () => {
     document.addEventListener("mousemove", e => {
@@ -243,6 +260,7 @@ class App extends React.Component {
             exact
             component={() => <Result animation={this.textAutoShowing} />}
           />
+          {/*<Route path="/share" component={Share} />*/}
         </Switch>
 
         <div className="cursor" />

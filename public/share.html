@@ -19,18 +19,25 @@
       property="og:description"
       content="Be in a balance in all spheres of your life!"
     />
-    <meta
-      property="og:image"
-      content="http://balance-test.herokuapp.com/balance-card.jpg"
-    />
+    <!-- <meta property="og:image"
+    content= /> -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
-      name="twitter:site"
+      name="twitter:website"
       content="http://balance-test.herokuapp.com/share.html"
+    />
+    <meta
+      property="og:img"
+      content="https://ucarecdn.com/<%= uuid %>/-/preview/1200x628/"
     />
   </head>
   <body>
     <script>
+      // let uuid = "test";
+      // let link = document.createElement("meta");
+      // link.setAttribute("property", "og:image");
+      // link.content = `https://ucarecdn.com/${uuid}/-/preview/1200x628/`;
+      // document.getElementsByTagName("head")[0].appendChild(link);
       window.location.href = "/";
     </script>
   </body>

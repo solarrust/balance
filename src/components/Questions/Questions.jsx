@@ -123,7 +123,6 @@ class Questions extends Component {
         let prevGrad = prelGradient.match(reg);
         let bigGradArr = gradientColors.slice();
         bigGradArr.unshift(prevGrad);
-        console.log(bigGradArr);
         var granimInstance = new Granim({
           element: cEl,
           direction: "top-bottom",
