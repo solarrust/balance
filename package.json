@@ -28,9 +28,9 @@
     "styled-components": "^4.4.1"
   },
   "scripts": {
-    "start": "react-scripts start && node start src/server.js",
-    "build": "react-scripts build && node start src/server.js",
-    "test": "react-scripts test && node start src/server.js"
+    "start": "react-scripts start && npm i && node start src/server.js",
+    "build": "react-scripts build && npm i && node start src/server.js",
+    "test": "react-scripts test && npm i && node start src/server.js"
   },
   "proxy": "http://localhost:8080",
   "eslintConfig": {
@@ -59,6 +59,7 @@
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "nanoid": "^2.1.10",
+    "nodemon": "^2.0.3",
     "prettier": "^1.19.1"
   }
 }
