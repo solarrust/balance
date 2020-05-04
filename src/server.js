@@ -5,6 +5,8 @@ const fs = require("fs");
 
 const app = express();
 
+app.use(require("prerender-node"));
+
 app.use(express.static(path.join("build")));
 
 app.get("/share/:uuid", function(req, res) {
@@ -26,4 +28,4 @@ app.get("/", function(req, res) {
   res.sendFile(path.join("build", "index.html"));
 });
 
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 80);
