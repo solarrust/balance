@@ -24,8 +24,8 @@ app.get("/share/:uuid", function(req, res) {
 //   console.log("Sent list of items");
 // });
 
-// app.get("/", function(req, res) {
-//   res.sendFile(path.join(__dirname, "build", "index.html"));
-// });
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 app.listen(process.env.PORT || 80);
