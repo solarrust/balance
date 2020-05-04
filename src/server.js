@@ -12,7 +12,7 @@ app.use(express.static(path.join("build")));
 app.get("/share/:uuid", function(req, res) {
   let uuid = req.params.uuid;
   // res.render(path.join(__dirname, "../build", "share.html"), { uuid: uuid });
-  let data = fs.readFileSync(path.join(__dirname, "../build", "share.html"));
+  let data = fs.readFileSync(path.join("build", "share.html"));
   if (data) {
     res.send(data.toString().replace("<%= uuid %>", uuid));
   }
