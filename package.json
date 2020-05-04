@@ -28,9 +28,9 @@
     "styled-components": "^4.4.1"
   },
   "scripts": {
-    "start": "node start src/server.js && npm i && react-scripts start",
-    "build": "node start src/server.js && npm i && react-scripts build",
-    "test": "node start src/server.js && npm i && react-scripts test"
+    "start": "node src/server.js && npm i && react-scripts start",
+    "build": "node src/server.js && npm i && react-scripts build",
+    "test": "node src/server.js && npm i && react-scripts test"
   },
   "proxy": "http://localhost:8080",
   "eslintConfig": {
