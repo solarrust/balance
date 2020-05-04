@@ -7,7 +7,7 @@ const app = express();
 
 app.use(require("prerender-node"));
 
-app.use(express.static(path.join("build")));
+app.use(express.static(path.join("build"), { index: false }));
 
 app.get("/share/:uuid", function(req, res) {
   let uuid = req.params.uuid;
@@ -18,11 +18,11 @@ app.get("/share/:uuid", function(req, res) {
   }
 });
 
-app.get("/api/getList", (req, res) => {
-  var list = ["item1", "item2", "item3"];
-  res.json(list);
-  console.log("Sent list of items");
-});
+// app.get("/api/getList", (req, res) => {
+//   var list = ["item1", "item2", "item3"];
+//   res.json(list);
+//   console.log("Sent list of items");
+// });
 
 app.get("/", function(req, res) {
   res.sendFile(path.join("build", "index.html"));
