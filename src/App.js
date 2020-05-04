@@ -24,20 +24,20 @@ class App extends React.Component {
 
     this.cursorMoverHandler();
     this.textAutoShowing();
-    // this.callBackendAPI()
-    //   .then(res => this.setState({ data: res.express }))
-    //   .catch(err => console.log(err));
+    this.callBackendAPI()
+      .then(res => this.setState({ data: res.express }))
+      .catch(err => console.log(err));
   }
   //
-  // callBackendAPI = async () => {
-  //   const response = await fetch("/share/:uuid");
-  //   const body = await response.json();
-  //
-  //   if (response.status !== 200) {
-  //     throw Error(body.message);
-  //   }
-  //   return body;
-  // };
+  callBackendAPI = async () => {
+    const response = await fetch("/share/:uuid");
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message);
+    }
+    return body;
+  };
 
   cursorMoverHandler = () => {
     document.addEventListener("mousemove", e => {
