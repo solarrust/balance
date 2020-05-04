@@ -26,7 +26,8 @@
     "react-share": "^4.1.0",
     "react-sharingbuttons": "^1.0.0",
     "react-transition-group": "^4.3.0",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "@uploadcare/upload-client": "^1.1.2"
   },
   "scripts": {
     "start": "npm run build && node server.js",
@@ -50,7 +51,6 @@
     ]
   },
   "devDependencies": {
-    "@uploadcare/upload-client": "^1.1.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",
