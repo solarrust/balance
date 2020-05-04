@@ -12,7 +12,7 @@ app.use(express.static(path.join("build"), { index: false }));
 app.get("/share/:uuid", function(req, res) {
   let uuid = req.params.uuid;
   // res.render(path.join(__dirname, "../build", "share.html"), { uuid: uuid });
-  let data = fs.readFileSync(path.join("build", "share.html"));
+  let data = fs.readFileSync(path.join(__dirname, "build", "share.html"));
   if (data) {
     res.send(data.toString().replace("<%= uuid %>", uuid));
   }
@@ -25,7 +25,7 @@ app.get("/share/:uuid", function(req, res) {
 // });
 
 app.get("/", function(req, res) {
-  res.sendFile(path.join("build", "index.html"));
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.listen(process.env.PORT || 80);
