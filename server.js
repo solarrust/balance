@@ -36,6 +36,10 @@ app.get("/share/:uuid", function(req, res) {
       content="https://balance-test.herokuapp.com/"
     />
     <meta
+      property="twitter:image"
+      content="https://ucarecdn.com/<% uuid %>/-/preview/share.jpeg"
+    />
+    <meta
       property="og:image"
       content="https://ucarecdn.com/<% uuid %>/-/preview/share.jpeg"
     />
