@@ -11,11 +11,57 @@ app.use(express.static(path.join("build"), { index: false }));
 
 app.get("/share/:uuid", function(req, res) {
   const { uuid } = req.params;
-  const data = fs.readFileSync(path.join(__dirname, "build", "share.html"));
-  if (data) {
-    res.write(data.toString().replace("uuid", uuid));
-    res.end();
-  }
+
+  const html = `
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Balance</title>
+
+    <meta property="og:url" content="https://balance-test.herokuapp.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Balance: test your life" />
+    <meta
+      property="og:description"
+      content="Be in a balance in all spheres of your life!"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:website"
+      content="https://balance-test.herokuapp.com/"
+    />
+    <meta
+      property="og:img"
+      content="https://ucarecdn.com/${uuid}/-/preview/share.jpeg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="628" />
+  </head>
+  <body>
+    <script>
+      // let uuid = "test";
+      // let link = document.createElement("meta");
+      // link.setAttribute("property", "og:image");
+      // link.content = \`https://ucarecdn.com/${uuid}/-/preview/1200x628/\`;
+      // document.getElementsByTagName("head")[0].appendChild(link);
+      // window.location.href = "/";
+    </script>
+  </body>
+</html>
+  `;
+  // const data = fs.readFileSync(path.join(__dirname, "build", "share.html"));
+  // if (data) {
+  //   res.write(data.toString().replace("uuid", uuid));
+  //   res.end();
+  // }
+  res.end(html);
 });
 
 // app.get("/api/getList", (req, res) => {
