@@ -64,6 +64,8 @@ app.get("/share/:uuid", function(req, res) {
   //   res.write(data.toString().replace("uuid", uuid));
   //   res.end();
   // }
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/html");
   res.end(newHtml);
 });
 
