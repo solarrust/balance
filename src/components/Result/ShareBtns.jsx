@@ -3,7 +3,8 @@ import { Facebook, Twitter } from "react-sharingbuttons";
 
 class ShareBtns extends Component {
   render() {
-    const url = `${__dirname}/share`;
+    const local = window.location.hostname;
+    const url = `${local}/share`;
     const shareText = "Check this site!";
 
     return (

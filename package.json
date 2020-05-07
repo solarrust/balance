@@ -30,9 +30,10 @@
     "@uploadcare/upload-client": "^1.1.2"
   },
   "scripts": {
-    "start": "npm run build && node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "heroku": "npm run build && node server.js"
   },
   "proxy": "http://localhost:80",
   "eslintConfig": {
