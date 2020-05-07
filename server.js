@@ -10,13 +10,11 @@ app.use(require("prerender-node"));
 app.use(express.static(path.join("build"), { index: false }));
 
 app.get("/share/:uuid", function(req, res) {
-  let uuid = req.params.uuid;
-  let currentURL = `${window.location.protocol}//${window.location.hostname}`;
-  // res.render(path.join(__dirname, "../build", "share.html"), { uuid: uuid });
-  let data = fs.readFileSync(path.join(__dirname, "build", "share.html"));
+  const { uuid } = req.params;
+  const data = fs.readFileSync(path.join(__dirname, "build", "share.html"));
   if (data) {
-    res.send(data.toString().replace("uuid", uuid));
-    res.send(data.toString().replace("%PUBLIC_URL%", currentURL));
+    res.write(data.toString().replace("uuid", uuid));
+    res.end();
   }
 });
 

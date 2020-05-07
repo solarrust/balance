@@ -33,7 +33,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "heroku": "npm run build && node server.js"
+    "heroku": "npm run build && node server"
   },
   "proxy": "http://localhost:80",
   "eslintConfig": {
