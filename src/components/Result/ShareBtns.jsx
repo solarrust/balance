@@ -3,7 +3,7 @@ import { Facebook, Twitter } from "react-sharingbuttons";
 
 class ShareBtns extends Component {
   render() {
-    const url = `http://balance-test.herokuapp.com/share`;
+    const url = `${__dirname}/share`;
     const shareText = "Check this site!";
 
     return (
