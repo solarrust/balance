@@ -37,7 +37,7 @@ app.get("/share/:uuid", function(req, res) {
       content="https://balance-test.herokuapp.com/"
     />
     <meta
-      property="og:img"
+      property="og:image"
       content="https://ucarecdn.com/${uuid}/-/preview/share.jpeg"
     />
     <meta property="og:image:type" content="image/jpeg" />
@@ -53,6 +53,7 @@ app.get("/share/:uuid", function(req, res) {
       // document.getElementsByTagName("head")[0].appendChild(link);
       // window.location.href = "/";
     </script>
+    <img src="https://ucarecdn.com/${uuid}/-/preview/1200x628/share.jpeg" alt="">
   </body>
 </html>
   `;
