@@ -47,9 +47,6 @@ app.get("/share/:uuid", function(req, res) {
     <meta property="og:image:height" content="628" />
   </head>
   <body>
-    <script>
-      window.location.href = "/";
-    </script>
     <img src="https://ucarecdn.com/<% uuid %>/-/preview/1200x628/share.jpeg" alt="">
   </body>
 </html>
