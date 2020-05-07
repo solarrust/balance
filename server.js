@@ -36,6 +36,13 @@ app.get("/share/:uuid", function(req, res) {
       name="twitter:website"
       content="https://balance-test.herokuapp.com/"
     />
+    <meta
+      property="og:image"
+      content="https://ucarecdn.com/<% uuid %>/-/preview/share.jpeg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="628" />
   </head>
   <body>
     <script>
@@ -46,16 +53,18 @@ app.get("/share/:uuid", function(req, res) {
       // document.getElementsByTagName("head")[0].appendChild(link);
       // window.location.href = "/";
     </script>
-    <img src="https://ucarecdn.com/${uuid}/-/preview/1200x628/share.jpeg" alt="">
+    <img src="https://ucarecdn.com/<% uuid %>/-/preview/1200x628/share.jpeg" alt="">
   </body>
 </html>
   `;
+
+  const newHtml = html.replace(/<% uuid %>/g, uuid);
   // const data = fs.readFileSync(path.join(__dirname, "build", "share.html"));
   // if (data) {
   //   res.write(data.toString().replace("uuid", uuid));
   //   res.end();
   // }
-  res.end(html);
+  res.end(newHtml);
 });
 
 // app.get("/api/getList", (req, res) => {
