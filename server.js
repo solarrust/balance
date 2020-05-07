@@ -14,7 +14,7 @@ app.get("/share/:uuid", function(req, res) {
   // res.render(path.join(__dirname, "../build", "share.html"), { uuid: uuid });
   let data = fs.readFileSync(path.join(__dirname, "build", "share.html"));
   if (data) {
-    res.send(data.toString().replace("<%= uuid %>", uuid));
+    res.send(data.toString().replace("uuid", uuid));
   }
 });
 
