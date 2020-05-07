@@ -217,7 +217,9 @@ canvas
 	position: absolute
 	bottom: 70px
 	left: 60px
+	opacity: 0
 	z-index: 100
+	animation: rise 0.5s ease-out 1500ms 1 forwards
 
 canvas
 	z-index: -1000 !important
@@ -228,3 +230,9 @@ canvas
 	visibility: hidden
 	opacity: 0
 	z-index: -1000
+
+@keyframes rise
+	0%
+		opacity: 0
+	100%
+		opacity: 1
