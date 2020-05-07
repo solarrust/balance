@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const fs = require("fs");
 
 const app = express();
 
@@ -49,12 +48,7 @@ app.get("/share/:uuid", function(req, res) {
   </head>
   <body>
     <script>
-      // let uuid = "test";
-      // let link = document.createElement("meta");
-      // link.setAttribute("property", "og:image");
-      // link.content = \`https://ucarecdn.com/${uuid}/-/preview/1200x628/\`;
-      // document.getElementsByTagName("head")[0].appendChild(link);
-      // window.location.href = "/";
+      window.location.href = "/";
     </script>
     <img src="https://ucarecdn.com/<% uuid %>/-/preview/1200x628/share.jpeg" alt="">
   </body>
@@ -62,19 +56,8 @@ app.get("/share/:uuid", function(req, res) {
   `;
 
   const newHtml = html.replace(/<% uuid %>/g, uuid);
-  // const data = fs.readFileSync(path.join(__dirname, "build", "share.html"));
-  // if (data) {
-  //   res.write(data.toString().replace("uuid", uuid));
-  //   res.end();
-  // }
   res.send(newHtml);
 });
-
-// app.get("/api/getList", (req, res) => {
-//   var list = ["item1", "item2", "item3"];
-//   res.json(list);
-//   console.log("Sent list of items");
-// });
 
 app.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
