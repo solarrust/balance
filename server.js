@@ -24,7 +24,6 @@ app.get("/share/:uuid", function(req, res) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Balance</title>
 
-    <meta property="og:url" content="https://balance-test.herokuapp.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Balance: test your life" />
     <meta
