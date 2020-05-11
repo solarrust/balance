@@ -47,18 +47,12 @@ app.get("/share/:uuid", function(req, res) {
     <meta property="og:image:height" content="628" />
   </head>
   <body>
-    <script>
-		 setTimeout(() => {
-			document.addEventListener('DOMContentLoaded', () => {
-				 window.location.href = "/";
-			 })
-		 }, 500)
-    </script>
   </body>
 </html>
   `;
 
   const newHtml = html.replace(/<% uuid %>/gi, uuid);
+  console.log(req.headers["user-agent"]);
   res.send(newHtml);
 });
 
