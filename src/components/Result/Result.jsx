@@ -37,7 +37,7 @@ class Result extends Component {
       );
     }
 
-    setTimeout(this.sharePicGeneration, 1500);
+    setTimeout(this.sharePicGeneration, 1700);
   }
 
   viewSwitchHandler = () => {
