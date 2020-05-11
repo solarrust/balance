@@ -66,10 +66,10 @@ class TestPage extends React.Component {
             parameters, which will help&nbsp;us to&nbsp;identify how satisfied
             you are with this area. Your task is&nbsp;to&nbsp;evaluate the
             parameters on&nbsp;a&nbsp;scale from 1&nbsp;to&nbsp;10.
-            <div className="_medium-text">
+            <span className="_medium-text">
               And one more thing&nbsp;&mdash; please, answer as&nbsp;honestly
               as&nbsp;possible!
-            </div>
+            </span>
           </p>
           <Link
             to="/questions"

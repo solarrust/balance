@@ -7,13 +7,14 @@
     "node": "12.13.1"
   },
   "dependencies": {
+    "@uploadcare/upload-client": "^1.1.2",
     "express": "^4.17.1",
     "granim": "^2.0.0",
-    "gsap": "^2.1.3",
+    "gsap": "^3.2.6",
     "html2canvas": "^1.0.0-rc.5",
-    "moment": "^2.25.1",
+    "moment": "^2.25.3",
     "moment-timezone": "^0.5.28",
-    "node-sass": "^4.14.0",
+    "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
     "parallax-js": "^3.1.0",
     "prerender-node": "^3.2.5",
@@ -21,13 +22,12 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-inlinesvg": "^1.2.0",
-    "react-router-dom": "^5.1.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.1.1",
     "react-share": "^4.1.0",
     "react-sharingbuttons": "^1.0.0",
-    "react-transition-group": "^4.3.0",
-    "styled-components": "^4.4.1",
-    "@uploadcare/upload-client": "^1.1.2"
+    "react-transition-group": "^4.4.1",
+    "styled-components": "^4.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

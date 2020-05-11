@@ -8,10 +8,11 @@ class QuestionPreloader extends Component {
       <img
         className="preloader__img"
         src={imageUrl}
-        rel="prefetch"
         rel="preload"
         alt="preloader photo"
         aria-hidden="true"
+        width="110vh"
+        height="110vh"
       />
     );
   }

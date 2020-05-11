@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TweenMax } from "gsap";
+import gsap from "gsap";
 import { HashRouter, NavLink, Redirect, Route, Switch } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Question from "./Question";
@@ -62,37 +62,55 @@ class Questions extends Component {
     let rightText = document.querySelector(".preloader__text._right");
     let ease = "circ.out";
 
-    TweenMax.fromTo(
-      preloaderImg,
-      1,
-      { rotate: "90deg" },
-      { rotate: 0, ease: ease }
-    );
-    TweenMax.to(preloaderText, 0.3, { opacity: 1, delay: 1, ease: ease });
-    TweenMax.fromTo(
-      logoText,
-      0.5,
-      { rotate: "180deg" },
-      { rotate: 0, delay: 1, ease: ease }
-    );
+    let tl = gsap.timeline();
+
+    tl.to(preloaderImg, 0.3, { opacity: 1 })
+      .fromTo(preloaderImg, 1.7, { rotation: 90 }, { rotation: 0, ease: ease })
+      .to(preloaderText, 0.3, { opacity: 1, ease: ease })
+      .fromTo(logoText, 0.5, { rotation: 180 }, { rotation: 0, ease: ease })
+      .fromTo(
+        rightText,
+        0.3,
+        { opacity: 0, x: 10 },
+        { opacity: 1, x: 0, ease: ease }
+      )
+      .to(preloader, 0.5, {
+        opacity: 0,
+        zIndex: -100,
+        ease: ease
+      });
+
+    // TweenMax.fromTo(
+    //   preloaderImg,
+    //   1,
+    //   { rotation: 90 },
+    //   { rotation: 0, ease: ease }
+    // );
+    // TweenMax.to(preloaderText, 0.3, { opacity: 1, delay: 1, ease: ease });
+    // TweenMax.fromTo(
+    //   logoText,
+    //   0.5,
+    //   { rotation: 180 },
+    //   { rotation: 0, delay: 1, ease: ease }
+    // );
     // TweenMax.fromTo(
     //   leftText,
     //   0.3,
     //   { opacity: 0, x: -10 },
     //   { opacity: 1, x: 0, delay: 2 }
     // );
-    TweenMax.fromTo(
-      rightText,
-      0.3,
-      { opacity: 0, x: 10 },
-      { opacity: 1, x: 0, delay: 1.5, ease: ease }
-    );
-    TweenMax.to(preloader, 0.5, {
-      opacity: 0,
-      zIndex: -100,
-      delay: 3,
-      ease: ease
-    });
+    // TweenMax.fromTo(
+    //   rightText,
+    //   0.3,
+    //   { opacity: 0, x: 10 },
+    //   { opacity: 1, x: 0, delay: 1.5, ease: ease }
+    // );
+    // TweenMax.to(preloader, 0.5, {
+    //   opacity: 0,
+    //   zIndex: -100,
+    //   delay: 3,
+    //   ease: ease
+    // });
     // TweenMax.to(preloader, 0.5, { opacity: 0, zIndex: -1, delay: 5 });
     // TweenMax.to(preloader, 0.5, {
     //   scale: 1,
@@ -165,11 +183,11 @@ class Questions extends Component {
                 <Switch location={location}>
                   {questions.map((question, idx) => {
                     let navPropsObj = {
-                      next: false,
+                      next: "*",
                       nextClass: "_hidden",
-                      prev: false,
+                      prev: "*",
                       prevClass: "_hidden",
-                      result: false,
+                      result: "*",
                       resultClass: "_hidden"
                     };
 
