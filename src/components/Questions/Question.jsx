@@ -47,7 +47,7 @@ class Question extends Component {
     for (let i = 0; i < 10; i++) {
       let classList = "grade__item";
       const choiceClass = "_choice";
-      if (grades[index] && grades[index] !== "" && grades[index] - 1 == i) {
+      if (grades[index] && grades[index] !== "" && grades[index] - 1 === i) {
         classList += ` ${choiceClass}`;
       }
       gradesNodes.push(
