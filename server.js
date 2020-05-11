@@ -48,9 +48,11 @@ app.get("/share/:uuid", function(req, res) {
   </head>
   <body>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        window.location.href = "/";
-      });
+		 setTimeout(() => {
+			document.addEventListener('DOMContentLoaded', () => {
+				 window.location.href = "/";
+			 })
+		 }, 500)
     </script>
   </body>
 </html>
