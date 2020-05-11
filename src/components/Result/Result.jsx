@@ -20,18 +20,24 @@ class Result extends Component {
   }
 
   componentDidMount() {
-    setTimeout(this.sharePicGeneration, 1500);
+    if (!sessionStorage.getItem("grades")) {
+      window.location.href = "/";
+    } else {
+      if (sessionStorage.getItem("grades").length > 0) {
+        this.grades = sessionStorage.getItem("grades").split("/");
+      } else {
+        this.grades = [];
+      }
+    }
 
-    this.grades =
-      sessionStorage.getItem("grades").length > 0
-        ? sessionStorage.getItem("grades").split("/")
-        : [];
     if (this.grades.length > 0) {
       this.viewSwitchHandler();
       this.resultCircles = Array.from(
         document.querySelectorAll(".results-wrapper > div")
       );
     }
+
+    setTimeout(this.sharePicGeneration, 1500);
   }
 
   viewSwitchHandler = () => {
@@ -75,6 +81,12 @@ class Result extends Component {
       btns.forEach(btn => {
         let href = btn.getAttribute("href");
         btn.setAttribute("href", `${href}/${UUID}`);
+      });
+
+      btns.forEach(btn => {
+        if (!btn.classList.contains("_ready")) {
+          btn.classList.add("_ready");
+        }
       });
     }
 

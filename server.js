@@ -47,12 +47,16 @@ app.get("/share/:uuid", function(req, res) {
     <meta property="og:image:height" content="628" />
   </head>
   <body>
-    <img src="https://ucarecdn.com/<% uuid %>/-/preview/1200x628/share.jpeg" alt="">
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        window.location.href = "/";
+      });
+    </script>
   </body>
 </html>
   `;
 
-  const newHtml = html.replace(/<% uuid %>/g, uuid);
+  const newHtml = html.replace(/<% uuid %>/gi, uuid);
   res.send(newHtml);
 });
 

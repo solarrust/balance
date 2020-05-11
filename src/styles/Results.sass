@@ -217,22 +217,14 @@ canvas
 	position: absolute
 	bottom: 70px
 	left: 60px
-	opacity: 0
 	z-index: 100
-	animation: rise 0.5s ease-out 2000ms 1 forwards
+
+.react-sharing-button__link
+		opacity: 0
+		transition: all 50ms, opacity 0.5s !important
+		&._ready
+			opacity: 1
+
 
 canvas
 	z-index: -1000 !important
-
-.result-img
-	position: absolute
-	display: none
-	visibility: hidden
-	opacity: 0
-	z-index: -1000
-
-@keyframes rise
-	0%
-		opacity: 0
-	100%
-		opacity: 1

@@ -9,7 +9,6 @@ import Header from "./components/Header/Header";
 import Questions from "./components/Questions/Questions";
 import Result from "./components/Result/Result";
 import Parallax from "parallax-js";
-import Share from "./pages/Share.js";
 
 // TODO: подключить nanoid и заменить все ключи
 
@@ -260,7 +259,6 @@ class App extends React.Component {
             exact
             component={() => <Result animation={this.textAutoShowing} />}
           />
-          {/*<Route path="/share" component={Share} />*/}
         </Switch>
 
         <div className="cursor" />
