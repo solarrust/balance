@@ -57,7 +57,7 @@ app.get("/share/:uuid", function(req, res) {
   if (/HeadlessChrome/gi.test(userAgent)) {
     res.send(newHtml);
   } else {
-    res.sendFile(path.join(__dirname, "build", "index.html"));
+    res.redirect("/");
   }
 });
 
