@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const app = express();
-app.use(compression());
+// app.use(compression());
 
 app.use(require("prerender-node"));
 

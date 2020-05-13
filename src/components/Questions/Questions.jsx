@@ -86,45 +86,6 @@ class Questions extends Component {
           ease: ease
         });
     };
-
-    // TweenMax.fromTo(
-    //   preloaderImg,
-    //   1,
-    //   { rotation: 90 },
-    //   { rotation: 0, ease: ease }
-    // );
-    // TweenMax.to(preloaderText, 0.3, { opacity: 1, delay: 1, ease: ease });
-    // TweenMax.fromTo(
-    //   logoText,
-    //   0.5,
-    //   { rotation: 180 },
-    //   { rotation: 0, delay: 1, ease: ease }
-    // );
-    // TweenMax.fromTo(
-    //   leftText,
-    //   0.3,
-    //   { opacity: 0, x: -10 },
-    //   { opacity: 1, x: 0, delay: 2 }
-    // );
-    // TweenMax.fromTo(
-    //   rightText,
-    //   0.3,
-    //   { opacity: 0, x: 10 },
-    //   { opacity: 1, x: 0, delay: 1.5, ease: ease }
-    // );
-    // TweenMax.to(preloader, 0.5, {
-    //   opacity: 0,
-    //   zIndex: -100,
-    //   delay: 3,
-    //   ease: ease
-    // });
-    // TweenMax.to(preloader, 0.5, { opacity: 0, zIndex: -1, delay: 5 });
-    // TweenMax.to(preloader, 0.5, {
-    //   scale: 1,
-    //   opacity: 0,
-    //   zIndex: -1,
-    //   delay: 5
-    // });
   };
 
   gradeShower = index => {
