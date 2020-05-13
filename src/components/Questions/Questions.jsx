@@ -64,21 +64,28 @@ class Questions extends Component {
 
     let tl = gsap.timeline();
 
-    tl.to(preloaderImg, 0.3, { opacity: 1 })
-      .fromTo(preloaderImg, 1.7, { rotation: 90 }, { rotation: 0, ease: ease })
-      .to(preloaderText, 0.3, { opacity: 1, ease: ease })
-      .fromTo(logoText, 0.5, { rotation: 180 }, { rotation: 0, ease: ease })
-      .fromTo(
-        rightText,
-        0.3,
-        { opacity: 0, x: 10 },
-        { opacity: 1, x: 0, ease: ease }
-      )
-      .to(preloader, 0.5, {
-        opacity: 0,
-        zIndex: -100,
-        ease: ease
-      });
+    preloaderImg.onload = () => {
+      tl.to(preloaderImg, 0.3, { opacity: 1, delay: 0.2 })
+        .fromTo(
+          preloaderImg,
+          1.2,
+          { rotation: 90 },
+          { rotation: 0, ease: ease }
+        )
+        .to(preloaderText, 0.3, { opacity: 1, ease: ease })
+        .fromTo(logoText, 0.5, { rotation: 180 }, { rotation: 0, ease: ease })
+        .fromTo(
+          rightText,
+          0.3,
+          { opacity: 0, x: 10 },
+          { opacity: 1, x: 0, ease: ease }
+        )
+        .to(preloader, 0.5, {
+          opacity: 0,
+          zIndex: -100,
+          ease: ease
+        });
+    };
 
     // TweenMax.fromTo(
     //   preloaderImg,
@@ -183,11 +190,11 @@ class Questions extends Component {
                 <Switch location={location}>
                   {questions.map((question, idx) => {
                     let navPropsObj = {
-                      next: "*",
+                      next: "#",
                       nextClass: "_hidden",
-                      prev: "*",
+                      prev: "#",
                       prevClass: "_hidden",
-                      result: "*",
+                      result: "#",
                       resultClass: "_hidden"
                     };
 
