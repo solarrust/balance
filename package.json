@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@uploadcare/upload-client": "^1.1.2",
+    "compression": "^1.7.4",
     "express": "^4.17.1",
     "granim": "^2.0.0",
     "gsap": "^3.2.6",
