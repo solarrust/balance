@@ -59,7 +59,9 @@ ul
 	@media (max-width: 1366px)
 		font-size: 6.5vw
 	@media (max-width: 1024px)
-		font-size: 5.2vw
+		font-size: 9.375vw
+	@media (max-width: 570px)
+		font-size: 12.8vw
 
 .bkg-title
 	font-size: 11.667vw
@@ -77,6 +79,8 @@ ul
 	padding: 50px 60px 80px 60px
 	z-index: 1
 	overflow: hidden
+	@media (max-width: 570px)
+		padding: 30px 20px 0
 
 .page-link
 	display: flex
@@ -114,6 +118,8 @@ ul
 	&._big
 		width: 7vw
 		height: 7vw
+	@media (max-width: 1024px)
+		display: none
 
 a:hover ~ .cursor
 	cursor: none
@@ -124,6 +130,9 @@ a:hover ~ .cursor
 		display: inline-block
 		min-width: 20px
 		will-change: opacity, transform
+		text-align: center
+		@media (max-width: 570px)
+			min-width: 9px
 
 [data-auto-show]
 	opacity: 0

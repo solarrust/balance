@@ -4,6 +4,15 @@ $circleChangeTime: 1.5s
 .main
 	background-color: #C4C4C4
 	background-image: linear-gradient(180deg, #E8DFDA 0%, #C9D1E0 100%)
+	//&:after
+	//	content: ""
+	//	position: absolute
+	//	bottom: 0
+	//	left: 0
+	//	right: 0
+	//	height: 50vh
+	//	background-image: linear-gradient(180deg, rgba(201, 209, 222, 0.1) 0%, rgb(201, 209, 222) 100%)
+	//	z-index: -1
 
 .page-content
 	display: flex
@@ -16,6 +25,9 @@ $circleChangeTime: 1.5s
 		display: flex
 		align-items: flex-end
 		width: 100%
+		@media (max-width: 1024px)
+			flex-direction: column
+			align-items: flex-start
 	&__block
 		align-items: flex-end
 		flex: 0 0 35vw
@@ -23,13 +35,23 @@ $circleChangeTime: 1.5s
 		margin-left: 14vw
 		@media (max-width: 1366px)
 			margin-left: 7.3vw
-
+		@media (max-width: 1024px)
+			flex-basis: auto
+			margin-left: 0
 	&__text
 		color: rgba(0, 0, 0, 0.6)
+		@media (max-width: 1024px)
+			margin-top: 2.85em
+			margin-bottom: 5em
+		@media (max-width: 570px)
+			margin-bottom: 45.3vw
+			max-width: 55vw
 	&__link
 		display: flex
 		align-items: center
 		margin-top: 3.125vw
+		@media (max-width: 570px)
+			margin-bottom: 17.3vw
 
 .arrow
 	cursor: pointer
@@ -89,6 +111,9 @@ $circleChangeTime: 1.5s
 	color: rgba(0, 0, 0, 0.2)
 	text-align: end
 	z-index: 1
+	@media (max-width: 570px)
+		padding-left: 0
+		margin-left: -40px
 	& li
 		user-select: none
 		white-space: nowrap
@@ -116,6 +141,11 @@ $circleChangeTime: 1.5s
 		font-size: 7.5vw
 		color: black
 		line-height: 0.9
+		@media (max-width: 1204px)
+			font-size: 12.5vw
+		@media (max-width: 570px)
+			font-size: 25.6vw
+			line-height: 0.76
 
 .main-circles
 	position: absolute
@@ -125,6 +155,8 @@ $circleChangeTime: 1.5s
 	height: 100%
 	z-index: -100
 	will-change: transform
+	@media (max-width: 1024px)
+		width: calc(110vh * 9 + 40px)
 
 .main-circle
 	display: inline-block
@@ -137,6 +169,10 @@ $circleChangeTime: 1.5s
 	clip-path: circle(50% at center)
 	transition: clip-path 1s
 	will-change: clip-path
+	@media (max-width: 1024px)
+		width: 110vh
+		height: 110vh
+		margin-top: -5vh
 	&._half
 		clip-path: circle(50% at center right)
 		transition: clip-path 1s
