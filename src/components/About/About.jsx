@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Menu from "../Main/Menu";
+
 import data from "../../data.json";
 import img from "../../img/balance-card.jpg";
 import Arrow from "../SVG/Arrow";
@@ -28,6 +29,9 @@ const menuLinks = data.aboutMenu;
 
 class About extends React.Component {
   render() {
+    function imageLoaded(e) {
+      e.target.classList.add("_loaded");
+    }
     return (
       <HashRouter>
         <div className="page about">
@@ -54,11 +58,11 @@ class About extends React.Component {
                             aria-hidden="true"
                           >
                             <img
-                              className="about-card__img"
+                              rel="preload"
+                              className="about-card__img _loading"
                               src={img}
                               alt=""
-                              rel="prefetch"
-                              rel="preload"
+                              onLoad={imageLoaded.bind(this)}
                             />
                           </div>
                           <div className="page-content__block about-card-content">
@@ -148,13 +152,16 @@ class About extends React.Component {
                           />
                           <div
                             className="about-decoration _photo-circle"
-                            style={{
-                              backgroundImage: `url(${CircleBkg})`
-                            }}
                             aria-hidden="true"
-                            rel="prefetch"
-                            rel="preload"
                           >
+                            <img
+                              rel="preload"
+                              className="_loading"
+                              src={CircleBkg}
+                              alt=""
+                              onLoad={imageLoaded.bind(this)}
+                            />
+
                             <div
                               className="about-decoration _small-circle"
                               aria-hidden="true"
@@ -203,13 +210,15 @@ class About extends React.Component {
                           <div
                             className="about-decoration _goose-circle"
                             aria-hidden="true"
-                            style={{
-                              backgroundImage: `url(${GooseBkg})`
-                            }}
-                            rel="prefetch"
-                            rel="preload"
-                          />
-
+                          >
+                            <img
+                              rel="preload"
+                              className="_loading"
+                              src={GooseBkg}
+                              alt=""
+                              onLoad={imageLoaded.bind(this)}
+                            />
+                          </div>
                           <div className="page-content__block about-card-content">
                             <p
                               className="page-content__text text"
@@ -240,7 +249,13 @@ class About extends React.Component {
                             <div className="about-card__team team-container">
                               <div className="team-item">
                                 <div className="team-item__picture">
-                                  <img src={NatashaPic} alt="" />
+                                  <img
+                                    rel="preload"
+                                    className="_loading"
+                                    src={NatashaPic}
+                                    alt=""
+                                    onLoad={imageLoaded.bind(this)}
+                                  />
                                 </div>
                                 <div className="team-item__content">
                                   <h3 className="team-item__name">
@@ -261,7 +276,13 @@ class About extends React.Component {
                               </div>
                               <div className="team-item">
                                 <div className="team-item__picture">
-                                  <img src={DanilinaPic} alt="" />
+                                  <img
+                                    rel="preload"
+                                    className="_loading"
+                                    src={DanilinaPic}
+                                    alt=""
+                                    onLoad={imageLoaded.bind(this)}
+                                  />
                                 </div>
                                 <div className="team-item__content">
                                   <h3 className="team-item__name">
@@ -282,7 +303,13 @@ class About extends React.Component {
                               </div>
                               <div className="team-item">
                                 <div className="team-item__picture">
-                                  <img src={ElenaPic} alt="" />
+                                  <img
+                                    rel="preload"
+                                    className="_loading"
+                                    src={ElenaPic}
+                                    alt=""
+                                    onLoad={imageLoaded.bind(this)}
+                                  />
                                 </div>
                                 <div className="team-item__content">
                                   <h3 className="team-item__name">
@@ -303,7 +330,13 @@ class About extends React.Component {
                               </div>
                               <div className="team-item">
                                 <div className="team-item__picture">
-                                  <img src={ElinaPic} alt="" />
+                                  <img
+                                    rel="preload"
+                                    className="_loading"
+                                    src={ElinaPic}
+                                    alt=""
+                                    onLoad={imageLoaded.bind(this)}
+                                  />
                                 </div>
                                 <div className="team-item__content">
                                   <h3 className="team-item__name">
@@ -324,7 +357,13 @@ class About extends React.Component {
                               </div>
                               <div className="team-item">
                                 <div className="team-item__picture">
-                                  <img src={AlenaPic} alt="" />
+                                  <img
+                                    rel="preload"
+                                    className="_loading"
+                                    src={AlenaPic}
+                                    alt=""
+                                    onLoad={imageLoaded.bind(this)}
+                                  />
                                 </div>
                                 <div className="team-item__content">
                                   <h3 className="team-item__name">
