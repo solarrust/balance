@@ -1,6 +1,7 @@
 @import "~normalize.css"
 @import "./styles/fonts"
 @import "./styles/mixins"
+@import "./styles/media.scss"
 @import "./styles/Main"
 @import "./styles/Header"
 @import "./styles/About"
@@ -29,7 +30,7 @@ ul
 .text
 	font-size: 1vw
 	line-height: 1.6
-	@media (max-width: 1366px)
+	+max-screen(1366px)
 		&
 			font-size: 14px
 
@@ -39,7 +40,7 @@ ul
 	color: currentColor
 	text-decoration: none
 	user-select: none
-	@media (max-width: 1366px)
+	+max-screen(1366px)
 		&
 			font-size: 16px
 
@@ -56,11 +57,11 @@ ul
 	font-size: 5.4vw
 	font-weight: bold
 	line-height: 0.9
-	@media (max-width: 1366px)
+	+max-screen(1366px)
 		font-size: 6.5vw
-	@media (max-width: 1024px)
+	+max-screen(1024px)
 		font-size: 9.375vw
-	@media (max-width: 570px)
+	+max-screen(570px)
 		font-size: 12.8vw
 
 .bkg-title
@@ -68,7 +69,7 @@ ul
 	letter-spacing: -0.04em
 	& *
 		line-height: 0.9
-	@media (max-width: 1366px)
+	+max-screen(1366px)
 		font-size: 144px
 
 .page
@@ -82,9 +83,9 @@ ul
 	padding: 50px 60px 80px 60px
 	z-index: 1
 	overflow: hidden
-	@media (max-width: 1366px)
+	+max-screen(1366px)
 		padding: 40px 50px 70px
-	@media (max-width: 570px)
+	+max-screen(570px)
 		padding: 30px 20px 0
 
 .page-link
@@ -123,7 +124,7 @@ ul
 	&._big
 		width: 7vw
 		height: 7vw
-	@media (max-width: 1024px)
+	+max-screen(1024px)
 		display: none
 
 a:hover ~ .cursor
@@ -136,7 +137,7 @@ a:hover ~ .cursor
 		min-width: 20px
 		will-change: opacity, transform
 		text-align: center
-		@media (max-width: 570px)
+		+max-screen(570px)
 			min-width: 9px
 
 [data-auto-show]
