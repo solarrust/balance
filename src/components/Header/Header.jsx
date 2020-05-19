@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Logo from "../SVG/Logo";
 
 // TODO: Отключать ссылку на лого на главной странице
-// TODO: Отключать анимации, когда окно браузера не в фокусе
 
 class Header extends React.Component {
   componentDidMount() {

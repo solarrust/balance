@@ -38,7 +38,6 @@
 		top: 0
 		width: 1.82vw
 		height: 1.82vw
-		//animation: logoSecondAnimation 1.2s linear infinite
 		&:after
 			content: ""
 			position: absolute
@@ -53,7 +52,6 @@
 			top: 0
 			overflow: hidden
 			clip-path: circle(50% at center right)
-		//animation: logoFirstAnimation 1s linear infinite
 
 .header-logo
 	position: relative
@@ -67,18 +65,3 @@
 	@media (max-width: 1366px)
 		&
 			width: 150px
-
-
-@keyframes logoFirstAnimation
-	from
-		clip-path: circle(50% at center)
-	to
-		clip-path: circle(50% at center right)
-
-@keyframes logoSecondAnimation
-	0%
-		right: -1.82vw
-	50%
-		right: 0
-	100%
-		right: -1.82vw

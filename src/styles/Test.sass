@@ -10,27 +10,68 @@
 	padding-top: calc(23vh - 50px)
 	&.question
 		display: flex
+	@media (max-width: 768px)
+		padding-top: calc(15vh - 50px)
+	@media (max-width: 570px)
+		display: flex
+		flex-direction: column
+		justify-content: center
+		padding-bottom: 55px
 
 .test-header
 	width: 46vw
 	margin-top: 10vh
-	//margin-left: auto
-	//margin-right: calc(27vw - 60px)
 	&.lead-title
 		line-height: 1.05
+	@media (max-width: 1366px)
+		width: 55vw
+		margin-top: 2vh
+	@media (max-width: 1280px)
+		width: 600px
+		&.lead-title
+			font-size: 72px
+	@media (max-width: 570px)
+		width: 100%
+		&.lead-title
+			font-size: 34px
+
 
 .test-subheader
 	position: absolute
 	left: 33vw
 	bottom: 17vh
-	//width: 60vw
+	white-space: nowrap
 	& div
 		display: block
 		&:nth-child(2)
 			padding-left: 12.5vw
 		&:nth-child(3n)
 			padding-left: 18.75vw
-
+	@media (max-width: 1366px)
+		left: auto
+		right: -35px
+		top: 11vh
+		bottom: auto
+	@media (max-width: 1024px)
+		top: auto
+		bottom: 10px
+		& div
+			&:first-child
+				padding-left: 35%
+			&:nth-child(2n)
+				padding-left: 50%
+	@media (max-width: 768px)
+		left: 0
+		right: auto
+		& div
+			&:first-child
+				padding-left: 0
+			&:nth-child(2)
+				padding-left: 12.5vw
+			&:nth-child(3n)
+				padding-left: 18.75vw
+	@media (max-width: 570px)
+		display: none
 
 .test-text
 	width: 32vw
@@ -38,6 +79,14 @@
 	margin-left: 9.375vw
 	//margin-right: calc(14vw - 60px)
 	//margin-left: auto
+	@media (max-width: 1280px)
+		width: 465px
+		margin-top: 7vh
+	@media (max-width: 768px)
+		margin-left: 0
+		margin-top: 30px
+	@media (max-width: 570px)
+		width: 300px
 
 .test-decoration
 	&._circle
@@ -49,6 +98,15 @@
 		height: 93.75vw
 		border-radius: 50%
 		background-image: linear-gradient(#71A7B7 0, #cedbe4 100%)
+		@media (max-width: 1024px)
+			top: -15%
+			right: -155%
+			width: 160vw
+			height: 160vw
+		@media (max-width: 570px)
+			height: 110vh
+			top: -10vh
+			right: -135%
 
 .test-link
 	position: absolute
@@ -56,6 +114,11 @@
 	top: 50%
 	margin-top: 0
 	transform: translateY(-50%)
+	@media (max-width: 570px)
+		top: auto
+		bottom: 0
+		&.page-content__link
+			margin-bottom: 0
 
 .questions-menu
 	position: absolute

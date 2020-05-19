@@ -27,6 +27,7 @@ class Main extends Component {
     index = 0;
     clearInterval(this.circleChangerInterval);
     clearInterval(this.menuChangerInterval);
+    document.removeEventListener("visibilitychange", this.visibilityHandler);
   }
 
   visibilityHandler = () => {

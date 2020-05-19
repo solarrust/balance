@@ -21,7 +21,7 @@ class App extends React.Component {
   componentDidMount() {
     customCursor = document.querySelector(".cursor");
 
-    this.cursorMoverHandler();
+    this.cursorMoveHandler();
     this.textAutoShowing();
     // this.callBackendAPI()
     //   .then(res => this.setState({ data: res.express }))
@@ -38,7 +38,7 @@ class App extends React.Component {
   //   return body;
   // };
 
-  cursorMoverHandler = () => {
+  cursorMoveHandler = () => {
     document.addEventListener("mousemove", e => {
       let cursorCoords = customCursor.getBoundingClientRect();
       TweenMax.to(customCursor, 0.05, {
@@ -192,8 +192,6 @@ class App extends React.Component {
     return { original: text, copy: copyText };
   };
 
-  bkgParallax() {}
-
   linksParallax() {
     let links = document.querySelectorAll("[data-parallax-link]");
 
@@ -229,7 +227,12 @@ class App extends React.Component {
           <Route
             path="/about"
             exact
-            component={() => <About animation={this.textAutoShowing} />}
+            component={() => (
+              <About
+                animation={this.textAutoShowing}
+                linkParallax={this.linksParallax}
+              />
+            )}
           />
           <Route
             path="/test"

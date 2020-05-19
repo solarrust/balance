@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { TweenMax } from "gsap";
 import Arrow from "../SVG/Arrow";
 
-// TODO: добить плавное (побуквенное) изменение аутлайного текста по ховеру
-
 class TestPage extends React.Component {
   componentDidMount() {
     this.props.strokeAnimation();

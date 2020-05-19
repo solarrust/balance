@@ -58,7 +58,6 @@ class About extends React.Component {
                             aria-hidden="true"
                           >
                             <img
-                              rel="preload"
                               className="about-card__img _loading"
                               src={img}
                               alt=""
@@ -155,7 +154,6 @@ class About extends React.Component {
                             aria-hidden="true"
                           >
                             <img
-                              rel="preload"
                               className="_loading"
                               src={CircleBkg}
                               alt=""
@@ -212,7 +210,6 @@ class About extends React.Component {
                             aria-hidden="true"
                           >
                             <img
-                              rel="preload"
                               className="_loading"
                               src={GooseBkg}
                               alt=""
@@ -250,7 +247,6 @@ class About extends React.Component {
                               <div className="team-item">
                                 <div className="team-item__picture">
                                   <img
-                                    rel="preload"
                                     className="_loading"
                                     src={NatashaPic}
                                     alt=""
@@ -265,10 +261,15 @@ class About extends React.Component {
                                     Photography
                                   </span>
                                   <ul className="team-item__social-list social-list">
-                                    <li className="social-list__item _fb">
+                                    <li
+                                      className="social-list__item _fb"
+                                      data-parallax-link-scene
+                                    >
                                       <a
                                         target="_blank"
-                                        href="https://facebook.com/"
+                                        href="https://www.facebook.com/yankelevich.natasha"
+                                        data-parallax-link
+                                        data-depth="2"
                                       />
                                     </li>
                                   </ul>
@@ -277,7 +278,6 @@ class About extends React.Component {
                               <div className="team-item">
                                 <div className="team-item__picture">
                                   <img
-                                    rel="preload"
                                     className="_loading"
                                     src={DanilinaPic}
                                     alt=""
@@ -292,10 +292,15 @@ class About extends React.Component {
                                     Copywriter
                                   </span>
                                   <ul className="team-item__social-list social-list">
-                                    <li className="social-list__item _fb">
+                                    <li
+                                      className="social-list__item _fb"
+                                      data-parallax-link-scene
+                                    >
                                       <a
                                         target="_blank"
-                                        href="https://facebook.com/"
+                                        href="https://www.facebook.com/natala.ouch"
+                                        data-parallax-link
+                                        data-depth="2"
                                       />
                                     </li>
                                   </ul>
@@ -304,7 +309,6 @@ class About extends React.Component {
                               <div className="team-item">
                                 <div className="team-item__picture">
                                   <img
-                                    rel="preload"
                                     className="_loading"
                                     src={ElenaPic}
                                     alt=""
@@ -319,10 +323,15 @@ class About extends React.Component {
                                     Idea & Web design
                                   </span>
                                   <ul className="team-item__social-list social-list">
-                                    <li className="social-list__item _fb">
+                                    <li
+                                      className="social-list__item _fb"
+                                      data-parallax-link-scene
+                                    >
                                       <a
                                         target="_blank"
-                                        href="https://facebook.com/"
+                                        href="https://www.facebook.com/eessoooo/"
+                                        data-parallax-link
+                                        data-depth="2"
                                       />
                                     </li>
                                   </ul>
@@ -331,7 +340,6 @@ class About extends React.Component {
                               <div className="team-item">
                                 <div className="team-item__picture">
                                   <img
-                                    rel="preload"
                                     className="_loading"
                                     src={ElinaPic}
                                     alt=""
@@ -346,10 +354,15 @@ class About extends React.Component {
                                     Logo & Web design
                                   </span>
                                   <ul className="team-item__social-list social-list">
-                                    <li className="social-list__item _fb">
+                                    <li
+                                      className="social-list__item _fb"
+                                      data-parallax-link-scene
+                                    >
                                       <a
                                         target="_blank"
-                                        href="https://facebook.com/"
+                                        href="https://www.facebook.com/bionocopy"
+                                        data-parallax-link
+                                        data-depth="2"
                                       />
                                     </li>
                                   </ul>
@@ -358,7 +371,6 @@ class About extends React.Component {
                               <div className="team-item">
                                 <div className="team-item__picture">
                                   <img
-                                    rel="preload"
                                     className="_loading"
                                     src={AlenaPic}
                                     alt=""
@@ -373,16 +385,26 @@ class About extends React.Component {
                                     Frontend & Backend
                                   </span>
                                   <ul className="team-item__social-list social-list">
-                                    <li className="social-list__item _fb">
+                                    <li
+                                      className="social-list__item _fb"
+                                      data-parallax-link-scene
+                                    >
                                       <a
                                         target="_blank"
                                         href="https://www.facebook.com/ABatickaya"
+                                        data-parallax-link
+                                        data-depth="2"
                                       />
                                     </li>
-                                    <li className="social-list__item _tw">
+                                    <li
+                                      className="social-list__item _tw"
+                                      data-parallax-link-scene
+                                    >
                                       <a
                                         target="_blank"
                                         href="https://twitter.com/ABatickaya"
+                                        data-parallax-link
+                                        data-depth="2"
                                       />
                                     </li>
                                   </ul>
