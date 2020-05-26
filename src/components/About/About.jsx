@@ -20,6 +20,7 @@ import DanilinaPic from "../../img/Danilina.png";
 import ElenaPic from "../../img/Elena.png";
 import ElinaPic from "../../img/Elina.png";
 import AlenaPic from "../../img/Alena.png";
+import TeamMember from "./TeamMember";
 
 const menuLinks = data.aboutMenu;
 
@@ -28,10 +29,24 @@ const menuLinks = data.aboutMenu;
 // TODO: Добавить анимации декоративным элементам
 
 class About extends React.Component {
+  componentDidMount() {
+    this.props.hoverLinks();
+    this.props.defaultCursor();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    this.props.hoverLinks();
+    this.props.defaultCursor();
+  }
+  componentWillUnmount() {
+    this.props.defaultCursor();
+  }
+
+  imageLoaded = e => {
+    e.target.classList.add("_loaded");
+  };
+
   render() {
-    function imageLoaded(e) {
-      e.target.classList.add("_loaded");
-    }
     return (
       <HashRouter>
         <div className="page about">
@@ -61,7 +76,7 @@ class About extends React.Component {
                               className="about-card__img _loading"
                               src={img}
                               alt=""
-                              onLoad={imageLoaded.bind(this)}
+                              onLoad={this.imageLoaded.bind(this)}
                             />
                           </div>
                           <div className="page-content__block about-card-content">
@@ -82,6 +97,7 @@ class About extends React.Component {
                             <Link
                               to="/dates"
                               className="page-content__link about-card__link link"
+                              data-hover-trigger
                             >
                               next <Arrow />
                             </Link>
@@ -133,6 +149,7 @@ class About extends React.Component {
                             <Link
                               to="/diagnostics"
                               className="page-content__link about-card__link link"
+                              data-hover-trigger
                             >
                               next <Arrow />
                             </Link>
@@ -157,7 +174,7 @@ class About extends React.Component {
                               className="_loading"
                               src={CircleBkg}
                               alt=""
-                              onLoad={imageLoaded.bind(this)}
+                              onLoad={this.imageLoaded.bind(this)}
                             />
 
                             <div
@@ -189,6 +206,7 @@ class About extends React.Component {
                             <Link
                               to="/total"
                               className="page-content__link about-card__link link _diagnostics"
+                              data-hover-trigger
                             >
                               next <Arrow />
                             </Link>
@@ -213,7 +231,7 @@ class About extends React.Component {
                               className="_loading"
                               src={GooseBkg}
                               alt=""
-                              onLoad={imageLoaded.bind(this)}
+                              onLoad={this.imageLoaded.bind(this)}
                             />
                           </div>
                           <div className="page-content__block about-card-content">
@@ -231,6 +249,7 @@ class About extends React.Component {
                             <Link
                               to="/team"
                               className="page-content__link about-card__link link"
+                              data-hover-trigger
                             >
                               next <Arrow />
                             </Link>
@@ -244,176 +263,58 @@ class About extends React.Component {
                         <div className="about-card">
                           <div className="page-content__block about-card-content _team">
                             <div className="about-card__team team-container">
-                              <div className="team-item">
-                                <div className="team-item__picture">
-                                  <img
-                                    className="_loading"
-                                    src={NatashaPic}
-                                    alt=""
-                                    onLoad={imageLoaded.bind(this)}
-                                  />
-                                </div>
-                                <div className="team-item__content">
-                                  <h3 className="team-item__name">
-                                    Natasha Yankelevich
-                                  </h3>
-                                  <span className="team-item__position">
-                                    Photography
-                                  </span>
-                                  <ul className="team-item__social-list social-list">
-                                    <li
-                                      className="social-list__item _fb"
-                                      data-parallax-link-scene
-                                    >
-                                      <a
-                                        target="_blank"
-                                        href="https://www.facebook.com/yankelevich.natasha"
-                                        data-parallax-link
-                                        data-depth="2"
-                                      />
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                              <div className="team-item">
-                                <div className="team-item__picture">
-                                  <img
-                                    className="_loading"
-                                    src={DanilinaPic}
-                                    alt=""
-                                    onLoad={imageLoaded.bind(this)}
-                                  />
-                                </div>
-                                <div className="team-item__content">
-                                  <h3 className="team-item__name">
-                                    Natasha Danilina
-                                  </h3>
-                                  <span className="team-item__position">
-                                    Copywriter
-                                  </span>
-                                  <ul className="team-item__social-list social-list">
-                                    <li
-                                      className="social-list__item _fb"
-                                      data-parallax-link-scene
-                                    >
-                                      <a
-                                        target="_blank"
-                                        href="https://www.facebook.com/natala.ouch"
-                                        data-parallax-link
-                                        data-depth="2"
-                                      />
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                              <div className="team-item">
-                                <div className="team-item__picture">
-                                  <img
-                                    className="_loading"
-                                    src={ElenaPic}
-                                    alt=""
-                                    onLoad={imageLoaded.bind(this)}
-                                  />
-                                </div>
-                                <div className="team-item__content">
-                                  <h3 className="team-item__name">
-                                    Elena Saharova
-                                  </h3>
-                                  <span className="team-item__position">
-                                    Idea & Web design
-                                  </span>
-                                  <ul className="team-item__social-list social-list">
-                                    <li
-                                      className="social-list__item _fb"
-                                      data-parallax-link-scene
-                                    >
-                                      <a
-                                        target="_blank"
-                                        href="https://www.facebook.com/eessoooo/"
-                                        data-parallax-link
-                                        data-depth="2"
-                                      />
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                              <div className="team-item">
-                                <div className="team-item__picture">
-                                  <img
-                                    className="_loading"
-                                    src={ElinaPic}
-                                    alt=""
-                                    onLoad={imageLoaded.bind(this)}
-                                  />
-                                </div>
-                                <div className="team-item__content">
-                                  <h3 className="team-item__name">
-                                    Elina Chanieva
-                                  </h3>
-                                  <span className="team-item__position">
-                                    Logo & Web design
-                                  </span>
-                                  <ul className="team-item__social-list social-list">
-                                    <li
-                                      className="social-list__item _fb"
-                                      data-parallax-link-scene
-                                    >
-                                      <a
-                                        target="_blank"
-                                        href="https://www.facebook.com/bionocopy"
-                                        data-parallax-link
-                                        data-depth="2"
-                                      />
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                              <div className="team-item">
-                                <div className="team-item__picture">
-                                  <img
-                                    className="_loading"
-                                    src={AlenaPic}
-                                    alt=""
-                                    onLoad={imageLoaded.bind(this)}
-                                  />
-                                </div>
-                                <div className="team-item__content">
-                                  <h3 className="team-item__name">
-                                    Alena Batitskaya
-                                  </h3>
-                                  <span className="team-item__position">
-                                    Frontend & Backend
-                                  </span>
-                                  <ul className="team-item__social-list social-list">
-                                    <li
-                                      className="social-list__item _fb"
-                                      data-parallax-link-scene
-                                    >
-                                      <a
-                                        target="_blank"
-                                        href="https://www.facebook.com/ABatickaya"
-                                        data-parallax-link
-                                        data-depth="2"
-                                      />
-                                    </li>
-                                    <li
-                                      className="social-list__item _tw"
-                                      data-parallax-link-scene
-                                    >
-                                      <a
-                                        target="_blank"
-                                        href="https://twitter.com/ABatickaya"
-                                        data-parallax-link
-                                        data-depth="2"
-                                      />
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
+                              <TeamMember
+                                member={{
+                                  pic: NatashaPic,
+                                  name: "Natasha Yankelevich",
+                                  position: "Photography",
+                                  fb:
+                                    "https://www.facebook.com/yankelevich.natasha"
+                                }}
+                                imageLoaded={this.imageLoaded}
+                              />
+                              <TeamMember
+                                member={{
+                                  pic: DanilinaPic,
+                                  name: "Natasha Danilina",
+                                  position: "Copywriter",
+                                  fb: "https://www.facebook.com/natala.ouch"
+                                }}
+                                imageLoaded={this.imageLoaded}
+                              />
+                              <TeamMember
+                                member={{
+                                  pic: ElenaPic,
+                                  name: "Elena Saharova",
+                                  position: "Idea & Web design",
+                                  fb: "https://www.facebook.com/eessoooo/"
+                                }}
+                                imageLoaded={this.imageLoaded}
+                              />
+                              <TeamMember
+                                member={{
+                                  pic: ElinaPic,
+                                  name: "Elina Chanieva",
+                                  position: "Logo & Web design",
+                                  fb: "https://www.facebook.com/bionocopy"
+                                }}
+                                imageLoaded={this.imageLoaded}
+                              />
+                              <TeamMember
+                                member={{
+                                  pic: AlenaPic,
+                                  name: "Alena Batitskaya",
+                                  position: "Frontend & Backend",
+                                  fb: "https://www.facebook.com/ABatickaya",
+                                  tw: "https://twitter.com/ABatickaya"
+                                }}
+                                imageLoaded={this.imageLoaded}
+                              />
                             </div>
                             <a
                               href="/"
                               className="page-content__link about-card__link link"
+                              data-hover-trigger
                             >
                               go to the main page <Arrow />
                             </a>
@@ -434,7 +335,11 @@ class About extends React.Component {
           </h1>
           <Menu className="main-menu">
             {menuLinks.map((link, index) => (
-              <li className="main-menu__link text" key={index}>
+              <li
+                className="main-menu__link text"
+                key={index}
+                data-hover-trigger
+              >
                 <NavLink className="main-menu__link-item" to={link.pageLink}>
                   {link.pageName}
                 </NavLink>

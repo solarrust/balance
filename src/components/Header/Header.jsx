@@ -8,6 +8,17 @@ import Logo from "../SVG/Logo";
 class Header extends React.Component {
   componentDidMount() {
     this.props.linkParallax();
+    this.props.hoverLinks();
+    this.props.defaultCursor();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    this.props.hoverLinks();
+    this.props.defaultCursor();
+  }
+
+  componentWillUnmount() {
+    this.props.defaultCursor();
   }
 
   render() {
@@ -19,12 +30,19 @@ class Header extends React.Component {
             className="logo header-logo"
             data-parallax-link
             data-depth="2"
+            data-hover-trigger
           >
             <Logo />
           </Link>
         </div>
         <div data-parallax-link-scene>
-          <a href="/about/" className="link" data-parallax-link data-depth="2">
+          <a
+            href="/about/"
+            className="link"
+            data-parallax-link
+            data-depth="2"
+            data-hover-trigger
+          >
             about +
           </a>
         </div>

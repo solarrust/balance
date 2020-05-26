@@ -18,7 +18,7 @@ class ColView extends Component {
     );
     parent = document.querySelector(".results-wrapper");
     this.innerAnimation();
-    // this.circlesParallax();
+    this.scrollHandler();
   }
 
   innerAnimation() {
@@ -27,7 +27,6 @@ class ColView extends Component {
     parent.style.height = height + "px";
 
     resultCircles.map((el, i) => {
-      let children = Array.from(el.children);
       el.style.width = circleSize + "vmax";
       el.style.height = circleSize + "vmax";
 
@@ -37,29 +36,23 @@ class ColView extends Component {
         { zIndex: -i },
         {
           bottom: `${41 * i}vmax`
-          // y: "-50%"
-          // marginTop: "-50%"
-          // scale: (1 - (1 / (resultCircles.length - 1)) * i)
         }
       );
-
-      children.forEach((child, i) => {
-        // TweenMax.fromTo(child, 2, { opacity: 0 }, { delay: i * 2, opacity: 1 });
-      });
     });
 
     this.activeCircle(0);
     this.bkgForMenuItem(0);
   }
 
+  scrollHandler = () => {
+    window.addEventListener("scroll", e => {
+      console.log(e);
+    });
+  };
+
   activeCircle(index) {
-    // let circleAnimation = () =>
-    //   TweenMax.to(resultCircles[index], 0.05, {
-    //     scale: 1
-    //   });
     resultCircles.forEach(el => {
       el.classList.remove("_active");
-      // TweenMax.to(el, 0.5, { scale: 0.1 });
     });
 
     let positionOfCircle = getComputedStyle(resultCircles[index]);
@@ -71,7 +64,6 @@ class ColView extends Component {
     TweenMax.to(parent, 0.08 * (resultCircles.length - 1), {
       bottom: `-${parseInt(positionOfCircle.bottom) +
         (document.body.offsetWidth / 100) * 60}px`
-      // onComplete: circleAnimation
     });
     resultCircles[index].classList.add("_active");
     menuLink.classList.add("_active");
@@ -88,29 +80,13 @@ class ColView extends Component {
 
   bkgForMenuItem(index) {
     let menuItems = document.querySelectorAll(
-      "[data-test-menu-link] > .test-menu__circle"
+      "[data-test-menu-link] .test-menu__circle"
     );
     menuItems.forEach(item => (item.style.backgroundImage = "none"));
     menuItems[
       index
     ].style.backgroundImage = `linear-gradient(${this.props.items[index].bkg})`;
   }
-
-  // circlesParallax() {
-  //   let circles = document.querySelectorAll("[data-parallax]");
-  //
-  //   circles.forEach(circle => {
-  //     let scene = circle.parentElement;
-  //     let parallaxInstance = new Parallax(scene, {
-  //       relativeInput: true,
-  //       clipRelativeInput: true,
-  //       hoverOnly: true,
-  //       invertX: false,
-  //       invertY: false,
-  //       pointerEvents: true
-  //     });
-  //   });
-  // }
 
   render() {
     let levels = [];
@@ -155,6 +131,7 @@ class ColView extends Component {
               key={i}
               data-test-menu-link={i}
               onClick={this.changeActiveHandler}
+              data-hover-trigger
             >
               {question.sphere}
               <span className={`test-menu__level _${levels[i]}`}>
@@ -164,11 +141,13 @@ class ColView extends Component {
                   ? "Just Fine"
                   : "Midpoint"}
               </span>
-              <span
-                className={"test-menu__circle"}
-                data-parallax
-                data-depth="0.5"
-              />
+              <div className="test-menu__circle-parent" data-parallax-scene>
+                <span
+                  className="test-menu__circle"
+                  data-parallax
+                  data-depth="0.5"
+                />
+              </div>
 
               <span className={"test-menu__grade"}>{this.props.grades[i]}</span>
             </li>

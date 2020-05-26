@@ -9,6 +9,16 @@ class TestPage extends React.Component {
     this.props.animation();
     this.props.linkParallax();
     this.linkHoverHandler();
+    this.props.hoverLinks();
+    this.props.defaultCursor();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    this.props.hoverLinks();
+    this.props.defaultCursor();
+  }
+  componentWillUnmount() {
+    this.props.defaultCursor();
   }
 
   linkHoverHandler() {
@@ -73,11 +83,9 @@ class TestPage extends React.Component {
             to="/questions"
             className="page-content__link test-link link"
             data-trigger-link
+            data-hover-trigger
           >
-            Let&rsquo;s go{" "}
-            <div data-parallax-link-scene>
-              <Arrow />
-            </div>
+            Let&rsquo;s go <Arrow />
           </Link>
         </div>
       </div>

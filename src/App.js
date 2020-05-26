@@ -13,32 +13,28 @@ import Parallax from "parallax-js";
 // TODO: подключить nanoid и заменить все ключи
 
 let customCursor;
+const cursorActiveClass = "_medium";
 
 class App extends React.Component {
-  state = {
-    data: null
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: null
+    };
+  }
   componentDidMount() {
     customCursor = document.querySelector(".cursor");
 
-    this.cursorMoveHandler();
     this.textAutoShowing();
-    // this.callBackendAPI()
-    //   .then(res => this.setState({ data: res.express }))
-    //   .catch(err => console.log(err));
   }
 
-  // callBackendAPI = async () => {
-  //   const response = await fetch("/share/:uuid");
-  //   const body = await response.json();
-  //
-  //   if (response.status !== 200) {
-  //     throw Error(body.message);
-  //   }
-  //   return body;
-  // };
+  cursorDefault() {
+    if (customCursor) {
+      customCursor.classList.remove(cursorActiveClass);
+    }
+  }
 
-  cursorMoveHandler = () => {
+  cursorMoveHandler() {
     document.addEventListener("mousemove", e => {
       let cursorCoords = customCursor.getBoundingClientRect();
       TweenMax.to(customCursor, 0.05, {
@@ -47,34 +43,22 @@ class App extends React.Component {
       });
     });
 
-    this.cursorHoverHandler();
-  };
-
-  cursorHoverHandler = () => {
-    let links = document.querySelectorAll("a");
-    links.forEach(el => {
-      el.addEventListener("mouseout", () => {
-        customCursor.classList.remove("_medium");
-        // TweenMax.fromTo(
-        //   customCursor,
-        //   0.2,
-        //   { width: "55px", height: "55px" },
-        //   { width: "42px", height: "42px" }
-        // );
+    function cursorHoverHandler() {
+      let links = Array.from(document.querySelectorAll("[data-hover-trigger]"));
+      links.forEach(el => {
+        el.addEventListener("mouseout", () => {
+          customCursor.classList.remove(cursorActiveClass);
+        });
+        el.addEventListener("mouseover", () => {
+          customCursor.classList.add(cursorActiveClass);
+        });
       });
-      el.addEventListener("mouseover", () => {
-        customCursor.classList.add("_medium");
-        // TweenMax.fromTo(
-        //   customCursor,
-        //   0.2,
-        //   { width: "42px", height: "42px" },
-        //   { width: "55px", height: "55px" }
-        // );
-      });
-    });
-  };
+    }
 
-  textAutoShowing = function() {
+    cursorHoverHandler();
+  }
+
+  textAutoShowing() {
     let autoShowingText = document.querySelector("[data-auto-show-title]");
 
     if (autoShowingText) {
@@ -103,7 +87,7 @@ class App extends React.Component {
         });
       }, delay);
     }
-  };
+  }
 
   strokeHoverHandler = () => {
     let links = Array.from(document.querySelectorAll("[data-trigger-link]"));
@@ -117,7 +101,7 @@ class App extends React.Component {
       this.removeEventListener("mouseleave", italicHidden);
       setTimeout(() => {
         this.addEventListener("mouseleave", italicHidden);
-      }, 1000);
+      }, 500);
 
       chars.forEach((ch, i) => {
         TweenMax.to(ch, 0.2, {
@@ -140,7 +124,7 @@ class App extends React.Component {
       this.removeEventListener("mouseenter", italicShown);
       setTimeout(() => {
         this.addEventListener("mouseenter", italicShown);
-      }, 1000);
+      }, 500);
       chars.forEach((ch, i) => {
         ch.style.translateY = -10;
 
@@ -166,7 +150,7 @@ class App extends React.Component {
     });
   };
 
-  strokeCopying = () => {
+  strokeCopying() {
     let text = document.querySelector("[data-triggered-text]");
     let copyText;
 
@@ -190,7 +174,7 @@ class App extends React.Component {
     }
 
     return { original: text, copy: copyText };
-  };
+  }
 
   linksParallax() {
     let links = document.querySelectorAll("[data-parallax-link]");
@@ -211,7 +195,11 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Header linkParallax={this.linksParallax} />
+        <Header
+          linkParallax={this.linksParallax}
+          hoverLinks={this.cursorMoveHandler}
+          defaultCursor={this.cursorDefault}
+        />
 
         <Switch>
           <Route
@@ -221,6 +209,8 @@ class App extends React.Component {
               <Main
                 animation={this.textAutoShowing}
                 linkParallax={this.linksParallax}
+                hoverLinks={this.cursorMoveHandler}
+                defaultCursor={this.cursorDefault}
               />
             )}
           />
@@ -231,6 +221,8 @@ class App extends React.Component {
               <About
                 animation={this.textAutoShowing}
                 linkParallax={this.linksParallax}
+                hoverLinks={this.cursorMoveHandler}
+                defaultCursor={this.cursorDefault}
               />
             )}
           />
@@ -242,6 +234,8 @@ class App extends React.Component {
                 animation={this.textAutoShowing}
                 strokeAnimation={this.strokeHoverHandler}
                 linkParallax={this.linksParallax}
+                hoverLinks={this.cursorMoveHandler}
+                defaultCursor={this.cursorDefault}
               />
             )}
           />
@@ -252,19 +246,30 @@ class App extends React.Component {
               <Questions
                 animation={this.textAutoShowing}
                 strokeAnimation={this.strokeHoverHandler}
-                bkgParallax={this.bkgParallax}
                 linkParallax={this.linksParallax}
+                hoverLinks={this.cursorMoveHandler}
+                defaultCursor={this.cursorDefault}
               />
             )}
           />
           <Route
             path="/results"
             exact
-            component={() => <Result animation={this.textAutoShowing} />}
+            component={() => (
+              <Result
+                animation={this.textAutoShowing}
+                hoverLinks={this.cursorMoveHandler}
+                defaultCursor={this.cursorDefault}
+              />
+            )}
           />
         </Switch>
 
-        <div className="cursor" />
+        <div className="cursor">
+          <svg height="100%" width="100%">
+            <circle cx="50%" cy="50%" r="47.5%" />
+          </svg>
+        </div>
       </>
     );
   }

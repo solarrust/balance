@@ -9,10 +9,12 @@ class ShareBtns extends Component {
 
     return (
       <div className="share-btns">
-        <Facebook url={url} />
-        {/*<Facebook url="https://balance-test.herokuapp.com/" />*/}
-        <Twitter url={url} shareText={shareText} />
-        {/*<Twitter url="http://balance.com/" />*/}
+        <div data-hover-trigger>
+          <Facebook url={url} />
+        </div>
+        <div data-hover-trigger>
+          <Twitter url={url} shareText={shareText} />
+        </div>
       </div>
     );
   }

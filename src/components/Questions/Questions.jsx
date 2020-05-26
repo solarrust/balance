@@ -24,7 +24,6 @@ class Questions extends Component {
     };
     this.animation = this.props.animation;
     this.strokeAnimation = this.props.strokeAnimation;
-    this.bkgParallax = this.props.bkgParallax;
     this.linkParallax = this.props.linkParallax;
   }
 
@@ -37,11 +36,18 @@ class Questions extends Component {
       sessionStorage.setItem("grades", this.grades.join("/"));
     });
 
-    this.bkgParallax();
+    this.props.hoverLinks();
+    this.props.defaultCursor();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    this.props.hoverLinks();
+    this.props.defaultCursor();
   }
 
   componentWillUnmount() {
     sessionStorage.setItem("grades", this.grades.join("/"));
+    this.props.defaultCursor();
   }
 
   handleChange = e => {
@@ -68,7 +74,7 @@ class Questions extends Component {
       tl.to(preloaderImg, 0.3, { opacity: 1, delay: 0.2 })
         .fromTo(
           preloaderImg,
-          1.2,
+          1.5,
           { rotation: 90 },
           { rotation: 0, ease: ease }
         )
@@ -204,13 +210,6 @@ class Questions extends Component {
                             />
 
                             <div className="page questions">
-                              {/*<div*/}
-                              {/*  className={"questions__bkg"}*/}
-                              {/*  style={{*/}
-                              {/*    background: `linear-gradient(${this.state.angle}deg, ${question.bkg})`*/}
-                              {/*  }}*/}
-                              {/*/>*/}
-
                               <Question
                                 index={idx}
                                 question={question}

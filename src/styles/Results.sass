@@ -29,9 +29,7 @@
 	align-items: flex-start
 	box-sizing: border-box
 	width: 0
-	//min-width: 12.5vw
 	height: 0
-	//min-height: 12.5vw
 	padding: 2.6vw
 	backface-visibility: hidden
 	background-color: transparent
@@ -95,9 +93,8 @@
 			font-size: 0.21em
 			font-weight: normal
 	&__recommendation
-		//display: none
 		opacity: 0
-		max-width: 35%
+		max-width: 30%
 		margin-top: 15px
 		transition: all 0.25s 0.6s
 		z-index: 10
@@ -110,7 +107,6 @@
 	.result-circle__name:before
 		display: block
 	.result-circle__recommendation
-		//display: block
 		opacity: 1
 		margin-top: 25px
 	& + .result-circle
@@ -142,6 +138,9 @@
 		cursor: pointer
 		&:last-of-type
 			margin-left: 0.3vw
+		&:hover ~ .cursor
+			width: 55px
+			height: 55px
 	&._row + label
 		background: url("../img/row-icon.svg") no-repeat center / 80%
 	&._col + label
@@ -164,7 +163,7 @@
 			margin-bottom: 30px
 		&._active
 			padding-right: 46px
-	&__circle
+	&__circle-parent
 		position: absolute
 		top: 2px
 		right: 0
@@ -173,15 +172,21 @@
 		margin-left: 10px
 		display: inline-block
 		vertical-align: middle
+		pointer-events: none
+		transition: all 0.5s
+		._active &
+			width: 36px
+			height: 36px
+	&__circle
+		display: block
+		width: 100%
+		height: 100%
 		opacity: 0.2
 		border-radius: 50%
 		border: 2px solid #000
 		transition: all 0.5s, border 0.2s, opacity 0s
-		pointer-events: none
 		._active &
 			opacity: 1
-			width: 36px
-			height: 36px
 			border-width: 0
 			transition: all 0.5s, border 0.1s, opacity 0s
 	&__level
@@ -218,6 +223,7 @@ canvas
 	bottom: 70px
 	left: 60px
 	z-index: 100
+	display: flex
 
 .react-sharing-button__link
 		opacity: 0

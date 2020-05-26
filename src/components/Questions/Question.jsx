@@ -88,6 +88,7 @@ class Question extends Component {
             <Link
               to={navProps.prev}
               className={`question__btn link _prev ${navProps.prevClass}`}
+              data-hover-trigger
             >
               <Arrow />
               prev
@@ -95,6 +96,7 @@ class Question extends Component {
             <Link
               to={navProps.next}
               className={`question__btn link _next ${navProps.nextClass}`}
+              data-hover-trigger
             >
               next <Arrow />
             </Link>
@@ -102,6 +104,7 @@ class Question extends Component {
             <a
               href="/results"
               className={`question__btn link _next ${navProps.resultClass}`}
+              data-hover-trigger
             >
               results
               <Arrow />

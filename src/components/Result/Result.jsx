@@ -38,6 +38,12 @@ class Result extends Component {
     }
 
     setTimeout(this.sharePicGeneration, 2000);
+    this.props.hoverLinks();
+    this.props.defaultCursor();
+  }
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    this.props.hoverLinks();
+    this.props.defaultCursor();
   }
 
   viewSwitchHandler = () => {
@@ -110,7 +116,11 @@ class Result extends Component {
               id={"row-view"}
               onClick={this.viewSwitchHandler}
             />
-            <label htmlFor={"row-view"} className="view-icon__label">
+            <label
+              htmlFor={"row-view"}
+              className="view-icon__label"
+              data-hover-trigger
+            >
               row view
             </label>
             <input
@@ -120,7 +130,11 @@ class Result extends Component {
               id={"col-view"}
               onClick={this.viewSwitchHandler}
             />
-            <label htmlFor={"col-view"} className="view-icon__label">
+            <label
+              htmlFor={"col-view"}
+              className="view-icon__label"
+              data-hover-trigger
+            >
               column view
             </label>
           </div>
@@ -155,7 +169,11 @@ class Result extends Component {
               id={"row-view"}
               onClick={this.viewSwitchHandler}
             />
-            <label htmlFor={"row-view"} className="view-icon__label">
+            <label
+              htmlFor={"row-view"}
+              className="view-icon__label"
+              data-hover-trigger
+            >
               row view
             </label>
             <input
@@ -165,7 +183,11 @@ class Result extends Component {
               id={"col-view"}
               onClick={this.viewSwitchHandler}
             />
-            <label htmlFor={"col-view"} className="view-icon__label">
+            <label
+              htmlFor={"col-view"}
+              className="view-icon__label"
+              data-hover-trigger
+            >
               column view
             </label>
           </div>

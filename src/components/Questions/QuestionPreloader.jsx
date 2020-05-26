@@ -24,9 +24,6 @@ class QuestionPreloader extends Component {
       <>
         <div
           className={`preloader test-card__preloader question__preloader _${index}`}
-          // style={{
-          //   background: `linear-gradient(${gradient})`
-          // }}
         >
           <canvas data-gradient="preloader" />
 

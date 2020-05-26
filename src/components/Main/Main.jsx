@@ -21,6 +21,13 @@ class Main extends Component {
     document.addEventListener("visibilitychange", this.visibilityHandler);
     this.props.animation();
     this.props.linkParallax();
+    this.props.hoverLinks();
+    this.props.defaultCursor();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    this.props.hoverLinks();
+    this.props.defaultCursor();
   }
 
   componentWillUnmount() {
@@ -28,6 +35,7 @@ class Main extends Component {
     clearInterval(this.circleChangerInterval);
     clearInterval(this.menuChangerInterval);
     document.removeEventListener("visibilitychange", this.visibilityHandler);
+    this.props.defaultCursor();
   }
 
   visibilityHandler = () => {
@@ -70,7 +78,6 @@ class Main extends Component {
       function circleRise() {
         let items = Array.from(document.querySelectorAll(".main-circle"));
         let firstItem = items[0];
-        // firstItem.style.transform = "matrix(1, 0, 0, 0.1, 0, 0)";
 
         TweenMax.fromTo(
           firstItem,
@@ -81,28 +88,7 @@ class Main extends Component {
       }
 
       function shrinkCircle(el) {
-        // TweenMax.fromTo(
-        //   el,
-        //   0.5,
-        //   { scale: 1 },
-        //   {
-        //     scale: 0.99,
-        //     ease: Power1.easeOut
-        //   }
-        // );
         el.classList.add("_half");
-      }
-
-      function stretchCircle(el) {
-        // TweenMax.fromTo(
-        //   el,
-        //   1.5,
-        //   { scale: 0.5 },
-        //   {
-        //     scale: 1,
-        //     ease: Power1.easeOut
-        //   }
-        // );
       }
 
       this.circleChangerInterval = setInterval(() => {
@@ -111,7 +97,6 @@ class Main extends Component {
         if (index > 0) {
           shrinkCircle(circleItems[index - 1]);
         }
-        stretchCircle(circleItems[index]);
       }, 5000);
     }
   }
@@ -177,11 +162,13 @@ class Main extends Component {
                   in&nbsp;to&nbsp;achieve inner harmony, restore a&nbsp;positive
                   attitude and start living a&nbsp;full life.
                 </p>
-                <Link to="/test" className="page-content__link link">
+                <Link
+                  to="/test"
+                  className="page-content__link link"
+                  data-hover-trigger
+                >
                   start
-                  <div data-parallax-link-scene>
-                    <Arrow />
-                  </div>
+                  <Arrow />
                 </Link>
               </div>
             </div>
