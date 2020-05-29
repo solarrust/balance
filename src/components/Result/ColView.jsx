@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { TweenMax } from "gsap";
 import Menu from "../Main/Menu";
-import Parallax from "parallax-js";
+
 let resultCircles;
 let parent;
 let circleSize = 93;
+let windowWidth;
 
 class ColView extends Component {
   constructor(props) {
@@ -13,15 +14,19 @@ class ColView extends Component {
   }
 
   componentDidMount() {
-    resultCircles = Array.from(
-      document.querySelectorAll(".results-wrapper > div")
-    );
+    resultCircles = Array.from(document.querySelectorAll(".result-circle"));
     parent = document.querySelector(".results-wrapper");
+
+    windowWidth = document.documentElement.clientWidth;
+
     this.innerAnimation();
-    this.scrollHandler();
   }
 
   innerAnimation() {
+    if (windowWidth <= 768) {
+      circleSize = 123.83;
+    }
+
     let height =
       resultCircles.length * (document.body.offsetHeight / 100) * circleSize;
     parent.style.height = height + "px";
@@ -30,12 +35,18 @@ class ColView extends Component {
       el.style.width = circleSize + "vmax";
       el.style.height = circleSize + "vmax";
 
+      let bottom = `${41 * i}vmax`;
+
+      if (windowWidth <= 768) {
+        bottom = `${75 * i}vmax`;
+      }
+
       TweenMax.fromTo(
         el,
         0.2 * (resultCircles.length - 1),
         { zIndex: -i },
         {
-          bottom: `${41 * i}vmax`
+          bottom: bottom
         }
       );
     });
@@ -44,12 +55,6 @@ class ColView extends Component {
     this.bkgForMenuItem(0);
   }
 
-  scrollHandler = () => {
-    window.addEventListener("scroll", e => {
-      console.log(e);
-    });
-  };
-
   activeCircle(index) {
     resultCircles.forEach(el => {
       el.classList.remove("_active");
@@ -57,13 +62,21 @@ class ColView extends Component {
 
     let positionOfCircle = getComputedStyle(resultCircles[index]);
 
+    console.log(positionOfCircle.bottom);
+
     let menuLink = Array.from(
       document.querySelectorAll("[data-test-menu-link]")
     )[index];
 
+    let multiplier = 60;
+
+    if (windowWidth <= 768) {
+      multiplier = 95;
+    }
+
     TweenMax.to(parent, 0.08 * (resultCircles.length - 1), {
       bottom: `-${parseInt(positionOfCircle.bottom) +
-        (document.body.offsetWidth / 100) * 60}px`
+        (document.body.offsetWidth / 100) * multiplier}px`
     });
     resultCircles[index].classList.add("_active");
     menuLink.classList.add("_active");
@@ -103,8 +116,30 @@ class ColView extends Component {
       return levels[i];
     });
 
+    let slickSettings = {
+      responsive: [
+        {
+          breakpoint: 9999,
+          settings: "unslick"
+        },
+        {
+          breakpoint: 481,
+          settings: {
+            infinite: false,
+            dots: false,
+            arrows: false,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            swipeToSlide: true,
+            draggable: true,
+            vertical: true
+          }
+        }
+      ]
+    };
+
     return (
-      <div className="results-wrapper _col">
+      <div className="results-wrapper _col" data-slick={{ slickSettings }}>
         {this.props.grades.map((grade, i) => {
           return (
             <div

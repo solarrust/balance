@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { TweenMax } from "gsap";
 import Arrow from "../SVG/Arrow";
 
@@ -50,18 +50,34 @@ class Question extends Component {
       if (grades[index] && grades[index] !== "" && grades[index] - 1 === i) {
         classList += ` ${choiceClass}`;
       }
-      gradesNodes.push(
-        <li key={i} className={classList} data-parallax-link-scene>
-          <Link
-            to={navProps.next}
-            onClick={onChange}
-            data-parallax-link
-            data-depth="2"
-          >
-            {i + 1}
-          </Link>
-        </li>
-      );
+
+      if (index === grades.length - 1) {
+        gradesNodes.push(
+          <li key={i} className={classList} data-parallax-link-scene>
+            <a
+              href={navProps.next}
+              onClick={onChange}
+              data-parallax-link
+              data-depth="2"
+            >
+              {i + 1}
+            </a>
+          </li>
+        );
+      } else {
+        gradesNodes.push(
+          <li key={i} className={classList} data-parallax-link-scene>
+            <Link
+              to={navProps.next}
+              onClick={onChange}
+              data-parallax-link
+              data-depth="2"
+            >
+              {i + 1}
+            </Link>
+          </li>
+        );
+      }
     }
 
     return (
@@ -82,6 +98,7 @@ class Question extends Component {
           <h2
             className="question__title lead-title"
             data-auto-show-title="3"
+            data-splitting=""
             dangerouslySetInnerHTML={{ __html: question.title }}
           />
           <div className="question__btns nav-btns">

@@ -9,11 +9,14 @@ class ShareBtns extends Component {
 
     return (
       <div className="share-btns">
-        <div data-hover-trigger>
-          <Facebook url={url} />
-        </div>
-        <div data-hover-trigger>
-          <Twitter url={url} shareText={shareText} />
+        <div className="share-btns__text text">share your balance map</div>
+        <div className="share-btns__container">
+          <div data-hover-trigger>
+            <Facebook url={url} />
+          </div>
+          <div data-hover-trigger>
+            <Twitter url={url} shareText={shareText} />
+          </div>
         </div>
       </div>
     );

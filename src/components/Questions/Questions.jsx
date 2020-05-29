@@ -8,7 +8,6 @@ import Menu from "../Main/Menu";
 import QuestionPreloader from "./QuestionPreloader";
 let Granim = require("granim");
 
-// TODO: отключить меню навигации перед выкатом на бой
 // TODO: при выборе оценки на последнем вопросе перекидывать на страницу результатов
 
 const questions = data.questions;
@@ -67,19 +66,19 @@ class Questions extends Component {
     let logoText = document.querySelector(".preloader__text._center");
     let rightText = document.querySelector(".preloader__text._right");
     let ease = "circ.out";
+    preloaderImg.style.transform = "translate(-50%, -50%)";
 
     let tl = gsap.timeline();
 
     preloaderImg.onload = () => {
-      tl.to(preloaderImg, 0.3, { opacity: 1, delay: 0.2 })
+      tl.fromTo(preloaderImg, 0.3, { opacity: 0 }, { opacity: 1, delay: 0.2 })
         .fromTo(
           preloaderImg,
-          1.5,
-          { rotation: 90 },
-          { rotation: 0, ease: ease }
+          0.5,
+          { rotation: 90, scale: 1.2 },
+          { rotation: 0, scale: 1, ease: ease }
         )
         .to(preloaderText, 0.3, { opacity: 1, ease: ease })
-        .fromTo(logoText, 0.5, { rotation: 180 }, { rotation: 0, ease: ease })
         .fromTo(
           rightText,
           0.3,
@@ -89,7 +88,8 @@ class Questions extends Component {
         .to(preloader, 0.5, {
           opacity: 0,
           zIndex: -100,
-          ease: ease
+          ease: ease,
+          delay: 1.5
         });
     };
   };
@@ -167,20 +167,26 @@ class Questions extends Component {
 
                     if (idx === 0) {
                       navPropsObj.next = `${questions[idx + 1].link}`;
+
                       if (this.grades[idx] && this.grades[idx] !== 0) {
                         navPropsObj.nextClass = "_visible";
                       }
                     } else if (idx === questions.length - 1) {
                       navPropsObj.prev = `${questions[idx - 1].link}`;
                       navPropsObj.prevClass = "_visible";
-                      if (this.grades.length === 8) {
-                        navPropsObj.resultClass = "_visible";
+
+                      if (
+                        this.grades.length === 8 &&
+                        !this.grades.includes("")
+                      ) {
+                        navPropsObj.next = "/results";
+                        // navPropsObj.resultClass = "_visible";
                       }
                     } else {
                       navPropsObj.next = `${questions[idx + 1].link}`;
-
                       navPropsObj.prev = `${questions[idx - 1].link}`;
                       navPropsObj.prevClass = "_visible";
+
                       if (this.grades[idx] && this.grades[idx] !== 0) {
                         navPropsObj.nextClass = "_visible";
                       }

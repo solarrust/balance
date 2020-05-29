@@ -3,11 +3,19 @@
 .test
 	background-image: linear-gradient(180deg, #E8DFDA 0%, #C9D1E0 100%)
 
+.page.questions
+	+max-screen(500px)
+		height: fit-content
+		min-height: 100vh
+
 .test-card
 	position: relative
 	width: 100%
 	height: 100%
 	padding-top: calc(23vh - 50px)
+	+max-screen(768px)
+		flex-direction: column
+		padding-top: 110px
 	&.question
 		display: flex
 	+max-screen(768px)
@@ -17,6 +25,9 @@
 		flex-direction: column
 		justify-content: center
 		padding-bottom: 55px
+	+max-screen(500px)
+		justify-content: flex-start
+		padding-bottom: 20px
 
 .test-header
 	width: 46vw
@@ -34,7 +45,6 @@
 		width: 100%
 		&.lead-title
 			font-size: 34px
-
 
 .test-subheader
 	position: absolute
@@ -126,6 +136,15 @@
 	top: 0
 	height: auto
 	padding-top: 23vh
+	pointer-events: none
+	+max-screen(768px)
+		padding-top: 145px
+	+max-screen(500px)
+		position: fixed
+		top: 50%
+		right: 20px
+		padding-top: 0
+		transform: translateY(-50%)
 	&__grade
 		width: 0
 		transform: scale(0)
@@ -181,29 +200,63 @@
 
 .question
 	&__title
-		width: 50vw
+		width: 56vw
 		max-width: 1100px
 		margin-left: 5.73vw
 		letter-spacing: -0.04em
 		line-height: 1.05 !important
+		&.lead-title
+			+max-screen(1366px)
+				font-size: 6.25vw
+			+max-screen(768px)
+				font-size: 7.2vw
+				width: 78vw
+				margin-left: 0
+				order: 1
+			+max-screen(500px)
+				width: fit-content
+				order: unset
+				font-size: 10vw
+				margin-bottom: 50px
 	&__decoration
 		position: absolute
 		right: 10.5vw
 		bottom: calc(15.37vw - 80px)
+		white-space: nowrap
+		+max-screen(768px)
+			right: -10vw
+			bottom: auto
+			top: 15vh
+		+max-screen(500px)
+			display: none
 	&__btns
 		position: absolute
 		bottom: 155px
 		display: flex
 		z-index: 3
+		+max-screen(768px)
+			position: static
+			margin-top: 80px
+			margin-bottom: 55px
+		+max-screen(500px)
+			position: fixed
+			bottom: 0
+			right: 20px
+			margin-top: 70px
+			margin-bottom: 20px
 	&__btn
 		position: relative
 		display: flex
 		align-items: center
 		transition: all 0.5s
+		+max-screen(500px)
+			justify-content: flex-end
 		&._hidden
 			visibility: hidden
 			opacity: 0
 			left: -10%
+			+max-screen(500px)
+				display: none
 		&._visible
 			visibility: visible
 			opacity: 1
@@ -214,6 +267,8 @@
 			margin-left: 20px
 		& + &
 			margin-left: 40px
+			+max-screen(500px)
+				margin-left: 15px
 		&._prev
 			& .arrow
 				margin-left: 0
@@ -227,6 +282,14 @@
 	justify-content: space-between
 	width: 100%
 	padding-top: 1.5vw
+	+max-screen(768px)
+		flex-wrap: wrap
+		bottom: 70px
+	+max-screen(500px)
+		position: static
+		padding-left: 4px
+		padding-right: 4px
+		flex-direction: column
 	&__item
 		position: relative
 		display: flex
@@ -241,6 +304,23 @@
 		text-align: center
 		transition: all 0.2s
 		cursor: pointer
+		+max-screen(1366px)
+			font-size: 36px
+		+max-screen(768px)
+			width: 8.5vw
+			height: 8.5vw
+			&:not(:nth-child(5n+1))
+				margin-left: 10vw
+			&:nth-child(n+6)
+				margin-top: 30px
+		+max-screen(500px)
+			width: 65px
+			height: 65px
+			&:not(:nth-child(5n+1))
+				margin-left: 0
+			&:nth-child(n+6),
+			&:not(:first-child)
+				margin-top: 25px
 		& > a
 			+B-Wide
 			display: flex
@@ -260,13 +340,13 @@
 		&:before
 			content: ""
 			position: absolute
-			top: 0
-			left: 0
+			top: -4px
+			left: -4px
 			opacity: 0
 			width: 100%
 			height: 100%
 			border-radius: 50%
-			border: 2px solid #000
+			border: 4px solid #000
 			transform: scale(0.75)
 			transition: 0.2s
 		&:hover,
@@ -286,6 +366,12 @@
 		position: absolute
 		bottom: -40px
 		font-size: 0.9375vw
+		+max-screen(1366px)
+			font-size: 16px
+		+max-screen(768px)
+			bottom: 0
+		+max-screen(500px)
+			display: none
 		&._low
 			left: 0
 		&._high
@@ -296,15 +382,24 @@
 	flex: 0 0 auto
 	margin-top: 10px
 	font-weight: 600
+	+max-screen(500px)
+		align-items: center
 	&__number
 		+B-Wide
-		font-size: 7.5vw
+		font-size: 144px
 		line-height: 0.8
+		+max-screen(500px)
+			+Poppins
+			font-size: 22px
+			line-height: normal
 	&__static
 		margin-left: 10px
 		font-size: 22px
 		font-style: italic
 		opacity: 0.2
+		+max-screen(500px)
+			margin-left: 5px
+			font-style: normal
 
 .preloader
 	position: fixed
@@ -320,13 +415,13 @@
 	//opacity: 0
 	&__img
 		position: absolute
-		top: -5vh
-		left: 0
+		top: 50%
+		left: 50%
 		right: 0
 		opacity: 0
-		width: 110vh
+		width: 110vmin
 		max-width: 1188px
-		height: 110vh
+		height: 110vmin
 		max-height: 1188px
 		margin: auto
 		border-radius: 50%
@@ -352,12 +447,24 @@
 		z-index: 0
 		transform-origin: center
 		transform-style: preserve-3d
+		+max-screen(1366px)
+			font-size: 40px
+		+max-screen(768px)
+			font-size: 32px
+		+max-screen(500px)
+			font-size: 16px
 
 .inner-logo
 	display: flex
 	width: 16.5vw
 	margin: 0 4.17vw
 	z-index: 0
+	+max-screen(1366px)
+		width: 19.35vw
+	+max-screen(768px)
+		width: 32.1vw
+	+max-screen(500px)
+		width: 28.8vw
 	&__circle
 		flex: 0 0 auto
 		display: flex
@@ -367,10 +474,25 @@
 		height: 11vw
 		background: white
 		border-radius: 50%
+		+max-screen(1366px)
+			width: 12.9vw
+			height: 12.9vw
+		+max-screen(768px)
+			width: 21.4vw
+			height: 21.4vw
+		+max-screen(500px)
+			width: 19.2vw
+			height: 19.2vw
 		&._half
 			margin-left: -5.5vw
 			border-radius: 0
 			clip-path: circle(50% at center right)
+			+max-screen(1366px)
+				margin-left: -6.5vw
+			+max-screen(768px)
+				margin-left: -10.5vw
+			+max-screen(500px)
+				margin-left: -9.5vw
 
 ._0 .inner-logo
 	&__circle._full

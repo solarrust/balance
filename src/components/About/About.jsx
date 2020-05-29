@@ -21,6 +21,7 @@ import ElenaPic from "../../img/Elena.png";
 import ElinaPic from "../../img/Elina.png";
 import AlenaPic from "../../img/Alena.png";
 import TeamMember from "./TeamMember";
+import Slider from "react-slick";
 
 const menuLinks = data.aboutMenu;
 
@@ -47,6 +48,38 @@ class About extends React.Component {
   };
 
   render() {
+    let slickSettings = {
+      responsive: [
+        {
+          breakpoint: 9999,
+          settings: "unslick"
+        },
+        {
+          breakpoint: 1025,
+          settings: {
+            infinite: false,
+            dots: false,
+            arrows: false,
+            slidesToShow: 2.9,
+            slidesToScroll: 1,
+            swipeToSlide: true,
+            draggable: true
+          }
+        },
+        {
+          breakpoint: 500,
+          settings: {
+            infinite: false,
+            dots: false,
+            arrows: false,
+            slidesToShow: 1.7,
+            slidesToScroll: 1,
+            swipeToSlide: true,
+            draggable: true
+          }
+        }
+      ]
+    };
     return (
       <HashRouter>
         <div className="page about">
@@ -220,7 +253,7 @@ class About extends React.Component {
                         <div className="about-card">
                           <div
                             data-animated-circle
-                            className="about-circle total-circle"
+                            className="about-circle total-circle _gold-circle"
                             aria-hidden="true"
                           />
                           <div
@@ -260,56 +293,58 @@ class About extends React.Component {
                     <Route
                       path="/team"
                       render={() => (
-                        <div className="about-card">
+                        <div className="about-card team">
                           <div className="page-content__block about-card-content _team">
                             <div className="about-card__team team-container">
-                              <TeamMember
-                                member={{
-                                  pic: NatashaPic,
-                                  name: "Natasha Yankelevich",
-                                  position: "Photography",
-                                  fb:
-                                    "https://www.facebook.com/yankelevich.natasha"
-                                }}
-                                imageLoaded={this.imageLoaded}
-                              />
-                              <TeamMember
-                                member={{
-                                  pic: DanilinaPic,
-                                  name: "Natasha Danilina",
-                                  position: "Copywriter",
-                                  fb: "https://www.facebook.com/natala.ouch"
-                                }}
-                                imageLoaded={this.imageLoaded}
-                              />
-                              <TeamMember
-                                member={{
-                                  pic: ElenaPic,
-                                  name: "Elena Saharova",
-                                  position: "Idea & Web design",
-                                  fb: "https://www.facebook.com/eessoooo/"
-                                }}
-                                imageLoaded={this.imageLoaded}
-                              />
-                              <TeamMember
-                                member={{
-                                  pic: ElinaPic,
-                                  name: "Elina Chanieva",
-                                  position: "Logo & Web design",
-                                  fb: "https://www.facebook.com/bionocopy"
-                                }}
-                                imageLoaded={this.imageLoaded}
-                              />
-                              <TeamMember
-                                member={{
-                                  pic: AlenaPic,
-                                  name: "Alena Batitskaya",
-                                  position: "Frontend & Backend",
-                                  fb: "https://www.facebook.com/ABatickaya",
-                                  tw: "https://twitter.com/ABatickaya"
-                                }}
-                                imageLoaded={this.imageLoaded}
-                              />
+                              <Slider {...slickSettings}>
+                                <TeamMember
+                                  member={{
+                                    pic: NatashaPic,
+                                    name: "Natasha Yankelevich",
+                                    position: "Photography",
+                                    fb:
+                                      "https://www.facebook.com/yankelevich.natasha"
+                                  }}
+                                  imageLoaded={this.imageLoaded}
+                                />
+                                <TeamMember
+                                  member={{
+                                    pic: DanilinaPic,
+                                    name: "Natasha Danilina",
+                                    position: "Copywriter",
+                                    fb: "https://www.facebook.com/natala.ouch"
+                                  }}
+                                  imageLoaded={this.imageLoaded}
+                                />
+                                <TeamMember
+                                  member={{
+                                    pic: ElenaPic,
+                                    name: "Elena Saharova",
+                                    position: "Idea & Web design",
+                                    fb: "https://www.facebook.com/eessoooo/"
+                                  }}
+                                  imageLoaded={this.imageLoaded}
+                                />
+                                <TeamMember
+                                  member={{
+                                    pic: ElinaPic,
+                                    name: "Elina Chanieva",
+                                    position: "Logo & Web design",
+                                    fb: "https://www.facebook.com/bionocopy"
+                                  }}
+                                  imageLoaded={this.imageLoaded}
+                                />
+                                <TeamMember
+                                  member={{
+                                    pic: AlenaPic,
+                                    name: "Alena Batitskaya",
+                                    position: "Frontend & Backend",
+                                    fb: "https://www.facebook.com/ABatickaya",
+                                    tw: "https://twitter.com/ABatickaya"
+                                  }}
+                                  imageLoaded={this.imageLoaded}
+                                />
+                              </Slider>
                             </div>
                             <a
                               href="/"
@@ -328,7 +363,11 @@ class About extends React.Component {
               </TransitionGroup>
             )}
           />
-          <h1 className="about__title lead-title" data-auto-show-title>
+          <h1
+            className="about__title lead-title"
+            data-auto-show-title
+            data-splitting=""
+          >
             about
             <br />
             project

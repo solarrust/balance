@@ -27,7 +27,10 @@
     "react-scripts": "3.1.1",
     "react-share": "^4.1.0",
     "react-sharingbuttons": "^1.0.0",
+    "react-slick": "^0.26.1",
     "react-transition-group": "^4.4.1",
+    "slick-carousel": "^1.8.1",
+    "splitting": "^1.0.6",
     "styled-components": "^4.4.1"
   },
   "scripts": {

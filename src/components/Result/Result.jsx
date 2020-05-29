@@ -75,7 +75,9 @@ class Result extends Component {
       .then(function() {
         canvas = document.querySelector("canvas");
         canvas.toBlob(function(blob) {
-          shareImgURLExtractor(blob);
+          if (process.env.NODE_ENV === "production") {
+            shareImgURLExtractor(blob);
+          }
         });
       });
 
@@ -83,20 +85,19 @@ class Result extends Component {
       let btns = Array.from(
         document.querySelectorAll(".react-sharing-button__link")
       );
+      let btnsContainer = document.querySelector(".share-btns");
 
       btns.forEach(btn => {
         let href = btn.getAttribute("href");
         btn.setAttribute("href", `${href}/${UUID}`);
       });
 
-      btns.forEach(btn => {
-        if (!btn.classList.contains("_ready")) {
-          btn.classList.add("_ready");
-        }
-      });
+      if (!btnsContainer.classList.contains("_ready")) {
+        btnsContainer.classList.add("_ready");
+      }
     }
-
     function shareImgURLExtractor(URL) {
+      // TODO: Раскомментировать перед заливкой!
       client
         .uploadFile(URL, options)
         .then(file => shareBtnsContentGenerator(file.uuid));

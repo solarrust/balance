@@ -9,8 +9,7 @@ import Header from "./components/Header/Header";
 import Questions from "./components/Questions/Questions";
 import Result from "./components/Result/Result";
 import Parallax from "parallax-js";
-
-// TODO: подключить nanoid и заменить все ключи
+import Splitting from "splitting";
 
 let customCursor;
 const cursorActiveClass = "_medium";
@@ -59,32 +58,31 @@ class App extends React.Component {
   }
 
   textAutoShowing() {
-    let autoShowingText = document.querySelector("[data-auto-show-title]");
+    let autoShowingText = document.querySelector("[data-splitting]");
 
     if (autoShowingText) {
       let delay = 0;
 
-      if (autoShowingText.getAttribute("data-auto-show-title") !== true) {
-        delay = autoShowingText.getAttribute("data-auto-show-title") * 1000;
+      if (autoShowingText.getAttribute("data-auto-show-title") !== "") {
+        delay = autoShowingText.getAttribute("data-auto-show-title") * 1150;
       }
 
-      autoShowingText.innerHTML = autoShowingText.innerHTML.replace(
-        /(?![^<]*>)[^<]/g,
-        c => `<span>${c}</span>`
-      );
+      Splitting();
 
       setTimeout(() => {
-        Array.from(autoShowingText.children).forEach((ch, i) => {
-          TweenMax.fromTo(
-            ch,
-            0.1,
-            {
-              opacity: 0,
-              y: 5
-            },
-            { opacity: 1, y: 0, delay: i * 0.03 }
-          );
-        });
+        Array.from(autoShowingText.querySelectorAll(".char")).forEach(
+          (ch, i) => {
+            TweenMax.fromTo(
+              ch,
+              0.1,
+              {
+                opacity: 0,
+                y: 5
+              },
+              { opacity: 1, y: 0, delay: i * 0.03 }
+            );
+          }
+        );
       }, delay);
     }
   }

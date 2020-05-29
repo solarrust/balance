@@ -9,15 +9,13 @@ const menuLinks = data.mainMenu;
 let index = 0;
 let animationTime = 0.3;
 
-// TODO: переписать анимацию кругов
-
 class Main extends Component {
   circleChangerInterval = 0;
   menuChangerInterval = 0;
 
   componentDidMount() {
     this.circleChanger();
-    this.menuChanger();
+    // this.menuChanger();
     document.addEventListener("visibilitychange", this.visibilityHandler);
     this.props.animation();
     this.props.linkParallax();
@@ -33,7 +31,7 @@ class Main extends Component {
   componentWillUnmount() {
     index = 0;
     clearInterval(this.circleChangerInterval);
-    clearInterval(this.menuChangerInterval);
+    // clearInterval(this.menuChangerInterval);
     document.removeEventListener("visibilitychange", this.visibilityHandler);
     this.props.defaultCursor();
   }
@@ -44,7 +42,7 @@ class Main extends Component {
       clearInterval(this.menuChangerInterval);
     } else {
       this.circleChanger();
-      this.menuChanger();
+      // this.menuChanger();
     }
   };
 
@@ -97,36 +95,36 @@ class Main extends Component {
         if (index > 0) {
           shrinkCircle(circleItems[index - 1]);
         }
-      }, 5000);
+      }, 3000);
     }
   }
 
-  menuChanger() {
-    let menuItems = Array.from(document.querySelectorAll(".main-menu__link"));
-    let number = document.querySelector(".main-menu__number");
-    let activeClass = "_active";
-    menuItems[index].classList.add(activeClass);
+  // menuChanger() {
+  //   let menuItems = Array.from(document.querySelectorAll(".main-menu__link"));
+  //   let number = document.querySelector(".main-menu__number");
+  //   let activeClass = "_active";
+  //   menuItems[index].classList.add(activeClass);
+  //
+  //   function toggleClass(el) {
+  //     menuItems.forEach(child => child.classList.remove(activeClass));
+  //     el.classList.add(activeClass);
+  //   }
+  //
+  //   function changeNumber(el) {
+  //     el.textContent = index + 1;
+  //     TweenMax.fromTo(
+  //       el,
+  //       animationTime,
+  //       { opacity: 0, y: -10 },
+  //       { opacity: 1, y: 0, ease: Power1.easeOut }
+  //     );
+  //   }
 
-    function toggleClass(el) {
-      menuItems.forEach(child => child.classList.remove(activeClass));
-      el.classList.add(activeClass);
-    }
-
-    function changeNumber(el) {
-      el.textContent = index + 1;
-      TweenMax.fromTo(
-        el,
-        animationTime,
-        { opacity: 0, y: -10 },
-        { opacity: 1, y: 0, ease: Power1.easeOut }
-      );
-    }
-
-    this.menuChangerInterval = setInterval(() => {
-      toggleClass(menuItems[index]);
-      changeNumber(number);
-    }, 5000);
-  }
+  // this.menuChangerInterval = setInterval(() => {
+  //   toggleClass(menuItems[index]);
+  //   changeNumber(number);
+  // }, 3000);
+  // }
 
   render() {
     return (
@@ -148,6 +146,7 @@ class Main extends Component {
               <h1
                 className="page-content__title lead-title"
                 data-auto-show-title
+                data-splitting=""
               >
                 how
                 <br />
@@ -172,14 +171,14 @@ class Main extends Component {
                 </Link>
               </div>
             </div>
-            <Menu className="page-content__menu main-menu">
-              {menuLinks.map((link, index) => (
-                <li className="main-menu__link text" key={index}>
-                  {link}
-                </li>
-              ))}
-              <li className="main-menu__number">1</li>
-            </Menu>
+            {/*<Menu className="page-content__menu main-menu">*/}
+            {/*  {menuLinks.map((link, index) => (*/}
+            {/*    <li className="main-menu__link text" key={index}>*/}
+            {/*      {link}*/}
+            {/*    </li>*/}
+            {/*  ))}*/}
+            {/*  <li className="main-menu__number">1</li>*/}
+            {/*</Menu>*/}
           </div>
         </div>
       </>

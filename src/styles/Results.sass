@@ -1,12 +1,23 @@
 .page.results
 	padding-top: 13.43vh
-
 	display: flex
 	justify-content: space-between
 	padding-left: 0
 	padding-right: 0
 	background-color: #e1dcdb
 	background-image: none
+
+.slider
+	position: absolute
+	display: flex
+	justify-content: space-between
+	align-items: center
+	width: 100%
+	height: 100%
+	._col &
+		left: 0
+		bottom: 0
+		flex-direction: column
 
 .results-wrapper
 	position: absolute
@@ -20,10 +31,18 @@
 		bottom: 0
 		flex-direction: column-reverse
 		z-index: -999
+		+max-screen(768px)
+			display: flex
+	+max-screen(768px)
+		display: block
+
+.slick-track
+	display: flex !important
+	align-items: center
 
 .result-circle
 	position: absolute
-	display: flex
+	display: flex !important
 	flex-direction: column
 	justify-content: center
 	align-items: flex-start
@@ -36,6 +55,9 @@
 	transform-style: preserve-3d
 	transform-origin: right center
 	will-change: width, height
+	+max-screen(768px)
+		padding: 50px
+		position: static
 	& [data-parallax-scene]
 		position: absolute
 		top: 0
@@ -59,8 +81,10 @@
 		position: relative
 		z-index: 1
 		font-family: "B-Wide", -apple-system, sans-serif
-		font-size: 5vw
+		font-size: 96px
 		will-change: opacity, margin
+		+max-screen(570px)
+			font-size: 48px
 
 ._col .result-circle
 	align-items: center
@@ -74,6 +98,9 @@
 	transform-style: preserve-3d
 	transform: scale(0.1)
 	transition: transform 1.2s
+	+max-screen(768px)
+		padding: 120px
+		position: absolute
 	&:after
 		content: ""
 		position: absolute
@@ -86,21 +113,28 @@
 	&__name
 		color: currentColor
 		font-size: 5.4vw
+		+max-screen(1366px)
+			font-size: 90px
 		&:before
 			content: "sphere of life"
 			display: none
-			margin-bottom: 10px
+			margin-bottom: 5px
 			font-size: 0.21em
 			font-weight: normal
+			+max-screen(1366px)
+				font-size: 20px
 	&__recommendation
 		opacity: 0
 		max-width: 30%
-		margin-top: 15px
+		margin-top: 10px
 		transition: all 0.25s 0.6s
 		z-index: 10
 		line-height: 1.25
 		._active &
 			display: block
+		+max-screen(1366px)
+			max-width: 50%
+			font-size: 14px
 
 ._col .result-circle._active
 	transform: scale(1)
@@ -109,6 +143,8 @@
 	.result-circle__recommendation
 		opacity: 1
 		margin-top: 25px
+		+max-screen(1366px)
+			margin-top: 20px
 	& + .result-circle
 		transform: scale(0.4)
 
@@ -124,7 +160,9 @@
 		margin-bottom: 14px
 		font-size: 1.125em
 		font-weight: 600
-	
+		+max-screen(1366px)
+			font-size: 16px
+
 .view-icon
 	display: none
 	&__label
@@ -141,6 +179,12 @@
 		&:hover ~ .cursor
 			width: 55px
 			height: 55px
+		+max-screen(1366px)
+			width: 48px
+			height: 48px
+		+max-screen(480px)
+			width: 40px
+			height: 40px
 	&._row + label
 		background: url("../img/row-icon.svg") no-repeat center / 80%
 	&._col + label
@@ -152,20 +196,28 @@
 .test-menu
 	position: fixed
 	padding-top: 13.5vh
+	&.questions-menu
+		pointer-events: auto
 	&__item
 		position: relative
 		padding-right: 25px
 		cursor: pointer
 		line-height: 1
 		text-transform: capitalize
-		transition: padding 0.6s
+		transition: padding 0.6s, color 0.2s
 		&:not(:last-child)
 			margin-bottom: 30px
+			+max-screen(1366px)
+				margin-bottom: 20px
 		&._active
 			padding-right: 46px
+		&:hover
+			color: black
+			& .test-menu__circle
+				opacity: 1
 	&__circle-parent
 		position: absolute
-		top: 2px
+		top: 4px
 		right: 0
 		width: 15px
 		height: 15px
@@ -184,7 +236,7 @@
 		opacity: 0.2
 		border-radius: 50%
 		border: 2px solid #000
-		transition: all 0.5s, border 0.2s, opacity 0s
+		transition: all 0.5s, border 0.2s, opacity 0.2s
 		._active &
 			opacity: 1
 			border-width: 0
@@ -210,6 +262,9 @@
 			opacity: 1
 			bottom: 60px
 			transition: all 0.25s 0.6s
+		+max-screen(1366px)
+			font-size: 100px
+
 canvas
 	position: absolute
 	top: 0
@@ -222,14 +277,23 @@ canvas
 	position: absolute
 	bottom: 70px
 	left: 60px
+	opacity: 0
 	z-index: 100
 	display: flex
+	flex-direction: column
+	transition: all 50ms, opacity 0.5s !important
+	&._ready
+		opacity: 1
+	&__text
+		margin-left: 0.5em
+	&__container
+		display: flex
+		justify-content: flex-start
 
-.react-sharing-button__link
-		opacity: 0
-		transition: all 50ms, opacity 0.5s !important
-		&._ready
-			opacity: 1
+//.react-sharing-button__link
+//		opacity: 0
+//		&._ready
+//			opacity: 1
 
 
 canvas

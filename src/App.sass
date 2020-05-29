@@ -8,6 +8,10 @@
 @import "./styles/Test"
 @import "./styles/Results"
 @import '~react-sharingbuttons/dist/main.css'
+@import "~slick-carousel/slick/slick.css"
+@import "~slick-carousel/slick/slick-theme.css"
+@import "~splitting/dist/splitting.css"
+@import "~splitting/dist/splitting-cells.css"
 
 *
 	+Poppins
@@ -26,6 +30,9 @@ h1, h2, h3, h4, h5, h6, p, ul
 
 ul
 	list-style: none
+
+*:focus
+	outline: -webkit-focus-ring-color auto 0
 
 .text
 	font-size: 1vw
@@ -57,6 +64,7 @@ ul
 	font-size: 5.4vw
 	font-weight: bold
 	line-height: 0.9
+	letter-spacing: -3px
 	+max-screen(1366px)
 		font-size: 6.5vw
 	+max-screen(1024px)
@@ -107,6 +115,8 @@ ul
 
 .cursor
 	position: absolute
+	left: 0
+	top: 0
 	width: 42px
 	height: 42px
 	stroke-width: 2px
@@ -132,14 +142,9 @@ a:hover ~ .cursor
 	cursor: none
 
 [data-auto-show-title]
-	& > span
+	& .char
 		opacity: 0
-		display: inline-block
-		min-width: 20px
 		will-change: opacity, transform
-		text-align: center
-		+max-screen(570px)
-			min-width: 9px
 
 [data-auto-show]
 	opacity: 0

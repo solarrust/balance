@@ -109,7 +109,7 @@ $circleChangeTime: 1.5s
 	margin-left: auto
 	color: rgba(0, 0, 0, 0.2)
 	text-align: end
-	z-index: 1
+	z-index: 11
 	@media (max-width: 570px)
 		padding-left: 0
 		margin-left: -40px
@@ -121,7 +121,7 @@ $circleChangeTime: 1.5s
 		transition: color 0.5s ease-in
 		&:not(:last-child)
 			margin-bottom: 1.56vw
-			@media (max-width: 1366px)
+			+max-screen(1366px)
 				margin-bottom: 18px
 		&._active,
 		&.active

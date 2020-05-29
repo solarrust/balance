@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { TweenMax } from "gsap";
 import Parallax from "parallax-js";
+import Slider from "react-slick";
 
 class RowView extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class RowView extends Component {
   }
 
   innerAnimation = () => {
+    let windowWidth = document.documentElement.clientWidth;
     let resultCircles = Array.from(document.querySelectorAll(".result-circle"));
     let resultBkg = Array.from(
       document.querySelectorAll(".result-circle__bkg")
@@ -27,6 +29,14 @@ class RowView extends Component {
       el.style.left = `${12.5 * i}%`;
       resultBkg[i].style.opacity = 0;
       resultGrades[i].style.opacity = 0;
+
+      if (windowWidth <= 768) {
+        // el.parentNode.style.overflowX = "scroll";
+        el.style.left = `${31.25 * i}%`;
+      } else if (windowWidth <= 480) {
+        el.style.left = `${10.93 * i}%`;
+      }
+
       TweenMax.fromTo(
         el,
         0.5,
@@ -52,7 +62,7 @@ class RowView extends Component {
         0.5,
         {
           opacity: 0,
-          marginLeft: "1vw"
+          marginLeft: "1vmax"
         },
         {
           opacity: 1,
@@ -77,29 +87,51 @@ class RowView extends Component {
   }
 
   render() {
+    let slickSettings = {
+      responsive: [
+        {
+          breakpoint: 9999,
+          settings: "unslick"
+        },
+        {
+          breakpoint: 769,
+          settings: {
+            infinite: false,
+            dots: false,
+            arrows: false,
+            slidesToShow: 3.2,
+            slidesToScroll: 1,
+            swipeToSlide: true,
+            draggable: true
+          }
+        }
+      ]
+    };
     return (
       <div className="results-wrapper _row">
-        {this.props.grades.map((grade, i) => {
-          return (
-            <div className={"result-circle"} index={i} key={i}>
-              <div data-parallax-scene>
-                <div
-                  className={"result-circle__bkg"}
-                  style={{
-                    backgroundImage: `linear-gradient(${this.props.items[i].bkg})`
-                  }}
-                  data-parallax
-                  data-depth="0.5"
-                />
-              </div>
+        <Slider {...slickSettings}>
+          {this.props.grades.map((grade, i) => {
+            return (
+              <div className={"result-circle"} index={i} key={i}>
+                <div data-parallax-scene>
+                  <div
+                    className={"result-circle__bkg"}
+                    style={{
+                      backgroundImage: `linear-gradient(${this.props.items[i].bkg})`
+                    }}
+                    data-parallax
+                    data-depth="0.5"
+                  />
+                </div>
 
-              <div className="result-circle__name">
-                {this.props.items[i].sphere}
+                <div className="result-circle__name">
+                  {this.props.items[i].sphere}
+                </div>
+                <div className="result-circle__grade">{grade}</div>
               </div>
-              <div className="result-circle__grade">{grade}</div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </Slider>
       </div>
     );
   }

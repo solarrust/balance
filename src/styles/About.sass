@@ -23,11 +23,11 @@
 		+max-screen(768px)
 			position: static
 			&.lead-title
-				margin-top: 105px
-		+max-screen(570px)
-			margin-top: 95px
+				margin-top: 35px
+		+max-screen(500px)
 			&.lead-title
 				font-size: 64px
+				margin-top: 95px
 	& > div
 		position: absolute
 		top: 0
@@ -44,6 +44,10 @@
 	height: 100%
 	width: 100%
 	padding-bottom: 80px
+	&.team
+		+max-screen(1024px)
+			background-color: #EEE
+			z-index: 10
 	+max-screen(1366px)
 		padding-bottom: 70px
 	+max-screen(1024px)
@@ -68,17 +72,25 @@
 				width: 1366px
 	&__link
 		margin-top: 17vh
+		+max-screen(1024px)
+			margin-top: 0
 		+max-screen(570px)
 			&.page-content__link
 				margin-top: 20px
+				margin-bottom: 0
 		._team > &
 			margin-top: 0
 			margin-left: auto
 			margin-right: 227px
+			+max-screen(1024px)
+				margin-left: 50px
+				margin-right: 0
 		& svg
 			pointer-events: none
 		&._diagnostics
 			margin-top: 10vh
+			+max-screen(768px)
+				margin-top: 0
 
 img._loading
 	opacity: 0
@@ -100,22 +112,33 @@ img._loaded
 	+max-screen(768px)
 		margin-left: 50px
 	+max-screen(570px)
-		max-width: 270px
+		max-width: 80%
 		margin-left: 20px
-		margin-top: calc(100% + 20px)
-		justify-content: flex-start
+		margin-top: 0
+		padding-top: calc(100% + 20px)
+		justify-content: space-between
 		& > p
 			margin: 0
 			max-width: none
 	&._dates-content
 		justify-content: space-between
 		padding-top: 22vh
+		+max-screen(1366px)
+			padding-top: 50vh
+			justify-content: flex-end
+		+max-screen(768px)
+			margin-left: 50px
+		+max-screen(500px)
+			margin-left: 20px
+			justify-content: space-between
 	&._team
 		flex-basis: 100%
 		justify-content: space-between
 		max-width: none
 		margin-left: 0
 		padding: 15vh 6.25vw 0
+		+max-screen(1024px)
+			padding: 15vh 0 0
 
 .about-decoration
 	+Poppins
@@ -125,13 +148,30 @@ img._loaded
 	&._years
 		bottom: 20vw
 		left: 4.15vw
-		font-size: 15vw
+		font-size: 144px
+		+max-screen(1366px)
+			bottom: auto
+			top: 15vh
+		+max-screen(768px)
+			left: 45vw
+			top: 11.2vh
+		+max-screen(500px)
+			font-size: 96px
+			left: 20px
+			top: 15vh
 	&._usa
 		@extend ._stroke-text
 		right: 14.6vw
 		bottom: 7.3vw
 		text-transform: uppercase
 		z-index: -1
+		+max-screen(1024px)
+			bottom: auto
+			top: calc(50vh - 144px / 2)
+			right: -1vw
+		+max-screen(500px)
+			top: 10vh
+			font-size: 124px
 	&._photo-circle
 		position: absolute
 		top: -4.5vw
@@ -143,6 +183,16 @@ img._loaded
 		//	repeat: no-repeat
 		//	size: 100% 25.364583333vw
 		z-index: -1
+		+max-screen(768px)
+			width: 76.4vw
+			height: calc(76.4vw / 2)
+			left: 34vw
+			top: 0
+		+max-screen(500px)
+			width: 525px
+			height: auto
+			left: 50%
+			transform: translateX(-50%)
 		& img
 			width: 100%
 			height: 100%
@@ -153,6 +203,12 @@ img._loaded
 		height: 12.5vw
 		border-radius: 50%
 		background-color: #C6CAD4
+		+max-screen(768px)
+			left: 6vw
+			width: 138px
+			height: 138px
+		+max-screen(500px)
+			display: none
 	&._goose-circle
 		top: -147px
 		width: 53.125vw
@@ -162,6 +218,12 @@ img._loaded
 			repeat: no-repeat
 			size: contain
 		z-index: -2
+		+max-screen(768px)
+			top: 0
+			left: auto
+			right: 0
+			width: 61.7vw
+			height: 63.9vw
 		& img
 			width: 100%
 			height: 100%
@@ -173,22 +235,34 @@ img._loaded
 	align-items: center
 	width: 100%
 	z-index: 10
+	+max-screen(1024px)
+		display: block
+		margin-top: 3vh
 
 .team-item
 	display: flex
 	flex-direction: column
+	align-items: flex-end
 	&__picture
 		height: 16.5vw
 		max-height: 315px
 		margin-bottom: 6vh
 		overflow: hidden
 		text-align: end
+		+max-screen(1024px)
+			height: 34.375vh
+			max-height: unset
 		& img
 			height: 100%
 	&__content
 		font-size: 0.9375vw
 		line-height: 1.5
 		text-align: end
+		+max-screen(1366px)
+			font-size: 14px
+
+.slick-slide:last-child
+	margin-right: 50px
 
 .social-list
 	--size: 24px
@@ -244,10 +318,37 @@ img._loaded
 			left: -87vw
 	&.dates-circle
 		background: linear-gradient(180deg, #9B3D33 0%, #AF8D77 100%), #DCAD9F
+		+max-screen(768px)
+			bottom: auto
+			top: -12vh
+			left: -36.8vw
+			width: 76.2vw
+			height: 76.2vw
+		+max-screen(500px)
+			width: 250vh
+			height: 250vh
+			left: -50vh
+			top: -50vh
 	&.diagnostics-circle
 		background: #E8DFDA
+	+max-screen(500px)
+		width: 250vh
+		height: 250vh
+		left: -50vh
+		top: -50vh
 	&.total-circle
+		z-index: -1
 		background: linear-gradient(180deg, #EDD557 0%, #DCAD9F 100%)
+		+max-screen(768px)
+			top: 15.8vh
+			width: 90.8vw
+			height: 90.8vw
+		+max-screen(500px)
+			width: 250vh
+			height: 250vh
+			left: -50vh
+			top: -50vh
+			z-index: -2
 
 .fade-enter, .fade-exit
 	position: absolute

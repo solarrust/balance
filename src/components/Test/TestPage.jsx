@@ -52,7 +52,11 @@ class TestPage extends React.Component {
             aria-hidden="true"
             data-animated-circle
           />
-          <h2 className="test-header lead-title" data-auto-show-title>
+          <h2
+            className="test-header lead-title"
+            data-auto-show-title
+            data-splitting=""
+          >
             you need
             <br />
             to answer a few
