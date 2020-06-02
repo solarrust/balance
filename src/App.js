@@ -25,12 +25,23 @@ class App extends React.Component {
     customCursor = document.querySelector(".cursor");
 
     this.textAutoShowing();
+    window.addEventListener("resize", () => {
+      this.heightCalc(window.innerHeight);
+    });
   }
 
   cursorDefault() {
     if (customCursor) {
       customCursor.classList.remove(cursorActiveClass);
+      if (customCursor.classList.contains("_big")) {
+        customCursor.classList.remove("_big");
+      }
     }
+  }
+
+  heightCalc(windowHeight) {
+    let vh = windowHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
   }
 
   cursorMoveHandler() {
@@ -175,7 +186,7 @@ class App extends React.Component {
   }
 
   linksParallax() {
-    let links = document.querySelectorAll("[data-parallax-link]");
+    let links = Array.from(document.querySelectorAll("[data-parallax-link]"));
 
     links.forEach(link => {
       let scene = link.parentElement;

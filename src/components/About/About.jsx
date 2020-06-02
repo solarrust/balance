@@ -22,25 +22,25 @@ import ElinaPic from "../../img/Elina.png";
 import AlenaPic from "../../img/Alena.png";
 import TeamMember from "./TeamMember";
 import Slider from "react-slick";
+import AboutCard from "./AboutCard";
 
 const menuLinks = data.aboutMenu;
 
-// TODO: Менять цвет логотипа на последнем слайде
-// TODO: Добавить анимацию на пропадание слайда + на появление слайда
 // TODO: Добавить анимации декоративным элементам
 
 class About extends React.Component {
   componentDidMount() {
-    this.props.hoverLinks();
     this.props.defaultCursor();
+    this.props.linkParallax();
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    this.props.hoverLinks();
     this.props.defaultCursor();
+    this.props.linkParallax();
   }
   componentWillUnmount() {
     this.props.defaultCursor();
+    this.props.linkParallax();
   }
 
   imageLoaded = e => {
@@ -61,9 +61,7 @@ class About extends React.Component {
             dots: false,
             arrows: false,
             slidesToShow: 2.9,
-            slidesToScroll: 1,
-            swipeToSlide: true,
-            draggable: true
+            slidesToScroll: 1
           }
         },
         {
@@ -73,9 +71,7 @@ class About extends React.Component {
             dots: false,
             arrows: false,
             slidesToShow: 1.7,
-            slidesToScroll: 1,
-            swipeToSlide: true,
-            draggable: true
+            slidesToScroll: 1
           }
         }
       ]
@@ -95,7 +91,7 @@ class About extends React.Component {
                     <Route
                       path="/balance-card"
                       render={() => (
-                        <div className="about-card">
+                        <AboutCard hoverLinks={this.props.hoverLinks}>
                           <div
                             data-animated-circle
                             className="about-circle balance-circle"
@@ -135,13 +131,13 @@ class About extends React.Component {
                               next <Arrow />
                             </Link>
                           </div>
-                        </div>
+                        </AboutCard>
                       )}
                     />
                     <Route
                       path="/dates"
                       render={() => (
-                        <div className="about-card">
+                        <AboutCard hoverLinks={this.props.hoverLinks}>
                           <div
                             data-animated-circle
                             className="about-circle dates-circle"
@@ -187,13 +183,13 @@ class About extends React.Component {
                               next <Arrow />
                             </Link>
                           </div>
-                        </div>
+                        </AboutCard>
                       )}
                     />
                     <Route
                       path="/diagnostics"
                       render={() => (
-                        <div className="about-card">
+                        <AboutCard hoverLinks={this.props.hoverLinks}>
                           <div
                             data-animated-circle
                             className="about-circle diagnostics-circle"
@@ -244,13 +240,13 @@ class About extends React.Component {
                               next <Arrow />
                             </Link>
                           </div>
-                        </div>
+                        </AboutCard>
                       )}
                     />
                     <Route
                       path="/total"
                       render={() => (
-                        <div className="about-card">
+                        <AboutCard hoverLinks={this.props.hoverLinks}>
                           <div
                             data-animated-circle
                             className="about-circle total-circle _gold-circle"
@@ -287,13 +283,13 @@ class About extends React.Component {
                               next <Arrow />
                             </Link>
                           </div>
-                        </div>
+                        </AboutCard>
                       )}
                     />
                     <Route
                       path="/team"
                       render={() => (
-                        <div className="about-card team">
+                        <AboutCard hoverLinks={this.props.hoverLinks}>
                           <div className="page-content__block about-card-content _team">
                             <div className="about-card__team team-container">
                               <Slider {...slickSettings}>
@@ -354,7 +350,7 @@ class About extends React.Component {
                               go to the main page <Arrow />
                             </a>
                           </div>
-                        </div>
+                        </AboutCard>
                       )}
                     />
                     <Redirect from="/" to="/balance-card" />

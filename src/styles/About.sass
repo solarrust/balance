@@ -44,10 +44,6 @@
 	height: 100%
 	width: 100%
 	padding-bottom: 80px
-	&.team
-		+max-screen(1024px)
-			background-color: #EEE
-			z-index: 10
 	+max-screen(1366px)
 		padding-bottom: 70px
 	+max-screen(1024px)
@@ -138,7 +134,10 @@ img._loaded
 		margin-left: 0
 		padding: 15vh 6.25vw 0
 		+max-screen(1024px)
+			position: relative
 			padding: 15vh 0 0
+			background-color: #EEE
+			z-index: 10
 
 .about-decoration
 	+Poppins
@@ -367,8 +366,8 @@ img._loaded
 	flex-direction: column
 	width: 100vw
 	height: 100vh
+	height: calc(var(--vh, 1vh) * 100)
 	overflow: hidden
-
 	> div
 		height: 100%
 		position: relative
@@ -399,3 +398,7 @@ img._loaded
 	to
 		opacity: 1
 		transform: scale(1)
+
+.team-container .slider
+	+min-screen(1024px)
+		position: static

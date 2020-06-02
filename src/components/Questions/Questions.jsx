@@ -51,11 +51,16 @@ class Questions extends Component {
 
   handleChange = e => {
     this.grades[this.state.active] = e.target.innerHTML;
-    document
-      .querySelectorAll(".grade__item")
-      .forEach(el => el.classList.remove("_choice"));
-    e.target.parentNode.classList.add("_choice");
-    this.forceUpdate();
+
+    console.log(e.target.tagName);
+
+    if (e.target.tagName !== "a") {
+      document
+        .querySelectorAll(".grade__item")
+        .forEach(el => el.classList.remove("_choice"));
+      e.target.parentNode.classList.add("_choice");
+      this.forceUpdate();
+    }
   };
 
   questionChanged = num => {
@@ -63,9 +68,9 @@ class Questions extends Component {
     let preloader = document.querySelector(".preloader");
     let preloaderImg = document.querySelector(".preloader__img");
     let preloaderText = document.querySelector(".preloader__content");
-    let logoText = document.querySelector(".preloader__text._center");
     let rightText = document.querySelector(".preloader__text._right");
-    let ease = "circ.out";
+    // let ease = "circ.out";
+    let ease = "sine.in";
     preloaderImg.style.transform = "translate(-50%, -50%)";
 
     let tl = gsap.timeline();
@@ -74,7 +79,7 @@ class Questions extends Component {
       tl.fromTo(preloaderImg, 0.3, { opacity: 0 }, { opacity: 1, delay: 0.2 })
         .fromTo(
           preloaderImg,
-          0.5,
+          1,
           { rotation: 90, scale: 1.2 },
           { rotation: 0, scale: 1, ease: ease }
         )
@@ -228,6 +233,7 @@ class Questions extends Component {
                                 strokeAnimation={this.strokeAnimation}
                                 linkParallax={this.linkParallax}
                                 gradientAnimation={this.gradientCanvas}
+                                defaultCursor={this.props.defaultCursor}
                               />
                             </div>
                           </>

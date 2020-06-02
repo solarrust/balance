@@ -26,6 +26,15 @@ class Question extends Component {
     );
 
     this.cursorHoverHandler();
+    this.props.defaultCursor();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    this.props.defaultCursor();
+  }
+
+  componentWillUnmount() {
+    this.props.defaultCursor();
   }
 
   cursorHoverHandler() {
@@ -56,7 +65,8 @@ class Question extends Component {
           <li key={i} className={classList} data-parallax-link-scene>
             <a
               href={navProps.next}
-              onClick={onChange}
+              // onClick={onChange}
+              onClick={() => console.log("click!")}
               data-parallax-link
               data-depth="2"
             >
