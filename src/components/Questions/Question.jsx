@@ -27,6 +27,7 @@ class Question extends Component {
 
     this.cursorHoverHandler();
     this.props.defaultCursor();
+    this.props.scrollToTop();
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -63,13 +64,7 @@ class Question extends Component {
       if (index === grades.length - 1) {
         gradesNodes.push(
           <li key={i} className={classList} data-parallax-link-scene>
-            <a
-              href={navProps.next}
-              // onClick={onChange}
-              onClick={() => console.log("click!")}
-              data-parallax-link
-              data-depth="2"
-            >
+            <a href={navProps.next} data-parallax-link data-depth="2">
               {i + 1}
             </a>
           </li>

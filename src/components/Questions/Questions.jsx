@@ -52,15 +52,11 @@ class Questions extends Component {
   handleChange = e => {
     this.grades[this.state.active] = e.target.innerHTML;
 
-    console.log(e.target.tagName);
-
-    if (e.target.tagName !== "a") {
-      document
-        .querySelectorAll(".grade__item")
-        .forEach(el => el.classList.remove("_choice"));
-      e.target.parentNode.classList.add("_choice");
-      this.forceUpdate();
-    }
+    document
+      .querySelectorAll(".grade__item")
+      .forEach(el => el.classList.remove("_choice"));
+    e.target.parentNode.classList.add("_choice");
+    this.forceUpdate();
   };
 
   questionChanged = num => {
@@ -69,7 +65,6 @@ class Questions extends Component {
     let preloaderImg = document.querySelector(".preloader__img");
     let preloaderText = document.querySelector(".preloader__content");
     let rightText = document.querySelector(".preloader__text._right");
-    // let ease = "circ.out";
     let ease = "sine.in";
     preloaderImg.style.transform = "translate(-50%, -50%)";
 
@@ -103,6 +98,10 @@ class Questions extends Component {
     if (this.grades[index] && this.grades[index] !== ",") {
       return this.grades[index];
     }
+  };
+
+  scrollToTop = () => {
+    window.scrollTo(0, 0);
   };
 
   gradientCanvas(gradient, prelGradient) {
@@ -185,7 +184,7 @@ class Questions extends Component {
                         !this.grades.includes("")
                       ) {
                         navPropsObj.next = "/results";
-                        // navPropsObj.resultClass = "_visible";
+                        navPropsObj.resultClass = "_visible";
                       }
                     } else {
                       navPropsObj.next = `${questions[idx + 1].link}`;
@@ -234,6 +233,7 @@ class Questions extends Component {
                                 linkParallax={this.linkParallax}
                                 gradientAnimation={this.gradientCanvas}
                                 defaultCursor={this.props.defaultCursor}
+                                scrollToTop={this.scrollToTop}
                               />
                             </div>
                           </>
