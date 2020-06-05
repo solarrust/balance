@@ -31,7 +31,6 @@ class RowView extends Component {
       resultGrades[i].style.opacity = 0;
 
       if (windowWidth <= 768) {
-        // el.parentNode.style.overflowX = "scroll";
         el.style.left = `${31.25 * i}%`;
       } else if (windowWidth <= 480) {
         el.style.left = `${10.93 * i}%`;
@@ -43,12 +42,10 @@ class RowView extends Component {
         {
           width: 0,
           height: 0
-          // left: "50%"
         },
         {
           width: `${10 * this.props.grades[i]}vh`,
           height: `${10 * this.props.grades[i]}vh`,
-          // left: `${12.5 * i}%`
           delay: delay
         }
       );
@@ -99,10 +96,8 @@ class RowView extends Component {
             infinite: false,
             dots: false,
             arrows: false,
-            slidesToShow: 3.2,
-            slidesToScroll: 1,
-            swipeToSlide: true,
-            draggable: true
+            slidesToShow: 2.3,
+            slidesToScroll: 1
           }
         }
       ]

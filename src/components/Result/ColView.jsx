@@ -23,9 +23,9 @@ class ColView extends Component {
   }
 
   innerAnimation() {
-    if (windowWidth <= 768) {
-      circleSize = 123.83;
-    }
+    // if (windowWidth <= 768) {
+    //   circleSize = 123.83;
+    // }
 
     let height =
       resultCircles.length * (document.body.offsetHeight / 100) * circleSize;
@@ -36,10 +36,6 @@ class ColView extends Component {
       el.style.height = circleSize + "vmax";
 
       let bottom = `${41 * i}vmax`;
-
-      if (windowWidth <= 768) {
-        bottom = `${75 * i}vmax`;
-      }
 
       TweenMax.fromTo(
         el,
@@ -71,7 +67,7 @@ class ColView extends Component {
     let multiplier = 60;
 
     if (windowWidth <= 768) {
-      multiplier = 95;
+      multiplier = 50;
     }
 
     TweenMax.to(parent, 0.08 * (resultCircles.length - 1), {
@@ -139,7 +135,7 @@ class ColView extends Component {
     };
 
     return (
-      <div className="results-wrapper _col" data-slick={{ slickSettings }}>
+      <div className="results-wrapper _col">
         {this.props.grades.map((grade, i) => {
           return (
             <div

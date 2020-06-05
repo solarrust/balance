@@ -96,7 +96,7 @@ img._loaded
 
 .about-card-content
 	flex: 0 0 35vw
-	max-width: 475px
+	max-width: 28.9%
 	height: 100%
 	display: flex
 	flex-direction: column
@@ -173,24 +173,23 @@ img._loaded
 			font-size: 124px
 	&._photo-circle
 		position: absolute
-		top: -4.5vw
+		top: -23vw
 		left: calc(50% - (53.125vw / 2))
 		width: 53.125vw
-		height: 25.364583333vw
-		//background:
-		//	position: bottom
-		//	repeat: no-repeat
-		//	size: 100% 25.364583333vw
+		max-width: 50%
+		height: auto
 		z-index: -1
 		+max-screen(768px)
-			width: 76.4vw
-			height: calc(76.4vw / 2)
-			left: 34vw
-			top: 0
+			width: 590px
+			height: 590px
+			max-width: unset
+			left: 35%
+			top: -15%
 		+max-screen(500px)
 			width: 525px
 			height: auto
 			left: 50%
+			top: -25%
 			transform: translateX(-50%)
 		& img
 			width: 100%
@@ -209,8 +208,10 @@ img._loaded
 		+max-screen(500px)
 			display: none
 	&._goose-circle
-		top: -147px
+		top: -15%
+		left: -7%
 		width: 53.125vw
+		max-width: 45%
 		height: 53.125vw
 		background:
 			position: center
@@ -218,11 +219,20 @@ img._loaded
 			size: contain
 		z-index: -2
 		+max-screen(768px)
-			top: 0
-			left: auto
-			right: 0
-			width: 61.7vw
-			height: 63.9vw
+			width: 600px
+			max-width: unset
+			height: 600px
+			left: 30%
+			top: -10%
+		+max-screen(540px)
+			width: 430px
+			height: 430px
+			top: -80px
+			left: -150px
+			z-index: 0
+		//	top: 0
+		//	left: auto
+		//	right: 0
 		& img
 			width: 100%
 			height: 100%
@@ -305,6 +315,11 @@ img._loaded
 	+max-screen(1366px)
 		width: 1325px
 		height: 1325px
+		max-width: 90%
+		max-height: 90%
+	+max-screen(540px)
+		max-width: unset
+		max-height: unset
 	&.balance-circle
 		left: -37vw
 		top: -7.56vw
@@ -339,7 +354,8 @@ img._loaded
 		z-index: -1
 		background: linear-gradient(180deg, #EDD557 0%, #DCAD9F 100%)
 		+max-screen(768px)
-			top: 15.8vh
+			top: 20%
+			left: -25%
 			width: 90.8vw
 			height: 90.8vw
 		+max-screen(500px)
