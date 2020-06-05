@@ -25,6 +25,7 @@ import Slider from "react-slick";
 import AboutCard from "./AboutCard";
 
 const menuLinks = data.aboutMenu;
+let windowWidth;
 
 // TODO: Добавить анимации декоративным элементам
 
@@ -32,6 +33,8 @@ class About extends React.Component {
   componentDidMount() {
     this.props.defaultCursor();
     this.props.linkParallax();
+
+    windowWidth = document.documentElement.clientWidth;
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -76,6 +79,7 @@ class About extends React.Component {
         }
       ]
     };
+
     return (
       <HashRouter>
         <div className="page about">
@@ -128,7 +132,8 @@ class About extends React.Component {
                               className="page-content__link about-card__link link"
                               data-hover-trigger
                             >
-                              next <Arrow />
+                              {windowWidth <= 540 ? "dates" : "next"}
+                              <Arrow />
                             </Link>
                           </div>
                         </AboutCard>
@@ -180,7 +185,8 @@ class About extends React.Component {
                               className="page-content__link about-card__link link"
                               data-hover-trigger
                             >
-                              next <Arrow />
+                              {windowWidth <= 540 ? "diagnostics" : "next"}
+                              <Arrow />
                             </Link>
                           </div>
                         </AboutCard>
@@ -237,7 +243,8 @@ class About extends React.Component {
                               className="page-content__link about-card__link link _diagnostics"
                               data-hover-trigger
                             >
-                              next <Arrow />
+                              {windowWidth <= 540 ? "total" : "next"}
+                              <Arrow />
                             </Link>
                           </div>
                         </AboutCard>
@@ -280,7 +287,8 @@ class About extends React.Component {
                               className="page-content__link about-card__link link"
                               data-hover-trigger
                             >
-                              next <Arrow />
+                              {windowWidth <= 540 ? "team" : "next"}
+                              <Arrow />
                             </Link>
                           </div>
                         </AboutCard>
