@@ -25,6 +25,7 @@ class App extends React.Component {
     customCursor = document.querySelector(".cursor");
 
     this.textAutoShowing();
+    this.heightCalc(window.innerHeight);
     window.addEventListener("resize", () => {
       this.heightCalc(window.innerHeight);
     });
