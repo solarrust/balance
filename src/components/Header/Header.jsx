@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 import Logo from "../SVG/Logo";
 
-// TODO: Отключать ссылку на лого на главной странице
-
 class Header extends React.Component {
   componentDidMount() {
     this.props.linkParallax();

@@ -8,8 +8,6 @@ import Menu from "../Main/Menu";
 import QuestionPreloader from "./QuestionPreloader";
 let Granim = require("granim");
 
-// TODO: при выборе оценки на последнем вопросе перекидывать на страницу результатов
-
 const questions = data.questions;
 
 class Questions extends Component {
@@ -119,7 +117,7 @@ class Questions extends Component {
         let prevGrad = prelGradient.match(reg);
         let bigGradArr = gradientColors.slice();
         bigGradArr.unshift(prevGrad);
-        var granimInstance = new Granim({
+        new Granim({
           element: cEl,
           direction: "top-bottom",
           stateTransitionSpeed: 500,
@@ -132,7 +130,7 @@ class Questions extends Component {
           }
         });
       } else {
-        var granimInstance = new Granim({
+        new Granim({
           element: cEl,
           direction: "top-bottom",
           isPausedWhenNotInView: true,

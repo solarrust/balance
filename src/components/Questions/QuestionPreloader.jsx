@@ -18,6 +18,7 @@ class QuestionPreloader extends Component {
   }
 
   render() {
+    // eslint-disable-next-line no-unused-vars
     const { gradient, image, index, sphere } = this.props;
 
     return (

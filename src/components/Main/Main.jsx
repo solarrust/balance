@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { TweenMax, Power1 } from "gsap";
 import Arrow from "../SVG/Arrow";
-import Menu from "./Menu";
 import data from "../../data";
 
-const menuLinks = data.mainMenu;
 let index = 0;
 let animationTime = 0.3;
 
@@ -15,7 +13,6 @@ class Main extends Component {
 
   componentDidMount() {
     this.circleChanger();
-    // this.menuChanger();
     document.addEventListener("visibilitychange", this.visibilityHandler);
     this.props.animation();
     this.props.linkParallax();
@@ -31,7 +28,6 @@ class Main extends Component {
   componentWillUnmount() {
     index = 0;
     clearInterval(this.circleChangerInterval);
-    // clearInterval(this.menuChangerInterval);
     document.removeEventListener("visibilitychange", this.visibilityHandler);
     this.props.defaultCursor();
   }
@@ -42,7 +38,6 @@ class Main extends Component {
       clearInterval(this.menuChangerInterval);
     } else {
       this.circleChanger();
-      // this.menuChanger();
     }
   };
 
@@ -99,33 +94,6 @@ class Main extends Component {
     }
   }
 
-  // menuChanger() {
-  //   let menuItems = Array.from(document.querySelectorAll(".main-menu__link"));
-  //   let number = document.querySelector(".main-menu__number");
-  //   let activeClass = "_active";
-  //   menuItems[index].classList.add(activeClass);
-  //
-  //   function toggleClass(el) {
-  //     menuItems.forEach(child => child.classList.remove(activeClass));
-  //     el.classList.add(activeClass);
-  //   }
-  //
-  //   function changeNumber(el) {
-  //     el.textContent = index + 1;
-  //     TweenMax.fromTo(
-  //       el,
-  //       animationTime,
-  //       { opacity: 0, y: -10 },
-  //       { opacity: 1, y: 0, ease: Power1.easeOut }
-  //     );
-  //   }
-
-  // this.menuChangerInterval = setInterval(() => {
-  //   toggleClass(menuItems[index]);
-  //   changeNumber(number);
-  // }, 3000);
-  // }
-
   render() {
     return (
       <>
@@ -171,14 +139,6 @@ class Main extends Component {
                 </Link>
               </div>
             </div>
-            {/*<Menu className="page-content__menu main-menu">*/}
-            {/*  {menuLinks.map((link, index) => (*/}
-            {/*    <li className="main-menu__link text" key={index}>*/}
-            {/*      {link}*/}
-            {/*    </li>*/}
-            {/*  ))}*/}
-            {/*  <li className="main-menu__number">1</li>*/}
-            {/*</Menu>*/}
           </div>
         </div>
       </>

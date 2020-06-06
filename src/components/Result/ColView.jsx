@@ -112,28 +112,6 @@ class ColView extends Component {
       return levels[i];
     });
 
-    let slickSettings = {
-      responsive: [
-        {
-          breakpoint: 9999,
-          settings: "unslick"
-        },
-        {
-          breakpoint: 481,
-          settings: {
-            infinite: false,
-            dots: false,
-            arrows: false,
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            swipeToSlide: true,
-            draggable: true,
-            vertical: true
-          }
-        }
-      ]
-    };
-
     return (
       <div className="results-wrapper _col">
         {this.props.grades.map((grade, i) => {

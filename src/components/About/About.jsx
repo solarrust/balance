@@ -27,8 +27,6 @@ import AboutCard from "./AboutCard";
 const menuLinks = data.aboutMenu;
 let windowWidth;
 
-// TODO: Добавить анимации декоративным элементам
-
 class About extends React.Component {
   componentDidMount() {
     this.props.defaultCursor();

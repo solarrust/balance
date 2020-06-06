@@ -4,10 +4,6 @@ import Parallax from "parallax-js";
 import Slider from "react-slick";
 
 class RowView extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.innerAnimation();
     this.circlesParallax();
@@ -75,7 +71,7 @@ class RowView extends Component {
 
     circles.forEach(circle => {
       let scene = circle.parentElement;
-      let parallaxInstance = new Parallax(scene, {
+      new Parallax(scene, {
         relativeInput: true,
         clipRelativeInput: true,
         hoverOnly: true

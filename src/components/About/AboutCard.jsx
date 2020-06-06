@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 class AboutCard extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.hoverLinks();
   }

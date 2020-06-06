@@ -97,7 +97,6 @@ class Result extends Component {
       }
     }
     function shareImgURLExtractor(URL) {
-      // TODO: Раскомментировать перед заливкой!
       client
         .uploadFile(URL, options)
         .then(file => shareBtnsContentGenerator(file.uuid));

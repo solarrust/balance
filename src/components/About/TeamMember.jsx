@@ -19,20 +19,28 @@ class TeamMember extends Component {
           </span>
           <ul className="team-item__social-list social-list">
             <li className="social-list__item _fb" data-parallax-link-scene>
+              {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
               <a
                 target="_blank"
+                rel="noopener noreferrer"
                 href={this.props.member.fb}
                 data-parallax-link
                 data-depth="2"
+                title="facebook"
+                aria-label="facebook"
               />
             </li>
             {this.props.member.tw ? (
               <li className="social-list__item _tw" data-parallax-link-scene>
+                {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
                 <a
                   target="_blank"
+                  rel="noopener noreferrer"
                   href={this.props.member.tw}
                   data-parallax-link
                   data-depth="2"
+                  title="twitter"
+                  aria-label="twitter"
                 />
               </li>
             ) : (
