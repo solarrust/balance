@@ -151,8 +151,8 @@
 			margin-top: 20px
 	& + .result-circle
 		transform: scale(0.4)
-		+max-screen(540px)
-			transform: unset
+		//+max-screen(540px)
+		//	transform: unset
 
 .view-icons
 	display: flex
@@ -301,12 +301,14 @@
 			bottom: 60px
 			transition: all 0.25s 0.6s
 			+max-screen(768px)
-				bottom: 10vh
+				bottom: 0
+				margin-bottom: 10vh
 		+max-screen(1366px)
 			font-size: 100px
 		+max-screen(768px)
 			font-size: 96px
-			bottom: 12vh
+			bottom: 0
+			margin-bottom: 15vh
 			left: 0
 			right: 0
 			text-align: center
