@@ -23,9 +23,9 @@ class ColView extends Component {
   }
 
   innerAnimation() {
-    // if (windowWidth <= 768) {
-    //   circleSize = 123.83;
-    // }
+    if (windowWidth <= 768) {
+      circleSize = 83;
+    }
 
     let height =
       resultCircles.length * (document.body.offsetHeight / 100) * circleSize;
