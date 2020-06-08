@@ -103,6 +103,7 @@
 	+max-screen(768px)
 		padding: 80px 120px
 		position: absolute
+		opacity: 0
 	&:after
 		content: ""
 		position: absolute
@@ -137,11 +138,16 @@
 		._active &
 			display: block
 		+max-screen(1366px)
-			max-width: 85%
+			max-width: 65%
 			font-size: 14px
+		+max-screen(768px)
+			width: 80%
+			max-width: 80vw
 
 ._col .result-circle._active
 	transform: scale(1)
+	+max-screen(768px)
+		opacity: 1
 	.result-circle__name:before
 		display: block
 	.result-circle__recommendation
@@ -215,7 +221,7 @@
 			display: block
 			width: 100%
 			height: 100%
-			top: 23vh
+			top: 165px
 			right: 0
 			bottom: unset
 			margin-bottom: 0
@@ -307,7 +313,7 @@
 		+max-screen(1366px)
 			font-size: 100px
 		+max-screen(768px)
-			font-size: 96px
+			font-size: 12.5vw
 			bottom: 0
 			margin-bottom: 13vh
 			left: 0
