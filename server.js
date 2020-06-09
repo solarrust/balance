@@ -3,6 +3,11 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const app = express();
+const targetBaseUrl = "http://balance-map.site/";
+function handleRedirect(req, res) {
+  const targetUrl = targetBaseUrl + req.originalUrl;
+  res.redirect(targetUrl);
+}
 
 app.use(require("prerender-node"));
 
@@ -64,5 +69,7 @@ app.get("/share/:uuid", function(req, res) {
 app.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
+
+app.get("*", handleRedirect);
 
 app.listen(process.env.PORT || 80);
