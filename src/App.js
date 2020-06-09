@@ -1,6 +1,7 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { TweenMax } from "gsap";
+import { YMInitializer } from "react-yandex-metrika";
 import "./App.sass";
 import Main from "./components/Main/Main";
 import About from "./components/About/About";
@@ -202,25 +203,10 @@ class App extends React.Component {
     });
   }
 
-  ym() {
-    return '<script type="text/javascript" >\
-(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\
-  m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\
-(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");\
-\
-ym(64735912, "init", {\
-  clickmap:true,\
-  trackLinks:true,\
-  accurateTrackBounce:true\
-});\
-</script>\
-<noscript><div><img src="https://mc.yandex.ru/watch/64735912" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
-  }
-
   render() {
     return (
       <>
-        <div dangerouslySetInnerHTML={{ __html: this.ym() }} />
+        <YMInitializer accounts={[64735912]} />
         <Header
           linkParallax={this.linksParallax}
           hoverLinks={this.cursorMoveHandler}
@@ -289,6 +275,7 @@ ym(64735912, "init", {\
               />
             )}
           />
+          <Redirect from="/" to="/" />
         </Switch>
 
         <div className="cursor">
