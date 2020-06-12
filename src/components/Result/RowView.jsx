@@ -93,7 +93,7 @@ class RowView extends Component {
             dots: false,
             arrows: false,
             slidesToShow: 2.3,
-            slidesToScroll: 1
+            slidesToScroll: 2
           }
         }
       ]

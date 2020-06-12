@@ -33,23 +33,26 @@ $circleChangeTime: 1.5s
 		flex: 0 0 35vw
 		max-width: 475px
 		margin-left: 14vw
-		@media (max-width: 1366px)
+		+max-screen(1366px)
 			margin-left: 7.3vw
-		@media (max-width: 1024px)
+		+max-screen(1024px)
 			flex-basis: auto
 			margin-left: 0
 	&__text
 		color: rgba(0, 0, 0, 0.6)
-		@media (max-width: 1024px)
+		+max-screen(1024px)
 			margin-top: 2.85em
 			margin-bottom: 5em
-		@media (max-width: 570px)
+		+max-screen(570px)
 			max-width: 55vw
+		+max-screen(376px)
+			max-width: 90vw
+			margin-bottom: 2.85em
 	&__link
 		display: flex
 		align-items: center
 		margin-top: 3.125vw
-		@media (max-width: 570px)
+		+max-screen(570px)
 			margin-bottom: 17.3vw
 
 .arrow
