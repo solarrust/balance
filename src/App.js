@@ -1,7 +1,6 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { TweenMax } from "gsap";
-import { YMInitializer } from "react-yandex-metrika";
 import "./App.sass";
 import Main from "./components/Main/Main";
 import About from "./components/About/About";
@@ -206,7 +205,6 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <YMInitializer accounts={[64735912]} />
         <Header
           linkParallax={this.linksParallax}
           hoverLinks={this.cursorMoveHandler}
