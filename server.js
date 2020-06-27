@@ -52,21 +52,30 @@ app.get("/share/:uuid", function(req, res) {
     <meta property="og:image:height" content="628" />
   </head>
   <body>
+    <script>
+      setTimeout(function() {
+        location.href = "/";
+      }, 1000)
+    </script>
   </body>
 </html>
   `;
 
   const newHtml = html.replace(/<% uuid %>/gi, uuid);
-  const userAgent = req.headers["user-agent"];
 
-  if (/HeadlessChrome/gi.test(userAgent)) {
-    res.send(newHtml);
-  } else {
-    res.redirect("/");
-  }
+  res.send(newHtml);
+
+  // const userAgent = req.headers["user-agent"];
+
+  // if (/HeadlessChrome/gi.test(userAgent)) {
+  //   res.send(newHtml);
+  // } else {
+  //   res.redirect("/");
+  // }
 });
 
 app.get("/*", function(req, res) {
+  console.log(req.url);
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
