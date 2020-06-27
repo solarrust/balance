@@ -58,16 +58,14 @@ app.get("/share/:uuid", function(req, res) {
   `;
 
   const newHtml = html.replace(/<% uuid %>/gi, uuid);
+  const userAgent = req.headers["user-agent"];
 
-  res.send(newHtml);
-
-  // const userAgent = req.headers["user-agent"];
-
-  // if (/HeadlessChrome/gi.test(userAgent)) {
-  //   res.send(newHtml);
-  // } else {
-  //   res.redirect("/");
-  // }
+  const reg = /googlebot|yahoo|bingbot|baiduspider|yandex|yeti|yodaobot|gigabot|ia_archiver|facebookexternalhit|twitterbot|developers\.google\.com/gi;
+  if (reg.test(userAgent)) {
+    res.send(newHtml);
+  } else {
+    res.redirect("/");
+  }
 });
 
 app.get("/*", function(req, res) {
