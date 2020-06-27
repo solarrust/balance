@@ -5,6 +5,7 @@ const path = require("path");
 const app = express();
 const targetBaseUrl = "https://balance-map.site/";
 function handleRedirect(req, res) {
+  console.log(req.url);
   const targetUrl = targetBaseUrl + req.originalUrl;
   res.redirect(targetUrl);
 }
@@ -75,7 +76,6 @@ app.get("/share/:uuid", function(req, res) {
 });
 
 app.get("/*", function(req, res) {
-  console.log(req.url);
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
