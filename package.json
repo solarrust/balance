@@ -35,7 +35,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "PUBLIC_URL=https://balance-map.site react-scripts build",
+    "build": "NODE_ENV=production PUBLIC_URL=https://balance-map.site react-scripts build",
     "test": "react-scripts test",
     "heroku": "npm run build && node server"
   },
