@@ -38,7 +38,7 @@ app.get("/share/:uuid", function(req, res) {
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:website"
-      content="https://balance-test.herokuapp.com/"
+      content="https://balance-map.site"
     />
     <meta
       property="twitter:image"
@@ -53,11 +53,6 @@ app.get("/share/:uuid", function(req, res) {
     <meta property="og:image:height" content="628" />
   </head>
   <body>
-    <script>
-      setTimeout(function() {
-        location.href = "/";
-      }, 1000)
-    </script>
   </body>
 </html>
   `;
