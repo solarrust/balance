@@ -210,6 +210,14 @@ class App extends React.Component {
           hoverLinks={this.cursorMoveHandler}
           defaultCursor={this.cursorDefault}
         />
+        <a
+          className="award-badge"
+          title="CSS Awards Showcase - featured"
+          target="_blank"
+          href="https://www.cssawardss.com"
+        >
+          CSSAwardss.com
+        </a>
 
         <Switch>
           <Route
