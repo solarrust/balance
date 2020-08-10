@@ -10,6 +10,7 @@ import Questions from "./components/Questions/Questions";
 import Result from "./components/Result/Result";
 import Parallax from "parallax-js";
 import Splitting from "splitting";
+import { YMInitializer } from "react-yandex-metrika";
 
 let customCursor;
 const cursorActiveClass = "_medium";
@@ -205,19 +206,20 @@ class App extends React.Component {
   render() {
     return (
       <>
+        <YMInitializer accounts={[64735912]} />
         <Header
           linkParallax={this.linksParallax}
           hoverLinks={this.cursorMoveHandler}
           defaultCursor={this.cursorDefault}
         />
-        <a
-          className="award-badge"
-          title="CSS Awards Showcase - featured"
-          target="_blank"
-          href="https://www.cssawardss.com"
-        >
-          CSSAwardss.com
-        </a>
+        {/*<a*/}
+        {/*  className="award-badge"*/}
+        {/*  title="CSS Awards Showcase - featured"*/}
+        {/*  target="_blank"*/}
+        {/*  href="https://www.cssawardss.com"*/}
+        {/*>*/}
+        {/*  CSSAwardss.com*/}
+        {/*</a>*/}
 
         <Switch>
           <Route
