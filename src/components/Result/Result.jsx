@@ -6,7 +6,7 @@ import html2canvas from "html2canvas";
 import ShareBtns from "./ShareBtns";
 import UploadClient from "@uploadcare/upload-client";
 
-const client = new UploadClient({ publicKey: "83c160907f01bd6a3574" });
+const client = new UploadClient({ publicKey: "c79ae9205834231277e5" });
 const { questions } = data;
 
 class Result extends Component {
