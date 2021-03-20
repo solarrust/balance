@@ -37,7 +37,7 @@ app.get("/share/:uuid", function(req, res) {
       property="og:description"
       content="Be in a balance in all spheres of your life!"
     />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta
       name="twitter:website"
       content="https://balance-map.site"
@@ -66,7 +66,7 @@ app.get("/share/:uuid", function(req, res) {
   const newHtml = html.replace(/<% uuid %>/gi, uuid);
   const userAgent = req.headers["user-agent"];
 
-  const reg = /HeadlessChrome|googlebot|yahoo|bingbot|baiduspider|yandex|yeti|yodaobot|gigabot|ia_archiver|facebookexternalhit|twitterbot|developers\.google\.com/gi;
+  const reg = /HeadlessChrome|googlebot|yahoo|bingbot|baiduspider|yandex|yeti|yodaobot|gigabot|ia_archiver|facebot|facebookexternalhit|twitterbot|telegrambot|developers\.google\.com/gi;
   if (reg.test(userAgent)) {
     res.send(newHtml);
   } else {
