@@ -15,7 +15,7 @@
     "html2canvas": "^1.0.0-rc.5",
     "moment": "^2.25.3",
     "moment-timezone": "^0.5.28",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "normalize.css": "^8.0.1",
     "parallax-js": "^3.1.0",
     "prerender-node": "^3.2.5",
