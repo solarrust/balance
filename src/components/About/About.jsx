@@ -359,7 +359,7 @@ class About extends React.Component {
                         </AboutCard>
                       )}
                     />
-                    <Redirect from="/" to="/balance-card" />
+                    <Redirect from="/*" to="/balance-card" />
                   </Switch>
                 </CSSTransition>
               </TransitionGroup>
