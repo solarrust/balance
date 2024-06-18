@@ -138,7 +138,7 @@ class Result extends Component {
               column view
             </label>
           </div>
-          <ShareBtns />
+          {/* <ShareBtns /> */}
 
           {this.state.view === "row-view" ? (
             <>
