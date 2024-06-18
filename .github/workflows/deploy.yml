@@ -20,7 +20,7 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
           cache-dependency-path: package-lock.json
-          node-version: 15.0.1
+          node-version: 18.x
       - name: install dependencies
         run: npm ci
       - name: build app
