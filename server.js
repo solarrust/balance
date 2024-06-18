@@ -42,11 +42,11 @@ app.get("/share/:uuid", function(req, res) {
     />
     <meta
       property="twitter:image"
-      content="https://ucarecdn.com/<% uuid %>/-/preview/share.jpeg"
+      content="https://ucarecdn.com/<% uuid %>/-/resize/1200/share.jpg"
     />
     <meta
       property="og:image"
-      content="https://ucarecdn.com/<% uuid %>/-/preview/share.jpeg"
+      content="https://ucarecdn.com/<% uuid %>/-/resize/1200/share.jpg"
     />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
