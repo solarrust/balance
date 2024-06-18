@@ -31,7 +31,7 @@ class ColView extends Component {
       resultCircles.length * (document.body.offsetHeight / 100) * circleSize;
     parent.style.height = height + "px";
 
-    resultCircles.map((el, i) => {
+    resultCircles.forEach((el, i) => {
       el.style.width = circleSize + "vmax";
       el.style.height = circleSize + "vmax";
 

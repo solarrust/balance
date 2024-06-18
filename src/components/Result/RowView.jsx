@@ -19,7 +19,7 @@ class RowView extends Component {
       document.querySelectorAll(".result-circle__grade")
     );
 
-    resultCircles.map((el, i) => {
+    resultCircles.forEach((el, i) => {
       let delay = i * 0.1;
       let duration = 0.1 * (resultCircles.length - 1);
       el.style.left = `${12.5 * i}%`;
