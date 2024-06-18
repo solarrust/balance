@@ -41,7 +41,7 @@
     "test": "react-scripts test",
     "heroku": "npm run build && node server",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build && npm run gh-pages:404",
     "gh-pages:404": "cp build/index.html build/404.html"
   },
   "proxy": "http://localhost:80",
