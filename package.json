@@ -2,7 +2,7 @@
   "name": "balance",
   "version": "0.1.0",
   "private": false,
-  "homepage": "alena.rocks/balance",
+  "homepage": "https://solarrust.github.io/balance/",
   "engines": {
     "npm": "7.5.4",
     "node": "15.0.1"
@@ -11,6 +11,7 @@
     "@uploadcare/upload-client": "^1.1.2",
     "compression": "^1.7.4",
     "express": "^4.17.1",
+    "gh-pages": "^6.1.1",
     "granim": "^2.0.0",
     "gsap": "^3.2.6",
     "html2canvas": "^1.0.0-rc.5",
@@ -35,10 +36,13 @@
     "styled-components": "^4.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "NODE_ENV=production react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "NODE_ENV=production react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
-    "heroku": "npm run build && node server"
+    "heroku": "npm run build && node server",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "gh-pages:404": "cp build/index.html build/404.html"
   },
   "proxy": "http://localhost:80",
   "eslintConfig": {

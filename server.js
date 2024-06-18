@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const app = express();
-const targetBaseUrl = "https://balance-map.site/";
+const targetBaseUrl = "https://alena.rocks/balance/";
 function handleRedirect(req, res) {
   console.log(req.url);
   const targetUrl = targetBaseUrl + req.originalUrl;
@@ -31,8 +31,8 @@ app.get("/share/:uuid", function(req, res) {
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Balance: test your life" />
-    <meta property="og:url" content="https://balance-map.site/" />
-    
+    <meta property="og:url" content="https://alena.rocks/balance/" />
+
     <meta
       property="og:description"
       content="Be in a balance in all spheres of your life!"
@@ -40,7 +40,7 @@ app.get("/share/:uuid", function(req, res) {
     <meta name="twitter:card" content="summary" />
     <meta
       name="twitter:website"
-      content="https://balance-map.site"
+      content="https://alena.rocks/balance/"
     />
     <meta
       property="twitter:image"
