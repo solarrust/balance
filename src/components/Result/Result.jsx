@@ -3,7 +3,7 @@ import data from "../../data.json";
 import RowView from "./RowView";
 import ColView from "./ColView";
 import html2canvas from "html2canvas";
-import ShareBtns from "./ShareBtns";
+// import ShareBtns from "./ShareBtns";
 import UploadClient from "@uploadcare/upload-client";
 
 const client = new UploadClient({ publicKey: "c79ae9205834231277e5" });
