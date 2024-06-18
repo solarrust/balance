@@ -34,15 +34,15 @@ class Header extends React.Component {
           </Link>
         </div>
         <div data-parallax-link-scene>
-          <a
-            href="/about/"
+          <Link
+            to="/about/"
             className="link"
             data-parallax-link
             data-depth="2"
             data-hover-trigger
           >
             about +
-          </a>
+          </Link>
         </div>
       </header>
     );

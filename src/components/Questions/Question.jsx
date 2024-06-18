@@ -64,9 +64,9 @@ class Question extends Component {
       if (index === grades.length - 1) {
         gradesNodes.push(
           <li key={i} className={classList} data-parallax-link-scene>
-            <a href={navProps.next} data-parallax-link data-depth="2">
+            <Link to={navProps.next} data-parallax-link data-depth="2">
               {i + 1}
-            </a>
+            </Link>
           </li>
         );
       } else {
@@ -123,14 +123,14 @@ class Question extends Component {
               next <Arrow />
             </Link>
 
-            <a
-              href="/results"
+            <Link
+              to="/results"
               className={`question__btn link _next ${navProps.resultClass}`}
               data-hover-trigger
             >
               results
               <Arrow />
-            </a>
+            </Link>
           </div>
           <ul className="question-grade grade" data-trigger-link>
             {gradesNodes.map(gradeNode => gradeNode)}
