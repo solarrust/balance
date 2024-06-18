@@ -5,8 +5,10 @@ import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import App from "./App";
 
+const basename = process.env.PUBLIC_URL || "";
+
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename={basename}>
     <App />
   </BrowserRouter>,
   document.getElementById("root")
