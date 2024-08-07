@@ -247,7 +247,7 @@ class App extends React.Component {
             )}
           />
           <Route
-            path="/test"
+            path="/test-intro"
             exact
             component={() => (
               <TestPage
@@ -283,7 +283,7 @@ class App extends React.Component {
               />
             )}
           />
-          <Redirect path="*" to="/" />
+          {/* <Redirect path="*" to="/" /> */}
         </Switch>
 
         <div className="cursor">

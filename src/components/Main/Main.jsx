@@ -130,7 +130,7 @@ class Main extends Component {
                   attitude and start living a&nbsp;full life.
                 </p>
                 <Link
-                  to="/test"
+                  to="/test-intro"
                   className="page-content__link link"
                   data-hover-trigger
                 >

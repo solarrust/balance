@@ -348,13 +348,13 @@ class About extends React.Component {
                                 />
                               </Slider>
                             </div>
-                            <Link
-                              to="/"
+                            <a
+                              href="/"
                               className="page-content__link about-card__link link"
                               data-hover-trigger
                             >
                               go to the main page <Arrow />
-                            </Link>
+                            </a>
                           </div>
                         </AboutCard>
                       )}

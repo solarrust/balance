@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const app = express();
-const targetBaseUrl = "https://alena.rocks/balance/";
+const targetBaseUrl = "https://solarrust.github.io/balance/";
 function handleRedirect(req, res) {
   console.log(req.url);
   const targetUrl = targetBaseUrl + req.originalUrl;
