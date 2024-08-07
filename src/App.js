@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import { TweenMax } from "gsap";
 import "./App.sass";
 import Main from "./components/Main/Main";
@@ -221,70 +221,72 @@ class App extends React.Component {
         {/*  CSSAwardss.com*/}
         {/*</a>*/}
 
-        <Switch>
-          <Route
-            path="/"
-            exact
-            component={() => (
-              <Main
-                animation={this.textAutoShowing}
-                linkParallax={this.linksParallax}
-                hoverLinks={this.cursorMoveHandler}
-                defaultCursor={this.cursorDefault}
-              />
-            )}
-          />
-          <Route
-            path="/about"
-            exact
-            component={() => (
-              <About
-                animation={this.textAutoShowing}
-                linkParallax={this.linksParallax}
-                hoverLinks={this.cursorMoveHandler}
-                defaultCursor={this.cursorDefault}
-              />
-            )}
-          />
-          <Route
-            path="/test-intro"
-            exact
-            component={() => (
-              <TestPage
-                animation={this.textAutoShowing}
-                strokeAnimation={this.strokeHoverHandler}
-                linkParallax={this.linksParallax}
-                hoverLinks={this.cursorMoveHandler}
-                defaultCursor={this.cursorDefault}
-              />
-            )}
-          />
-          <Route
-            path="/questions"
-            exact
-            component={() => (
-              <Questions
-                animation={this.textAutoShowing}
-                strokeAnimation={this.strokeHoverHandler}
-                linkParallax={this.linksParallax}
-                hoverLinks={this.cursorMoveHandler}
-                defaultCursor={this.cursorDefault}
-              />
-            )}
-          />
-          <Route
-            path="/results"
-            exact
-            component={() => (
-              <Result
-                animation={this.textAutoShowing}
-                hoverLinks={this.cursorMoveHandler}
-                defaultCursor={this.cursorDefault}
-              />
-            )}
-          />
-          <Redirect path="*" to="/" />
-        </Switch>
+        <Router basename={process.env.PUBLIC_URL}>
+          <Switch>
+            <Route
+              path="/"
+              exact
+              component={() => (
+                <Main
+                  animation={this.textAutoShowing}
+                  linkParallax={this.linksParallax}
+                  hoverLinks={this.cursorMoveHandler}
+                  defaultCursor={this.cursorDefault}
+                />
+              )}
+            />
+            <Route
+              path="/about"
+              exact
+              component={() => (
+                <About
+                  animation={this.textAutoShowing}
+                  linkParallax={this.linksParallax}
+                  hoverLinks={this.cursorMoveHandler}
+                  defaultCursor={this.cursorDefault}
+                />
+              )}
+            />
+            <Route
+              path="/test-intro"
+              exact
+              component={() => (
+                <TestPage
+                  animation={this.textAutoShowing}
+                  strokeAnimation={this.strokeHoverHandler}
+                  linkParallax={this.linksParallax}
+                  hoverLinks={this.cursorMoveHandler}
+                  defaultCursor={this.cursorDefault}
+                />
+              )}
+            />
+            <Route
+              path="/questions"
+              exact
+              component={() => (
+                <Questions
+                  animation={this.textAutoShowing}
+                  strokeAnimation={this.strokeHoverHandler}
+                  linkParallax={this.linksParallax}
+                  hoverLinks={this.cursorMoveHandler}
+                  defaultCursor={this.cursorDefault}
+                />
+              )}
+            />
+            <Route
+              path="/results"
+              exact
+              component={() => (
+                <Result
+                  animation={this.textAutoShowing}
+                  hoverLinks={this.cursorMoveHandler}
+                  defaultCursor={this.cursorDefault}
+                />
+              )}
+            />
+            <Redirect path="*" to="/" />
+          </Switch>
+        </Router>
 
         <div className="cursor">
           <svg height="100%" width="100%">
