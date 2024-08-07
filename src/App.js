@@ -236,7 +236,6 @@ class App extends React.Component {
           />
           <Route
             path="/about"
-            exact
             component={() => (
               <About
                 animation={this.textAutoShowing}

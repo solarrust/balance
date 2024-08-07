@@ -10,11 +10,11 @@
     "Self-realization"
   ],
   "aboutMenu": [
-    { "pageName": "Balance card", "pageLink": "/balance-card" },
-    { "pageName": "Dates", "pageLink": "/dates" },
-    { "pageName": "Diagnostics", "pageLink": "/diagnostics" },
-    { "pageName": "Total", "pageLink": "/total" },
-    { "pageName": "Team", "pageLink": "/team" }
+    { "pageName": "Balance card", "pageLink": "/about/balance-card" },
+    { "pageName": "Dates", "pageLink": "/about/dates" },
+    { "pageName": "Diagnostics", "pageLink": "/about/diagnostics" },
+    { "pageName": "Total", "pageLink": "/about/total" },
+    { "pageName": "Team", "pageLink": "/about/team" }
   ],
   "questions": [
     {
