@@ -123,14 +123,14 @@ class Question extends Component {
               next <Arrow />
             </Link>
 
-            <Link
-              to="/results"
+            <a
+              href="/results"
               className={`question__btn link _next ${navProps.resultClass}`}
               data-hover-trigger
             >
               results
               <Arrow />
-            </Link>
+            </a>
           </div>
           <ul className="question-grade grade" data-trigger-link>
             {gradesNodes.map(gradeNode => gradeNode)}
