@@ -124,7 +124,7 @@ class Question extends Component {
             </Link>
 
             <a
-              href="/results"
+              href="./results"
               className={`question__btn link _next ${navProps.resultClass}`}
               data-hover-trigger
             >

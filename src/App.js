@@ -273,7 +273,7 @@ class App extends React.Component {
             )}
           />
           <Route
-            path="/results"
+            path="./results"
             exact
             component={() => (
               <Result
