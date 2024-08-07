@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, Route, HashRouter } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { TweenMax } from "gsap";
 import "./App.sass";
 import Main from "./components/Main/Main";
@@ -221,7 +221,7 @@ class App extends React.Component {
         {/*  CSSAwardss.com*/}
         {/*</a>*/}
 
-        <HashRouter>
+        <Switch>
           <Route
             path="/"
             exact
@@ -284,7 +284,7 @@ class App extends React.Component {
             )}
           />
           <Redirect path="*" to="/" />
-        </HashRouter>
+        </Switch>
 
         <div className="cursor">
           <svg height="100%" width="100%">
