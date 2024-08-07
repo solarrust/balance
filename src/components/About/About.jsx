@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  HashRouter,
   Link,
   NavLink,
   Redirect,
