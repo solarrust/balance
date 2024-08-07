@@ -79,7 +79,7 @@ class About extends React.Component {
     };
 
     return (
-      <HashRouter>
+      <>
         <div className="page about">
           <Route
             render={({ location }) => (
@@ -388,7 +388,7 @@ class About extends React.Component {
             ))}
           </Menu>
         </div>
-      </HashRouter>
+      </>
     );
   }
 }
