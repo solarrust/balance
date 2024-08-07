@@ -283,7 +283,7 @@ class App extends React.Component {
               />
             )}
           />
-          {/* <Redirect path="*" to="/" /> */}
+          <Redirect path="*" to="/" />
         </Switch>
 
         <div className="cursor">
