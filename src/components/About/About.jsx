@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  HashRouter,
   Link,
   NavLink,
   Redirect,
@@ -79,7 +78,6 @@ class About extends React.Component {
     };
 
     return (
-      <HashRouter>
         <div className="page about">
           <Route
             render={({ location }) => (
@@ -91,7 +89,7 @@ class About extends React.Component {
                 >
                   <Switch location={location}>
                     <Route
-                      path="/balance-card"
+                      path="/about/balance-card"
                       render={() => (
                         <AboutCard hoverLinks={this.props.hoverLinks}>
                           <div
@@ -126,7 +124,7 @@ class About extends React.Component {
                               unhappy.
                             </p>
                             <Link
-                              to="/dates"
+                              to="/about/dates"
                               className="page-content__link about-card__link link"
                               data-hover-trigger
                             >
@@ -138,7 +136,7 @@ class About extends React.Component {
                       )}
                     />
                     <Route
-                      path="/dates"
+                      path="/about/dates"
                       render={() => (
                         <AboutCard hoverLinks={this.props.hoverLinks}>
                           <div
@@ -179,7 +177,7 @@ class About extends React.Component {
                               or&nbsp;wheel spokes.
                             </p>
                             <Link
-                              to="/diagnostics"
+                              to="/about/diagnostics"
                               className="page-content__link about-card__link link"
                               data-hover-trigger
                             >
@@ -191,7 +189,7 @@ class About extends React.Component {
                       )}
                     />
                     <Route
-                      path="/diagnostics"
+                      path="/about/diagnostics"
                       render={() => (
                         <AboutCard hoverLinks={this.props.hoverLinks}>
                           <div
@@ -237,7 +235,7 @@ class About extends React.Component {
                               is&nbsp;with a&nbsp;particular area.
                             </p>
                             <Link
-                              to="/total"
+                              to="/about/total"
                               className="page-content__link about-card__link link _diagnostics"
                               data-hover-trigger
                             >
@@ -249,7 +247,7 @@ class About extends React.Component {
                       )}
                     />
                     <Route
-                      path="/total"
+                      path="/about/total"
                       render={() => (
                         <AboutCard hoverLinks={this.props.hoverLinks}>
                           <div
@@ -281,7 +279,7 @@ class About extends React.Component {
                               which will help to&nbsp;make a&nbsp;difference.
                             </p>
                             <Link
-                              to="/team"
+                              to="/about/team"
                               className="page-content__link about-card__link link"
                               data-hover-trigger
                             >
@@ -293,7 +291,7 @@ class About extends React.Component {
                       )}
                     />
                     <Route
-                      path="/team"
+                      path="/about/team"
                       render={() => (
                         <AboutCard hoverLinks={this.props.hoverLinks}>
                           <div className="page-content__block about-card-content _team">
@@ -359,7 +357,7 @@ class About extends React.Component {
                         </AboutCard>
                       )}
                     />
-                    <Redirect from="/*" to="/balance-card" />
+                    <Redirect from="/about/*" to="/about/balance-card" />
                   </Switch>
                 </CSSTransition>
               </TransitionGroup>
@@ -388,7 +386,6 @@ class About extends React.Component {
             ))}
           </Menu>
         </div>
-      </HashRouter>
     );
   }
 }
